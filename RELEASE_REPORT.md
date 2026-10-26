@@ -5,7 +5,7 @@
 - **Documentation Update Commit SHA:** Current `HEAD` (documentation only; application code unchanged)
 - **Target Branch:** `main`
 - **Repository URL:** [https://github.com/GouravSharma26/SupplyChain_IQ.git](https://github.com/GouravSharma26/SupplyChain_IQ.git)
-- **Verified Public URL:** [https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/](https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/)
+- **Verified Public URL:** [https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/](https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/)
 - **Local Application URL:** `http://localhost:8501`
 - **Deployment Platform:** Streamlit Community Cloud
 - **Verified CI Run:** [Run 40316438959](https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40316438959) (Status: **PASS / SUCCESS**)
@@ -29,7 +29,7 @@
 | Unit tests pass | **PASS** | **17/17 tests passed** locally and on CI under both Python 3.11 and 3.12 with zero warnings (`pytest -v`). |
 | Local browser journey passes | **PASS** | Verified via Playwright browser tooling: Operational Overview, Demand Forecast, Inventory Simulator, and Data Quality audit tabs all verified. |
 | CI Pipeline Multi-Version Active & Verified | **PASS** | Automated GitHub Actions CI workflow ([Run 40316438959](https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40316438959)) passed on commit `b74a458` for both Python 3.11 and 3.12. |
-| Deployed URL opens | **PASS** | Verified live in browser at `https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/`. |
+| Deployed URL opens | **PASS** | Verified live in browser at `https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/`. |
 | Hosted primary workflow passes | **PASS** | Full user journey and all 4 tabs verified live on the hosted Streamlit Community Cloud instance. |
 
 ---

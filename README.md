@@ -2,12 +2,12 @@
 
 **Purpose:** A production-grade, end-to-end supply chain decision support application featuring data contract validation, SQL/pandas analytics, interactive Plotly visualization, chronological holdout demand forecasting, and inventory what-if policy simulation.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/)
 [![Tests](https://img.shields.io/badge/pytest-17%20passed-success)](https://github.com/GouravSharma26/SupplyChain_IQ)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![CI](https://github.com/GouravSharma26/SupplyChain_IQ/actions/workflows/ci.yml/badge.svg)](https://github.com/GouravSharma26/SupplyChain_IQ/actions/workflows/ci.yml)
 
-**Live Hosted Application:** [https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/](https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/)
+**Live Hosted Application:** [https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/](https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/)
 
 ---
 

@@ -91,7 +91,7 @@
 ## Phase 7 & 8: Public Deployment & Browser Verification
 - **Status:** PASS
 - **Timestamp:** 2026-10-26T16:45:00+05:30
-- **Changes:** Verified public deployment hosted on Streamlit Community Cloud at `https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/`.
+- **Changes:** Verified public deployment hosted on Streamlit Community Cloud at `https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/`.
 - **Commands/tests:** Playwright automated navigation and DOM snapshot of the public URL.
 - **Actual results:** Hosted application successfully loaded all 900 records, rendered the Executive Overview, Demand Forecast, Inventory Policy Simulator, and Data Quality Audit.
 - **Browser/deployment evidence:** Verified live with Playwright browser tooling. Public URL active and responsive.
@@ -122,6 +122,6 @@
   - GitHub Actions Workflow Run: [https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40316438959](https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40316438959) (Status: **success**).
   - Matrix Job `test (3.11)`: Job 121550098466 — **PASS** (17/17 tests passed in 50s).
   - Matrix Job `test (3.12)`: Job 121550098615 — **PASS** (17/17 tests passed in 48s).
-- **Browser/deployment evidence:** Public deployment active at `https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/`.
+- **Browser/deployment evidence:** Public deployment active at `https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/`.
 - **Blockers/limitations:** None. Release gate is completely satisfied. Full roadmap remains frozen until explicitly directed.
 

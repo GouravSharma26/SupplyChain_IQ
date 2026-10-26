@@ -21,7 +21,7 @@
 - [x] Run tests and record actual output (17 passed)
 - [x] Launch locally and check logs
 - [x] Push repository to GitHub (pushed to origin/main)
-- [x] Deploy application (verified live at https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/)
+- [x] Deploy application (verified live at https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/)
 - [x] Verify hosted URL in browser (verified with Playwright)
 - [x] Test valid/invalid uploads (verified in browser)
 - [x] Test filters, forecast, and inventory scenario (verified in browser)
