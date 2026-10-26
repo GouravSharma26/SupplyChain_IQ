@@ -56,7 +56,7 @@ pip install -e .
 ```bash
 pytest -v
 ```
-*Expected result:* 15 passed in ~3s.
+*Expected result:* 17 passed in ~3s.
 
 ### 4. Launch the Web Application
 ```bash
