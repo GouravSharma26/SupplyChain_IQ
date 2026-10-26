@@ -125,3 +125,22 @@
 - **Browser/deployment evidence:** Public deployment active at `https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/`.
 - **Blockers/limitations:** None. Release gate is completely satisfied. Full roadmap remains frozen until explicitly directed.
 
+---
+
+## Plan B — Phase 1 & 2: Relational Data Engineering & Schema Architecture
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T18:22:00+05:30
+- **Changes:**
+  1. Created `src/supplychain_iq/db/models.py` defining SQLAlchemy 2.0 declarative models for `Supplier`, `Product`, `DailyDemand`, `InventorySnapshot`, and `PurchaseOrder` with database-level check constraints (nonnegativity of quantities, costs, delays, service level bounds).
+  2. Created `src/supplychain_iq/db/database.py` managing SQLite local default (`sqlite:///data/supplychain_iq.db`) with automatic foreign key enforcement and PostgreSQL connection string support via `DATABASE_URL`.
+  3. Created `src/supplychain_iq/db/etl.py` implementing raw $\rightarrow$ staging $\rightarrow$ curated pipeline with reject tracking, duplicate resolution, and idempotent upserts.
+  4. Created `src/supplychain_iq/db/seed.py` CLI script (`python -m supplychain_iq.db.seed`) populating 3 suppliers, 5 products, 900 daily demands, 900 inventory snapshots, and 40 purchase orders.
+  5. Updated `app.py` to support querying directly from the relational database via sidebar ingestion radio.
+  6. Added 7 unit tests in `tests/test_database.py` testing schema creation, check constraints, foreign key navigation, idempotent loading, and rejection tracking. Total test suite expanded to 24 tests.
+- **Commands/tests:**
+  - `pytest -v` (24 passed in 2.55s with 0 warnings).
+  - `python -m supplychain_iq.db.seed` (verified initial seeding and 0 duplicate insertions on re-run).
+- **Actual results:** 24 unit tests pass cleanly. Database file `data/supplychain_iq.db` generated and verified.
+- **Blockers/limitations:** None.
+- **Next action:** Plan B — Phase 3 & 4 (Supplier Performance Analytics & Rolling-Origin Forecast Evaluation).
+

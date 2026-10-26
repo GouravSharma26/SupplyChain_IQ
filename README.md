@@ -3,7 +3,7 @@
 **Purpose:** A production-grade, end-to-end supply chain decision support application featuring data contract validation, SQL/pandas analytics, interactive Plotly visualization, chronological holdout demand forecasting, and inventory what-if policy simulation.
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/)
-[![Tests](https://img.shields.io/badge/pytest-17%20passed-success)](https://github.com/GouravSharma26/SupplyChain_IQ)
+[![Tests](https://img.shields.io/badge/pytest-24%20passed-success)](https://github.com/GouravSharma26/SupplyChain_IQ)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![CI](https://github.com/GouravSharma26/SupplyChain_IQ/actions/workflows/ci.yml/badge.svg)](https://github.com/GouravSharma26/SupplyChain_IQ/actions/workflows/ci.yml)
 
@@ -14,15 +14,16 @@
 ## 🎯 Executive Product Overview
 SupplyChain IQ empowers operations and supply chain managers to analyze historical demand, benchmark statistical forecasting models against naïve baselines on chronological holdouts, detect stockout risks before they occur, and simulate supplier disruption scenarios.
 
-### Quick-Launch Deliverables:
-1. **Interactive Streamlit Web Dashboard:** Modular multi-tab executive UI.
-2. **Bundled Deterministic Dataset & Ingestion:** 180 calendar days across 5 SKUs (seed=42) plus robust CSV upload.
-3. **Data Quality & Contract Audit:** Rejection reporting, nonnegativity enforcement, unparseable date handling, and duplicate resolution.
-4. **Core KPI Engine:** Units sold, average daily demand, latest snapshot inventory valuation, average lead time, and supplier on-time delivery rates.
-5. **Demand Forecasting Benchmark:** Holt Exponential Smoothing with additive trend evaluated against a Naïve baseline strictly on out-of-sample chronological holdouts (MAE & RMSE). Minimum 28-day history threshold with automatic fallback.
-6. **Inventory Decision Support:** Safety stock ($Z \times \sigma \times \sqrt{L}$), Reorder Point ($ROP$), target stock, and replenishment capital estimation.
-7. **Interactive What-If Simulation:** Real-time adjustments for demand surge (0.5x–2.0x), supplier delay jitter (+0 to +14 days), and cycle service levels (90%, 95%, 99%).
-8. **Automated Testing Suite:** 17 unit tests covering validation, analytics, forecasting, and inventory logic.
+### Deliverables & Architecture:
+1. **Interactive Streamlit Web Dashboard:** Modular multi-tab executive UI with custom typography and modern KPI styling.
+2. **Relational Database & Data Engineering Layer (Phase 2):** SQLAlchemy 2.0 multi-entity models (`suppliers`, `products`, `daily_demand`, `inventory_snapshots`, `purchase_orders`) with check constraints and idempotent raw $\rightarrow$ staging $\rightarrow$ curated pipeline. Zero-config SQLite local database (`data/supplychain_iq.db`) with PostgreSQL connection string compatibility via `DATABASE_URL`.
+3. **Data Ingestion Stream:** Support for Relational Database queries, deterministic benchmark dataset (180 calendar days, 5 SKUs, seed=42), or custom CSV file uploads.
+4. **Data Quality & Contract Audit:** Rejection reporting, nonnegativity enforcement, unparseable date handling, and duplicate resolution.
+5. **Core KPI Engine:** Units sold, average daily demand, latest snapshot inventory valuation, average lead time, and supplier on-time delivery rates.
+6. **Demand Forecasting Benchmark:** Holt Exponential Smoothing with additive trend evaluated against a Naïve baseline strictly on out-of-sample chronological holdouts (MAE & RMSE). Minimum 28-day history threshold with automatic fallback.
+7. **Inventory Decision Support:** Safety stock ($Z \times \sigma \times \sqrt{L}$), Reorder Point ($ROP$), target stock, and replenishment capital estimation.
+8. **Interactive What-If Simulation:** Real-time adjustments for demand surge (0.5x–2.0x), supplier delay jitter (+0 to +14 days), and cycle service levels (90%, 95%, 99%).
+9. **Automated Testing Suite:** 24 unit tests covering schema constraints, entity relationships, idempotent ETL, validation, analytics, forecasting, and inventory logic.
 
 ---
 
@@ -50,13 +51,16 @@ source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 pip install -e .
+
+# Seed the local relational database
+python -m supplychain_iq.db.seed
 ```
 
 ### 3. Run Automated Tests
 ```bash
 pytest -v
 ```
-*Expected result:* 17 passed in ~3s.
+*Expected result:* 24 passed in ~3s.
 
 ### 4. Launch the Web Application
 ```bash

@@ -46,3 +46,9 @@ Thumbs.db
 # Playwright artifacts
 .playwright-mcp/
 
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+

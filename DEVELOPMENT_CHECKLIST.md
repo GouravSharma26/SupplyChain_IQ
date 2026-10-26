@@ -29,11 +29,11 @@
 - [x] Create `RELEASE_REPORT.md` with evidence
 - [x] Record known limitations and deferred features
 
-## Full roadmap — do not start before quick-launch gate
-- [ ] Dataset provenance/license review
-- [ ] PostgreSQL schema and migrations
-- [ ] Idempotent ingestion and reconciliation
-- [ ] Raw/staging/curated data layers
+## Full roadmap — Plan B Implementation
+- [x] Dataset provenance/license review (deterministic 180-day 5-SKU benchmark + multi-supplier generation)
+- [x] PostgreSQL/relational schema and models (SQLAlchemy 2.0 multi-entity models: `suppliers`, `products`, `daily_demand`, `inventory_snapshots`, `purchase_orders`)
+- [x] Idempotent ingestion and reconciliation (`python -m supplychain_iq.db.seed`, verified 0 duplicates on repeated runs)
+- [x] Raw/staging/curated data layers (validation gate, staging normalization, curated upserts)
 - [ ] Supplier performance analytics
 - [ ] Forecast rolling-origin backtesting
 - [ ] Seasonal baseline and additional models where justified
