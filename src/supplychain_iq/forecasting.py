@@ -320,39 +320,42 @@ class RollingOriginReport:
     step_days: int
     avg_naive_mae: float
     avg_naive_rmse: float
-    avg_naive_wape: float
+    avg_naive_wape: Optional[float]
     avg_seasonal_mae: float
     avg_seasonal_rmse: float
-    avg_seasonal_wape: float
+    avg_seasonal_wape: Optional[float]
     avg_holt_mae: float
     avg_holt_rmse: float
-    avg_holt_wape: float
+    avg_holt_wape: Optional[float]
     best_model: str
     folds: List[RollingOriginFold] = field(default_factory=list)
     notes: str = ""
 
     def to_summary_table(self) -> pd.DataFrame:
         """Converts model benchmark comparison into a presentable comparison table."""
+        def fmt_wape(w: Optional[float]) -> str:
+            return f"{w:.1f}%" if w is not None else "N/A"
+
         return pd.DataFrame([
             {
                 "Model / Baseline": "Naïve Baseline (Last Value)",
                 "Avg MAE": self.avg_naive_mae,
                 "Avg RMSE": self.avg_naive_rmse,
-                "Avg WAPE (%)": f"{self.avg_naive_wape:.1f}%",
+                "Avg WAPE (%)": fmt_wape(self.avg_naive_wape),
                 "Folds Evaluated": self.total_folds,
             },
             {
                 "Model / Baseline": "Seasonal Naïve (7-day lag)",
                 "Avg MAE": self.avg_seasonal_mae,
                 "Avg RMSE": self.avg_seasonal_rmse,
-                "Avg WAPE (%)": f"{self.avg_seasonal_wape:.1f}%",
+                "Avg WAPE (%)": fmt_wape(self.avg_seasonal_wape),
                 "Folds Evaluated": self.total_folds,
             },
             {
                 "Model / Baseline": "Holt Exponential Smoothing",
                 "Avg MAE": self.avg_holt_mae,
                 "Avg RMSE": self.avg_holt_rmse,
-                "Avg WAPE (%)": f"{self.avg_holt_wape:.1f}%",
+                "Avg WAPE (%)": fmt_wape(self.avg_holt_wape),
                 "Folds Evaluated": self.total_folds,
             },
         ])
@@ -368,6 +371,7 @@ def evaluate_rolling_origin_backtest(
     """
     Executes expanding-window rolling origin backtesting across sequential chronological folds.
     Evaluates Naïve, Seasonal Naïve, and Holt Exponential Smoothing without data leakage.
+    Preserves None when WAPE is undefined (zero actual holdout demand with nonzero error).
     """
     ts = prepare_regular_time_series(df, product_id)
     n_obs = len(ts)
@@ -381,13 +385,13 @@ def evaluate_rolling_origin_backtest(
             step_days=step_days,
             avg_naive_mae=0.0,
             avg_naive_rmse=0.0,
-            avg_naive_wape=0.0,
+            avg_naive_wape=None,
             avg_seasonal_mae=0.0,
             avg_seasonal_rmse=0.0,
-            avg_seasonal_wape=0.0,
+            avg_seasonal_wape=None,
             avg_holt_mae=0.0,
             avg_holt_rmse=0.0,
-            avg_holt_wape=0.0,
+            avg_holt_wape=None,
             best_model="Insufficient History",
             notes=f"Series has {n_obs} days; requires at least {initial_train_days + horizon_days} days for rolling backtest.",
         )
@@ -409,12 +413,12 @@ def evaluate_rolling_origin_backtest(
         # 1. Naïve Baseline
         pred_naive = np.full(horizon_days, fill_value=float(train_y[-1]))
         mae_n, rmse_n = calculate_metrics(test_y, pred_naive)
-        wape_n = calculate_wape(test_y, pred_naive) or 0.0
+        wape_n = calculate_wape(test_y, pred_naive)
 
         # 2. Seasonal Naïve (7-day cycle)
         pred_seasonal = seasonal_naive_forecast(train_y, horizon=horizon_days, season_length=7)
         mae_s, rmse_s = calculate_metrics(test_y, pred_seasonal)
-        wape_s = calculate_wape(test_y, pred_seasonal) or 0.0
+        wape_s = calculate_wape(test_y, pred_seasonal)
 
         # 3. Holt Exponential Smoothing
         try:
@@ -431,7 +435,7 @@ def evaluate_rolling_origin_backtest(
             pred_holt = pred_naive.copy()
 
         mae_h, rmse_h = calculate_metrics(test_y, pred_holt)
-        wape_h = calculate_wape(test_y, pred_holt) or 0.0
+        wape_h = calculate_wape(test_y, pred_holt)
 
         folds.append(
             RollingOriginFold(
@@ -454,18 +458,21 @@ def evaluate_rolling_origin_backtest(
         fold_counter += 1
         cutoff_idx += step_days
 
-    # Aggregate metrics across all folds
+    # Aggregate metrics across all folds (ignore undefined None WAPE to avoid skewing averages)
     avg_n_mae = round(float(np.mean([f.naive_mae for f in folds])), 2)
     avg_n_rmse = round(float(np.mean([f.naive_rmse for f in folds])), 2)
-    avg_n_wape = round(float(np.mean([f.naive_wape for f in folds if f.naive_wape is not None])), 2)
+    valid_n_wapes = [f.naive_wape for f in folds if f.naive_wape is not None]
+    avg_n_wape = round(float(np.mean(valid_n_wapes)), 2) if valid_n_wapes else None
 
     avg_s_mae = round(float(np.mean([f.seasonal_mae for f in folds])), 2)
     avg_s_rmse = round(float(np.mean([f.seasonal_rmse for f in folds])), 2)
-    avg_s_wape = round(float(np.mean([f.seasonal_wape for f in folds if f.seasonal_wape is not None])), 2)
+    valid_s_wapes = [f.seasonal_wape for f in folds if f.seasonal_wape is not None]
+    avg_s_wape = round(float(np.mean(valid_s_wapes)), 2) if valid_s_wapes else None
 
     avg_h_mae = round(float(np.mean([f.holt_mae for f in folds])), 2)
     avg_h_rmse = round(float(np.mean([f.holt_rmse for f in folds])), 2)
-    avg_h_wape = round(float(np.mean([f.holt_wape for f in folds if f.holt_wape is not None])), 2)
+    valid_h_wapes = [f.holt_wape for f in folds if f.holt_wape is not None]
+    avg_h_wape = round(float(np.mean(valid_h_wapes)), 2) if valid_h_wapes else None
 
     # Determine winning model based on MAE
     model_scores = {

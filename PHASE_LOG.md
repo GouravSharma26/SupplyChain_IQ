@@ -196,5 +196,34 @@
 - **Blockers/limitations:** None.
 - **Next action:** Documentation update, push to GitHub, and CI matrix verification.
 
+---
+
+## Phase 6 Audit Follow-up: Inventory Service-Level Mapping & Undefined WAPE Handling
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T19:22:00+05:30
+- **Changes:**
+  1. **Inventory Service-Level Mapping (`src/supplychain_iq/simulation.py`):**
+     - Implemented `map_service_level_to_z()` to strictly map numeric target service levels (e.g. 90, 95, 99, 90.0, 0.90, or string representations) to standard normal inverse CDF Z-scores:
+       - 90% Service Level $\rightarrow Z = 1.28$
+       - 95% Service Level $\rightarrow Z = 1.65$
+       - 99% Service Level $\rightarrow Z = 2.33$
+     - Enhanced `PolicySimulationResult` to explicitly expose `z_score`, `safety_stock_units`, `reorder_point`, and `target_stock`.
+     - Added unit regression tests in `tests/test_simulation.py`:
+       - `test_numeric_service_level_mapping_to_z`: proves integer, float, and fraction inputs map strictly to 1.28, 1.65, 2.33.
+       - `test_policies_reflect_configured_service_level`: proves each policy uses its intended safety-stock factor, and that otherwise comparable policies reflect the configured service level with strictly ordered safety stock units, reorder points, target stocks, inventory capital, holding costs, and service protection.
+  2. **Undefined WAPE Preservation (`src/supplychain_iq/forecasting.py`):**
+     - Preserved `None` in `calculate_wape()` and removed `or 0.0` coercions in `evaluate_rolling_origin_backtest()` when holdouts exhibit zero total actual demand and nonzero error.
+     - Ensured aggregate rolling-origin fold calculations exclude undefined (`None`) WAPE values instead of falsely penalizing or rewarding models with fake 0.0% "perfect" scores.
+     - Updated `RollingOriginReport.to_summary_table()` to output `"N/A"` when WAPE is undefined.
+     - Added unit regression tests in `tests/test_forecasting.py`:
+       - `test_wape_undefined_when_zero_actual_with_nonzero_error`: verifies `calculate_wape` returns `None` when actual is 0 and prediction error is nonzero.
+       - `test_wape_zero_when_both_actual_and_error_zero`: verifies `calculate_wape` returns 0.0 when both actual demand and error are zero.
+       - `test_rolling_origin_preserves_none_and_excludes_from_aggregate`: verifies a fold with zero actual demand preserves `naive_wape = None` and is excluded from fold averages without diluting valid folds.
+  3. **Test Suite Expansion:** Expanded test suite from 39 to 44 passing unit tests.
+- **Commands/tests:** `pytest -v` (44 passed in 5.65s with 0 warnings).
+- **Actual results:** All 44 unit tests pass with zero warnings.
+- **Blockers/limitations:** None.
+
+
 
 

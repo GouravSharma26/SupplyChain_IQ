@@ -66,3 +66,66 @@ def test_lead_time_sensitivity_analysis(sim_demand_df):
     assert "Supplier Delay Delta (Days)" in sens.columns
     assert "Fill Rate (%)" in sens.columns
     assert "Holding Cost ($)" in sens.columns
+
+
+def test_numeric_service_level_mapping_to_z():
+    """Verify numeric target service levels (90, 95, 99) map strictly to their intended Z-scores."""
+    from supplychain_iq.simulation import map_service_level_to_z
+
+    # Integer targets
+    assert map_service_level_to_z(90) == 1.28
+    assert map_service_level_to_z(95) == 1.65
+    assert map_service_level_to_z(99) == 2.33
+
+    # Float targets
+    assert map_service_level_to_z(90.0) == 1.28
+    assert map_service_level_to_z(95.0) == 1.65
+    assert map_service_level_to_z(99.0) == 2.33
+
+    # Unit interval targets (0.90, 0.95, 0.99)
+    assert map_service_level_to_z(0.90) == 1.28
+    assert map_service_level_to_z(0.95) == 1.65
+    assert map_service_level_to_z(0.99) == 2.33
+
+    # Fallback to standard 95% (Z=1.65) for unknown
+    assert map_service_level_to_z(None) == 1.65
+
+
+def test_policies_reflect_configured_service_level(sim_demand_df):
+    """
+    Regression test proving that each policy uses its intended safety-stock factor
+    and that otherwise comparable policies reflect the configured service level.
+    """
+    # Run comparable policies: same SKU, same demand trace, same 7-day review period
+    res_90 = simulate_inventory_policy(sim_demand_df, product_id="SKU-SIM", target_service_level_pct=90.0, review_period_days=7)
+    res_95 = simulate_inventory_policy(sim_demand_df, product_id="SKU-SIM", target_service_level_pct=95.0, review_period_days=7)
+    res_99 = simulate_inventory_policy(sim_demand_df, product_id="SKU-SIM", target_service_level_pct=99.0, review_period_days=7)
+
+    # 1. Proves intended safety-stock factors (Z-scores) are applied
+    assert res_90.z_score == 1.28
+    assert res_95.z_score == 1.65
+    assert res_99.z_score == 2.33
+
+    # 2. Proves safety stock scales monotonically with configured service level
+    assert res_90.safety_stock_units < res_95.safety_stock_units < res_99.safety_stock_units
+
+    # 3. Proves reorder point and target stock thresholds scale with configured service level
+    assert res_90.reorder_point < res_95.reorder_point < res_99.reorder_point
+    assert res_90.target_stock < res_95.target_stock < res_99.target_stock
+
+    # 4. Proves average working capital and holding costs reflect configured service level
+    assert res_90.avg_inventory_value < res_95.avg_inventory_value < res_99.avg_inventory_value
+    assert res_90.estimated_holding_cost < res_95.estimated_holding_cost < res_99.estimated_holding_cost
+
+    # 5. Proves service-level protection: higher service level yields >= fill rate and <= stockouts
+    assert res_99.fill_rate_pct >= res_95.fill_rate_pct >= res_90.fill_rate_pct
+    assert res_99.stockout_days <= res_95.stockout_days <= res_90.stockout_days
+
+    # 6. Verify integer inputs also apply identical correct factors
+    res_int_90 = simulate_inventory_policy(sim_demand_df, product_id="SKU-SIM", target_service_level_pct=90, review_period_days=7)
+    res_int_99 = simulate_inventory_policy(sim_demand_df, product_id="SKU-SIM", target_service_level_pct=99, review_period_days=7)
+    assert res_int_90.z_score == 1.28
+    assert res_int_99.z_score == 2.33
+    assert res_int_90.safety_stock_units == res_90.safety_stock_units
+    assert res_int_99.safety_stock_units == res_99.safety_stock_units
+

@@ -3,7 +3,7 @@
 **Purpose:** A production-grade, end-to-end supply chain decision support application featuring data contract validation, SQL/pandas analytics, interactive Plotly visualization, chronological holdout demand forecasting, and inventory what-if policy simulation.
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/)
-[![Tests](https://img.shields.io/badge/pytest-39%20passed-success)](https://github.com/GouravSharma26/SupplyChain_IQ)
+[![Tests](https://img.shields.io/badge/pytest-44%20passed-success)](https://github.com/GouravSharma26/SupplyChain_IQ)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![CI](https://github.com/GouravSharma26/SupplyChain_IQ/actions/workflows/ci.yml/badge.svg)](https://github.com/GouravSharma26/SupplyChain_IQ/actions/workflows/ci.yml)
 
@@ -18,15 +18,15 @@ SupplyChain IQ empowers operations and supply chain managers to analyze historic
 1. **Interactive Streamlit Web Dashboard:** Modular 5-tab executive UI with custom typography, KPI cards, and downloadable CSV reports.
 2. **Relational Database & Data Engineering Layer (Phase 2):** SQLAlchemy 2.0 multi-entity models (`suppliers`, `products`, `daily_demand`, `inventory_snapshots`, `purchase_orders`) with check constraints and idempotent raw $\rightarrow$ staging $\rightarrow$ curated pipeline. Zero-config SQLite local database (`data/supplychain_iq.db`) with PostgreSQL connection string compatibility via `DATABASE_URL`.
 3. **Supplier Fulfillment Scorecard & Working Capital (Phase 3):** Empirical on-time fulfillment rates, delay distributions, SLA risk tiers, Pareto ABC inventory classification, and actionable executive insights with explicit caveats.
-4. **Rolling-Origin Forecasting Benchmark (Phase 4):** Expanding-window multi-fold rolling backtesting across sequential cutoffs. Benchmarks Naïve baseline against Seasonal Naïve (7-day lag) and Holt Exponential Smoothing across all SKUs using MAE, RMSE, and WAPE (Weighted Absolute Percentage Error).
+4. **Rolling-Origin Forecasting Benchmark (Phase 4):** Expanding-window multi-fold rolling backtesting across sequential cutoffs. Benchmarks Naïve baseline against Seasonal Naïve (7-day lag) and Holt Exponential Smoothing across all SKUs using MAE, RMSE, and WAPE (Weighted Absolute Percentage Error), strictly preserving `None` on undefined zero-demand holdouts.
 5. **Machine Learning for Supplier Delay Risk (Phase 5):**
    - Strictly order-time feature extraction to eliminate target leakage.
    - Chronological 75/25 split: Random Forest Classifier vs Majority Class Baseline (Precision, Recall, F1, PR-AUC, Confusion Matrix) and Gradient Boosting Regressor vs Mean Delay Baseline (MAE, RMSE, $R^2$).
    - Interactive PO Simulator Widget: Real-time probability of late delivery and expected delay days for simulated procurement orders.
 6. **Multi-Period Policy Trace Simulation (Phase 6):**
-   - Day-by-day historical trace simulation tracking stockouts, fill rates, unmet units, and holding capital across Lean JIT (90%), Balanced Standard (95%), and Resilient Buffer (99%) policies.
+   - Day-by-day historical trace simulation tracking stockouts, fill rates, unmet units, and holding capital across Lean JIT (90%), Balanced Standard (95%), and Resilient Buffer (99%) policies, mapped strictly to correct normal Z-scores (1.28, 1.65, 2.33).
    - Lead-time delay sensitivity analysis sweeping disruption friction (+0d to +10d).
-7. **Automated Testing Suite:** 39 unit tests covering database schema, idempotent ETL, validation, analytics, forecasting, rolling backtests, machine learning, and simulation logic.
+7. **Automated Testing Suite:** 44 unit tests covering database schema, idempotent ETL, validation, analytics, forecasting, rolling backtests, machine learning, and simulation logic.
 
 ---
 
@@ -63,7 +63,7 @@ python -m supplychain_iq.db.seed
 ```bash
 pytest -v
 ```
-*Expected result:* 39 passed in ~3.5s.
+*Expected result:* 44 passed in ~4s.
 
 ### 4. Launch the Web Application
 ```bash

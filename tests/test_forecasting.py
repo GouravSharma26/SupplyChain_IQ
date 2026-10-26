@@ -94,13 +94,65 @@ def test_chronological_holdout_and_evaluation():
 
 
 def test_calculate_wape():
-    actual = np.array([10.0, 0.0, 30.0])  # Contains zero demand
+    actual = np.array([10.0, 0.0, 30.0])  # Contains intermittent zero demand
     pred = np.array([12.0, 2.0, 28.0])
     # |10-12| + |0-2| + |30-28| = 2 + 2 + 2 = 6.0
     # sum(actual) = 40.0
     # WAPE = (6.0 / 40.0) * 100 = 15.0%
     wape = calculate_wape(actual, pred)
     assert wape == 15.0
+
+
+def test_wape_undefined_when_zero_actual_with_nonzero_error():
+    """Verify that WAPE returns None when holdout demand is zero but prediction error is nonzero."""
+    actual = np.array([0.0, 0.0, 0.0, 0.0])
+    pred = np.array([10.0, 15.0, 5.0, 8.0])
+
+    # sum(actual) == 0.0, sum(|actual - pred|) == 38.0
+    wape = calculate_wape(actual, pred)
+    # Must preserve None and not be coerced to 0.0
+    assert wape is None
+
+
+def test_wape_zero_when_both_actual_and_error_zero():
+    """Verify that WAPE returns 0.0 when both actual demand and predicted error are zero."""
+    actual = np.array([0.0, 0.0, 0.0])
+    pred = np.array([0.0, 0.0, 0.0])
+
+    wape = calculate_wape(actual, pred)
+    assert wape == 0.0
+
+
+def test_rolling_origin_preserves_none_and_excludes_from_aggregate():
+    """
+    Regression test proving that undefined WAPE in a holdout fold is preserved as None
+    and NOT turned into 0.0 or included as a perfect score in aggregate comparisons.
+    """
+    dates = pd.date_range("2026-01-01", periods=75, freq="D")
+    sales = [10.0] * 45 + [0.0] * 14 + [10.0] * 16  # Fold 1 holdout (idx 45..58) has 0 actual demand
+    df = pd.DataFrame({"date": dates, "product_id": ["SKU-ZERO"] * 75, "units_sold": sales})
+
+    report = evaluate_rolling_origin_backtest(
+        df,
+        product_id="SKU-ZERO",
+        initial_train_days=45,
+        horizon_days=14,
+        step_days=14,
+    )
+
+    assert report.total_folds >= 2
+    fold1 = report.folds[0]
+    fold2 = report.folds[1]
+
+    # Fold 1 has actual holdout demand == 0.0 but pred_naive carried forward == 10.0
+    assert fold1.naive_wape is None
+
+    # Fold 2 has actual demand == 140.0, pred_naive carried forward == 0.0, so error == 140.0 -> WAPE == 100.0%
+    assert fold2.naive_wape == 100.0
+
+    # Aggregate avg_naive_wape MUST be 100.0%, NOT (0.0 + 100.0) / 2 = 50.0%
+    assert report.avg_naive_wape == 100.0
+
 
 
 def test_seasonal_naive_forecast():

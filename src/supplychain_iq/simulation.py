@@ -8,11 +8,50 @@ Adheres strictly to Plan B Phase 6 requirements:
 """
 
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 import numpy as np
 import pandas as pd
 
 from supplychain_iq.inventory import SERVICE_LEVEL_Z
+
+
+def map_service_level_to_z(target_service_level: Any) -> float:
+    """
+    Maps target service level (numeric 90, 95, 99, 90.0, 0.90, or string '90%')
+    to its standard normal inverse CDF Z-score.
+
+    Standard Normal Z-scores:
+    - 90% service level -> Z = 1.28
+    - 95% service level -> Z = 1.65
+    - 99% service level -> Z = 2.33
+    Defaults to 1.65 (95% service level) if unrecognized.
+    """
+    if isinstance(target_service_level, (int, float)):
+        val = float(target_service_level)
+        if val <= 1.0:
+            val = val * 100.0
+        val = round(val, 1)
+        if abs(val - 90.0) < 0.5:
+            return 1.28
+        elif abs(val - 95.0) < 0.5:
+            return 1.65
+        elif abs(val - 99.0) < 0.5:
+            return 2.33
+        elif abs(val - 98.0) < 0.5:
+            return 2.05
+        elif abs(val - 85.0) < 0.5:
+            return 1.04
+        elif abs(val - 80.0) < 0.5:
+            return 0.84
+    elif isinstance(target_service_level, str):
+        if target_service_level in SERVICE_LEVEL_Z:
+            return SERVICE_LEVEL_Z[target_service_level]
+        cleaned = target_service_level.replace("%", "").strip().split()[0]
+        try:
+            return map_service_level_to_z(float(cleaned))
+        except ValueError:
+            pass
+    return 1.65
 
 
 @dataclass
@@ -32,12 +71,17 @@ class PolicySimulationResult:
     estimated_holding_cost: float
     total_orders_placed: int
     total_replenishment_units: int
+    z_score: float = 1.65
+    safety_stock_units: int = 0
+    reorder_point: int = 0
+    target_stock: int = 0
     holding_cost_rate_annual: float = 0.20
 
     def to_dict(self) -> Dict[str, Any]:
         return {
             "Policy Name": self.policy_name,
-            "Target Service Level": f"{self.target_service_level_pct:.0f}%",
+            "Target Service Level": f"{self.target_service_level_pct:.0f}% (Z={self.z_score})",
+            "Safety Stock": f"{self.safety_stock_units} units",
             "Review Period": f"{self.review_period_days} days",
             "Fill Rate": f"{self.fill_rate_pct:.1f}%",
             "Stockout Days": f"{self.stockout_days} days ({self.stockout_rate_pct:.1f}%)",
@@ -61,6 +105,7 @@ def simulate_inventory_policy(
     """
     sub_df = df[df["product_id"] == product_id].sort_values("date").reset_index(drop=True)
     if sub_df.empty:
+        z_empty = map_service_level_to_z(target_service_level_pct)
         return PolicySimulationResult(
             policy_name=policy_name,
             target_service_level_pct=target_service_level_pct,
@@ -76,6 +121,10 @@ def simulate_inventory_policy(
             estimated_holding_cost=0.0,
             total_orders_placed=0,
             total_replenishment_units=0,
+            z_score=z_empty,
+            safety_stock_units=0,
+            reorder_point=0,
+            target_stock=0,
         )
 
     # Calculate baseline parameters
@@ -87,8 +136,8 @@ def simulate_inventory_policy(
     unit_cost = float(sub_df["unit_cost"].iloc[0])
 
     # Compute Policy Thresholds: ROP and Target Stock S
-    z = SERVICE_LEVEL_Z.get(target_service_level_pct, 1.65)
-    safety_stock = z * std_daily_demand * np.sqrt(effective_lead_time)
+    z = map_service_level_to_z(target_service_level_pct)
+    safety_stock = int(np.ceil(z * std_daily_demand * np.sqrt(effective_lead_time)))
     lead_time_demand = avg_daily_demand * effective_lead_time
     reorder_point = int(np.ceil(lead_time_demand + safety_stock))
     review_demand = avg_daily_demand * review_period_days
@@ -163,6 +212,10 @@ def simulate_inventory_policy(
         estimated_holding_cost=holding_cost,
         total_orders_placed=total_orders,
         total_replenishment_units=total_replenishment_qty,
+        z_score=z,
+        safety_stock_units=safety_stock,
+        reorder_point=reorder_point,
+        target_stock=target_stock,
         holding_cost_rate_annual=annual_holding_cost_rate,
     )
 
