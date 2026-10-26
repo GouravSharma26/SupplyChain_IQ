@@ -1,0 +1,901 @@
+date,product_id,product_name,category,supplier_id,supplier_name,units_sold,inventory_on_hand,unit_cost,selling_price,lead_time_days,delivery_delay_days,region
+2026-05-01,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,257,42.5,85.0,7,0,North America
+2026-05-02,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,22,235,42.5,85.0,7,0,North America
+2026-05-03,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,27,208,42.5,85.0,7,0,North America
+2026-05-04,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,30,178,42.5,85.0,7,0,North America
+2026-05-05,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,22,156,42.5,85.0,7,0,North America
+2026-05-06,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,27,129,42.5,85.0,7,0,North America
+2026-05-07,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,108,42.5,85.0,7,0,North America
+2026-05-08,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,84,42.5,85.0,7,0,North America
+2026-05-09,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,263,42.5,85.0,7,0,North America
+2026-05-10,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,240,42.5,85.0,7,2,North America
+2026-05-11,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,22,218,42.5,85.0,7,0,North America
+2026-05-12,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,27,191,42.5,85.0,7,0,North America
+2026-05-13,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,167,42.5,85.0,7,0,North America
+2026-05-14,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,28,139,42.5,85.0,7,0,North America
+2026-05-15,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,26,113,42.5,85.0,7,0,North America
+2026-05-16,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,17,96,42.5,85.0,7,0,North America
+2026-05-17,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,20,276,42.5,85.0,7,1,North America
+2026-05-18,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,22,254,42.5,85.0,7,0,North America
+2026-05-19,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,233,42.5,85.0,7,4,North America
+2026-05-20,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,32,201,42.5,85.0,7,0,North America
+2026-05-21,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,33,168,42.5,85.0,7,0,North America
+2026-05-22,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,29,139,42.5,85.0,7,0,North America
+2026-05-23,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,15,124,42.5,85.0,7,0,North America
+2026-05-24,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,19,105,42.5,85.0,7,0,North America
+2026-05-25,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,22,83,42.5,85.0,7,0,North America
+2026-05-26,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,35,248,42.5,85.0,7,0,North America
+2026-05-27,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,32,216,42.5,85.0,7,1,North America
+2026-05-28,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,28,188,42.5,85.0,7,0,North America
+2026-05-29,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,22,166,42.5,85.0,7,2,North America
+2026-05-30,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,18,148,42.5,85.0,7,1,North America
+2026-05-31,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,17,131,42.5,85.0,7,0,North America
+2026-06-01,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,30,101,42.5,85.0,7,1,North America
+2026-06-02,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,33,268,42.5,85.0,7,1,North America
+2026-06-03,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,29,239,42.5,85.0,7,0,North America
+2026-06-04,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,20,219,42.5,85.0,7,0,North America
+2026-06-05,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,195,42.5,85.0,7,0,North America
+2026-06-06,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,19,176,42.5,85.0,7,0,North America
+2026-06-07,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,20,156,42.5,85.0,7,2,North America
+2026-06-08,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,135,42.5,85.0,7,0,North America
+2026-06-09,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,25,110,42.5,85.0,7,0,North America
+2026-06-10,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,28,82,42.5,85.0,7,0,North America
+2026-06-11,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,37,245,42.5,85.0,7,0,North America
+2026-06-12,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,28,217,42.5,85.0,7,0,North America
+2026-06-13,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,25,192,42.5,85.0,7,0,North America
+2026-06-14,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,169,42.5,85.0,7,0,North America
+2026-06-15,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,31,138,42.5,85.0,7,0,North America
+2026-06-16,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,31,107,42.5,85.0,7,0,North America
+2026-06-17,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,83,42.5,85.0,7,0,North America
+2026-06-18,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,31,252,42.5,85.0,7,0,North America
+2026-06-19,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,229,42.5,85.0,7,2,North America
+2026-06-20,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,28,201,42.5,85.0,7,0,North America
+2026-06-21,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,27,174,42.5,85.0,7,0,North America
+2026-06-22,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,153,42.5,85.0,7,1,North America
+2026-06-23,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,37,116,42.5,85.0,7,0,North America
+2026-06-24,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,26,90,42.5,85.0,7,1,North America
+2026-06-25,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,36,54,42.5,85.0,7,0,North America
+2026-06-26,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,17,37,42.5,85.0,7,0,North America
+2026-06-27,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,213,42.5,85.0,7,0,North America
+2026-06-28,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,22,191,42.5,85.0,7,0,North America
+2026-06-29,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,170,42.5,85.0,7,0,North America
+2026-06-30,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,26,144,42.5,85.0,7,0,North America
+2026-07-01,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,35,109,42.5,85.0,7,0,North America
+2026-07-02,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,20,89,42.5,85.0,7,0,North America
+2026-07-03,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,65,42.5,85.0,7,0,North America
+2026-07-04,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,26,239,42.5,85.0,7,0,North America
+2026-07-05,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,17,222,42.5,85.0,7,0,North America
+2026-07-06,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,199,42.5,85.0,7,2,North America
+2026-07-07,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,25,174,42.5,85.0,7,1,North America
+2026-07-08,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,26,148,42.5,85.0,7,0,North America
+2026-07-09,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,39,109,42.5,85.0,7,0,North America
+2026-07-10,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,18,91,42.5,85.0,7,4,North America
+2026-07-11,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,16,275,42.5,85.0,7,1,North America
+2026-07-12,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,25,250,42.5,85.0,7,0,North America
+2026-07-13,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,22,228,42.5,85.0,7,1,North America
+2026-07-14,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,29,199,42.5,85.0,7,1,North America
+2026-07-15,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,31,168,42.5,85.0,7,1,North America
+2026-07-16,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,36,132,42.5,85.0,7,0,North America
+2026-07-17,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,17,115,42.5,85.0,7,0,North America
+2026-07-18,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,94,42.5,85.0,7,0,North America
+2026-07-19,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,271,42.5,85.0,7,0,North America
+2026-07-20,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,31,240,42.5,85.0,7,0,North America
+2026-07-21,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,33,207,42.5,85.0,7,0,North America
+2026-07-22,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,20,187,42.5,85.0,7,0,North America
+2026-07-23,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,29,158,42.5,85.0,7,0,North America
+2026-07-24,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,135,42.5,85.0,7,0,North America
+2026-07-25,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,114,42.5,85.0,7,0,North America
+2026-07-26,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,25,89,42.5,85.0,7,0,North America
+2026-07-27,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,20,269,42.5,85.0,7,0,North America
+2026-07-28,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,32,237,42.5,85.0,7,2,North America
+2026-07-29,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,33,204,42.5,85.0,7,0,North America
+2026-07-30,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,28,176,42.5,85.0,7,0,North America
+2026-07-31,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,30,146,42.5,85.0,7,0,North America
+2026-08-01,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,11,135,42.5,85.0,7,1,North America
+2026-08-02,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,25,110,42.5,85.0,7,0,North America
+2026-08-03,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,26,84,42.5,85.0,7,0,North America
+2026-08-04,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,28,256,42.5,85.0,7,0,North America
+2026-08-05,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,31,225,42.5,85.0,7,0,North America
+2026-08-06,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,29,196,42.5,85.0,7,0,North America
+2026-08-07,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,20,176,42.5,85.0,7,0,North America
+2026-08-08,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,32,144,42.5,85.0,7,0,North America
+2026-08-09,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,120,42.5,85.0,7,0,North America
+2026-08-10,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,36,84,42.5,85.0,7,2,North America
+2026-08-11,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,38,46,42.5,85.0,7,0,North America
+2026-08-12,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,32,214,42.5,85.0,7,0,North America
+2026-08-13,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,36,178,42.5,85.0,7,1,North America
+2026-08-14,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,22,156,42.5,85.0,7,0,North America
+2026-08-15,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,132,42.5,85.0,7,0,North America
+2026-08-16,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,27,105,42.5,85.0,7,0,North America
+2026-08-17,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,81,42.5,85.0,7,0,North America
+2026-08-18,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,39,242,42.5,85.0,7,1,North America
+2026-08-19,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,34,208,42.5,85.0,7,2,North America
+2026-08-20,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,29,179,42.5,85.0,7,0,North America
+2026-08-21,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,34,145,42.5,85.0,7,0,North America
+2026-08-22,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,30,115,42.5,85.0,7,0,North America
+2026-08-23,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,92,42.5,85.0,7,0,North America
+2026-08-24,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,69,42.5,85.0,7,0,North America
+2026-08-25,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,34,235,42.5,85.0,7,0,North America
+2026-08-26,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,30,205,42.5,85.0,7,1,North America
+2026-08-27,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,27,178,42.5,85.0,7,0,North America
+2026-08-28,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,30,148,42.5,85.0,7,0,North America
+2026-08-29,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,14,134,42.5,85.0,7,0,North America
+2026-08-30,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,14,120,42.5,85.0,7,4,North America
+2026-08-31,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,96,42.5,85.0,7,1,North America
+2026-09-01,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,34,262,42.5,85.0,7,0,North America
+2026-09-02,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,34,228,42.5,85.0,7,2,North America
+2026-09-03,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,22,206,42.5,85.0,7,0,North America
+2026-09-04,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,26,180,42.5,85.0,7,0,North America
+2026-09-05,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,16,164,42.5,85.0,7,0,North America
+2026-09-06,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,143,42.5,85.0,7,1,North America
+2026-09-07,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,17,126,42.5,85.0,7,2,North America
+2026-09-08,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,30,96,42.5,85.0,7,0,North America
+2026-09-09,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,29,267,42.5,85.0,7,0,North America
+2026-09-10,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,38,229,42.5,85.0,7,2,North America
+2026-09-11,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,34,195,42.5,85.0,7,0,North America
+2026-09-12,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,19,176,42.5,85.0,7,0,North America
+2026-09-13,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,155,42.5,85.0,7,0,North America
+2026-09-14,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,29,126,42.5,85.0,7,0,North America
+2026-09-15,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,35,91,42.5,85.0,7,0,North America
+2026-09-16,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,31,60,42.5,85.0,7,2,North America
+2026-09-17,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,37,223,42.5,85.0,7,0,North America
+2026-09-18,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,20,203,42.5,85.0,7,0,North America
+2026-09-19,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,28,175,42.5,85.0,7,0,North America
+2026-09-20,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,19,156,42.5,85.0,7,1,North America
+2026-09-21,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,33,123,42.5,85.0,7,0,North America
+2026-09-22,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,100,42.5,85.0,7,0,North America
+2026-09-23,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,25,75,42.5,85.0,7,0,North America
+2026-09-24,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,27,248,42.5,85.0,7,0,North America
+2026-09-25,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,31,217,42.5,85.0,7,1,North America
+2026-09-26,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,193,42.5,85.0,7,1,North America
+2026-09-27,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,172,42.5,85.0,7,0,North America
+2026-09-28,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,31,141,42.5,85.0,7,0,North America
+2026-09-29,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,25,116,42.5,85.0,7,0,North America
+2026-09-30,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,27,89,42.5,85.0,7,0,North America
+2026-10-01,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,29,260,42.5,85.0,7,0,North America
+2026-10-02,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,27,233,42.5,85.0,7,0,North America
+2026-10-03,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,210,42.5,85.0,7,0,North America
+2026-10-04,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,20,190,42.5,85.0,7,0,North America
+2026-10-05,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,17,173,42.5,85.0,7,0,North America
+2026-10-06,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,150,42.5,85.0,7,0,North America
+2026-10-07,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,126,42.5,85.0,7,1,North America
+2026-10-08,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,30,96,42.5,85.0,7,0,North America
+2026-10-09,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,275,42.5,85.0,7,0,North America
+2026-10-10,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,20,255,42.5,85.0,7,0,North America
+2026-10-11,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,16,239,42.5,85.0,7,0,North America
+2026-10-12,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,27,212,42.5,85.0,7,0,North America
+2026-10-13,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,35,177,42.5,85.0,7,0,North America
+2026-10-14,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,19,158,42.5,85.0,7,1,North America
+2026-10-15,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,34,124,42.5,85.0,7,0,North America
+2026-10-16,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,25,99,42.5,85.0,7,0,North America
+2026-10-17,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,21,78,42.5,85.0,7,0,North America
+2026-10-18,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,23,255,42.5,85.0,7,0,North America
+2026-10-19,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,26,229,42.5,85.0,7,0,North America
+2026-10-20,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,28,201,42.5,85.0,7,0,North America
+2026-10-21,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,25,176,42.5,85.0,7,0,North America
+2026-10-22,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,38,138,42.5,85.0,7,0,North America
+2026-10-23,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,32,106,42.5,85.0,7,0,North America
+2026-10-24,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,24,82,42.5,85.0,7,0,North America
+2026-10-25,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,22,60,42.5,85.0,7,0,North America
+2026-10-26,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,25,235,42.5,85.0,7,0,North America
+2026-10-27,PRD-001,Industrial Sensor Node,Electronics,SUP-101,Apex Micro Systems,26,209,42.5,85.0,7,0,North America
+2026-05-01,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,9,201,115.0,220.0,14,0,North America
+2026-05-02,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,5,196,115.0,220.0,14,0,North America
+2026-05-03,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,8,188,115.0,220.0,14,0,North America
+2026-05-04,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,19,169,115.0,220.0,14,0,North America
+2026-05-05,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,158,115.0,220.0,14,0,North America
+2026-05-06,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,146,115.0,220.0,14,0,North America
+2026-05-07,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,135,115.0,220.0,14,0,North America
+2026-05-08,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,125,115.0,220.0,14,0,North America
+2026-05-09,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,115,115.0,220.0,14,0,North America
+2026-05-10,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,9,106,115.0,220.0,14,0,North America
+2026-05-11,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,90,115.0,220.0,14,0,North America
+2026-05-12,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,73,115.0,220.0,14,0,North America
+2026-05-13,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,60,115.0,220.0,14,1,North America
+2026-05-14,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,24,36,115.0,220.0,14,0,North America
+2026-05-15,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,19,197,115.0,220.0,14,0,North America
+2026-05-16,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,184,115.0,220.0,14,1,North America
+2026-05-17,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,7,177,115.0,220.0,14,0,North America
+2026-05-18,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,161,115.0,220.0,14,0,North America
+2026-05-19,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,149,115.0,220.0,14,0,North America
+2026-05-20,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,18,131,115.0,220.0,14,0,North America
+2026-05-21,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,118,115.0,220.0,14,0,North America
+2026-05-22,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,106,115.0,220.0,14,1,North America
+2026-05-23,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,9,97,115.0,220.0,14,2,North America
+2026-05-24,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,85,115.0,220.0,14,2,North America
+2026-05-25,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,71,115.0,220.0,14,1,North America
+2026-05-26,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,15,56,115.0,220.0,14,1,North America
+2026-05-27,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,39,115.0,220.0,14,0,North America
+2026-05-28,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,28,115.0,220.0,14,0,North America
+2026-05-29,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,195,115.0,220.0,14,1,North America
+2026-05-30,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,9,186,115.0,220.0,14,0,North America
+2026-05-31,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,15,171,115.0,220.0,14,0,North America
+2026-06-01,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,155,115.0,220.0,14,0,North America
+2026-06-02,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,138,115.0,220.0,14,0,North America
+2026-06-03,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,122,115.0,220.0,14,0,North America
+2026-06-04,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,110,115.0,220.0,14,2,North America
+2026-06-05,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,97,115.0,220.0,14,0,North America
+2026-06-06,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,18,79,115.0,220.0,14,0,North America
+2026-06-07,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,68,115.0,220.0,14,1,North America
+2026-06-08,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,19,229,115.0,220.0,14,0,North America
+2026-06-09,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,9,220,115.0,220.0,14,0,North America
+2026-06-10,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,207,115.0,220.0,14,2,North America
+2026-06-11,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,21,186,115.0,220.0,14,0,North America
+2026-06-12,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,169,115.0,220.0,14,0,North America
+2026-06-13,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,159,115.0,220.0,14,0,North America
+2026-06-14,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,145,115.0,220.0,14,0,North America
+2026-06-15,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,134,115.0,220.0,14,2,North America
+2026-06-16,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,122,115.0,220.0,14,0,North America
+2026-06-17,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,108,115.0,220.0,14,0,North America
+2026-06-18,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,9,99,115.0,220.0,14,0,North America
+2026-06-19,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,87,115.0,220.0,14,0,North America
+2026-06-20,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,75,115.0,220.0,14,0,North America
+2026-06-21,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,243,115.0,220.0,14,0,North America
+2026-06-22,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,231,115.0,220.0,14,4,North America
+2026-06-23,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,217,115.0,220.0,14,0,North America
+2026-06-24,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,200,115.0,220.0,14,1,North America
+2026-06-25,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,190,115.0,220.0,14,0,North America
+2026-06-26,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,178,115.0,220.0,14,0,North America
+2026-06-27,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,164,115.0,220.0,14,0,North America
+2026-06-28,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,154,115.0,220.0,14,0,North America
+2026-06-29,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,8,146,115.0,220.0,14,1,North America
+2026-06-30,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,22,124,115.0,220.0,14,0,North America
+2026-07-01,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,108,115.0,220.0,14,0,North America
+2026-07-02,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,98,115.0,220.0,14,0,North America
+2026-07-03,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,9,89,115.0,220.0,14,0,North America
+2026-07-04,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,6,83,115.0,220.0,14,0,North America
+2026-07-05,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,71,115.0,220.0,14,0,North America
+2026-07-06,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,54,115.0,220.0,14,0,North America
+2026-07-07,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,223,115.0,220.0,14,1,North America
+2026-07-08,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,212,115.0,220.0,14,0,North America
+2026-07-09,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,15,197,115.0,220.0,14,1,North America
+2026-07-10,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,181,115.0,220.0,14,0,North America
+2026-07-11,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,171,115.0,220.0,14,0,North America
+2026-07-12,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,159,115.0,220.0,14,0,North America
+2026-07-13,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,147,115.0,220.0,14,2,North America
+2026-07-14,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,18,129,115.0,220.0,14,1,North America
+2026-07-15,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,115,115.0,220.0,14,1,North America
+2026-07-16,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,102,115.0,220.0,14,0,North America
+2026-07-17,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,89,115.0,220.0,14,0,North America
+2026-07-18,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,7,82,115.0,220.0,14,4,North America
+2026-07-19,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,251,115.0,220.0,14,0,North America
+2026-07-20,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,19,232,115.0,220.0,14,0,North America
+2026-07-21,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,220,115.0,220.0,14,0,North America
+2026-07-22,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,19,201,115.0,220.0,14,0,North America
+2026-07-23,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,20,181,115.0,220.0,14,0,North America
+2026-07-24,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,15,166,115.0,220.0,14,2,North America
+2026-07-25,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,156,115.0,220.0,14,0,North America
+2026-07-26,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,3,153,115.0,220.0,14,0,North America
+2026-07-27,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,7,146,115.0,220.0,14,0,North America
+2026-07-28,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,133,115.0,220.0,14,0,North America
+2026-07-29,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,116,115.0,220.0,14,0,North America
+2026-07-30,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,102,115.0,220.0,14,2,North America
+2026-07-31,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,15,87,115.0,220.0,14,0,North America
+2026-08-01,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,8,79,115.0,220.0,14,0,North America
+2026-08-02,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,248,115.0,220.0,14,1,North America
+2026-08-03,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,7,241,115.0,220.0,14,0,North America
+2026-08-04,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,227,115.0,220.0,14,0,North America
+2026-08-05,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,18,209,115.0,220.0,14,0,North America
+2026-08-06,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,193,115.0,220.0,14,0,North America
+2026-08-07,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,19,174,115.0,220.0,14,2,North America
+2026-08-08,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,163,115.0,220.0,14,0,North America
+2026-08-09,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,8,155,115.0,220.0,14,0,North America
+2026-08-10,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,19,136,115.0,220.0,14,0,North America
+2026-08-11,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,21,115,115.0,220.0,14,0,North America
+2026-08-12,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,101,115.0,220.0,14,1,North America
+2026-08-13,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,89,115.0,220.0,14,0,North America
+2026-08-14,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,75,115.0,220.0,14,0,North America
+2026-08-15,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,9,66,115.0,220.0,14,0,North America
+2026-08-16,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,234,115.0,220.0,14,0,North America
+2026-08-17,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,220,115.0,220.0,14,0,North America
+2026-08-18,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,209,115.0,220.0,14,1,North America
+2026-08-19,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,196,115.0,220.0,14,0,North America
+2026-08-20,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,182,115.0,220.0,14,1,North America
+2026-08-21,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,170,115.0,220.0,14,0,North America
+2026-08-22,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,8,162,115.0,220.0,14,0,North America
+2026-08-23,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,9,153,115.0,220.0,14,0,North America
+2026-08-24,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,4,149,115.0,220.0,14,4,North America
+2026-08-25,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,135,115.0,220.0,14,0,North America
+2026-08-26,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,18,117,115.0,220.0,14,0,North America
+2026-08-27,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,103,115.0,220.0,14,0,North America
+2026-08-28,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,20,83,115.0,220.0,14,0,North America
+2026-08-29,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,252,115.0,220.0,14,0,North America
+2026-08-30,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,8,244,115.0,220.0,14,0,North America
+2026-08-31,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,232,115.0,220.0,14,0,North America
+2026-09-01,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,221,115.0,220.0,14,0,North America
+2026-09-02,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,205,115.0,220.0,14,0,North America
+2026-09-03,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,20,185,115.0,220.0,14,0,North America
+2026-09-04,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,15,170,115.0,220.0,14,0,North America
+2026-09-05,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,160,115.0,220.0,14,0,North America
+2026-09-06,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,146,115.0,220.0,14,0,North America
+2026-09-07,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,136,115.0,220.0,14,0,North America
+2026-09-08,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,19,117,115.0,220.0,14,0,North America
+2026-09-09,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,101,115.0,220.0,14,0,North America
+2026-09-10,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,84,115.0,220.0,14,0,North America
+2026-09-11,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,67,115.0,220.0,14,0,North America
+2026-09-12,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,233,115.0,220.0,14,1,North America
+2026-09-13,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,217,115.0,220.0,14,1,North America
+2026-09-14,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,8,209,115.0,220.0,14,0,North America
+2026-09-15,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,19,190,115.0,220.0,14,0,North America
+2026-09-16,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,178,115.0,220.0,14,4,North America
+2026-09-17,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,162,115.0,220.0,14,0,North America
+2026-09-18,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,148,115.0,220.0,14,0,North America
+2026-09-19,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,134,115.0,220.0,14,2,North America
+2026-09-20,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,124,115.0,220.0,14,2,North America
+2026-09-21,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,15,109,115.0,220.0,14,0,North America
+2026-09-22,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,92,115.0,220.0,14,0,North America
+2026-09-23,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,79,115.0,220.0,14,0,North America
+2026-09-24,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,69,115.0,220.0,14,0,North America
+2026-09-25,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,238,115.0,220.0,14,1,North America
+2026-09-26,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,225,115.0,220.0,14,0,North America
+2026-09-27,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,214,115.0,220.0,14,1,North America
+2026-09-28,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,15,199,115.0,220.0,14,0,North America
+2026-09-29,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,182,115.0,220.0,14,0,North America
+2026-09-30,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,24,158,115.0,220.0,14,0,North America
+2026-10-01,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,23,135,115.0,220.0,14,0,North America
+2026-10-02,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,123,115.0,220.0,14,4,North America
+2026-10-03,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,113,115.0,220.0,14,0,North America
+2026-10-04,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,8,105,115.0,220.0,14,0,North America
+2026-10-05,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,93,115.0,220.0,14,0,North America
+2026-10-06,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,26,67,115.0,220.0,14,1,North America
+2026-10-07,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,18,49,115.0,220.0,14,0,North America
+2026-10-08,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,16,213,115.0,220.0,14,0,North America
+2026-10-09,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,8,205,115.0,220.0,14,0,North America
+2026-10-10,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,194,115.0,220.0,14,0,North America
+2026-10-11,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,5,189,115.0,220.0,14,0,North America
+2026-10-12,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,172,115.0,220.0,14,0,North America
+2026-10-13,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,158,115.0,220.0,14,0,North America
+2026-10-14,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,12,146,115.0,220.0,14,1,North America
+2026-10-15,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,19,127,115.0,220.0,14,0,North America
+2026-10-16,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,8,119,115.0,220.0,14,4,North America
+2026-10-17,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,7,112,115.0,220.0,14,0,North America
+2026-10-18,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,98,115.0,220.0,14,0,North America
+2026-10-19,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,11,87,115.0,220.0,14,0,North America
+2026-10-20,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,74,115.0,220.0,14,0,North America
+2026-10-21,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,14,240,115.0,220.0,14,0,North America
+2026-10-22,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,19,221,115.0,220.0,14,0,North America
+2026-10-23,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,8,213,115.0,220.0,14,0,North America
+2026-10-24,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,10,203,115.0,220.0,14,0,North America
+2026-10-25,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,17,186,115.0,220.0,14,1,North America
+2026-10-26,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,13,173,115.0,220.0,14,0,North America
+2026-10-27,PRD-002,Hydraulic Control Valve,Hardware,SUP-102,Vanguard Flow Systems,18,155,115.0,220.0,14,0,North America
+2026-05-01,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,34,416,62.0,125.0,10,0,North America
+2026-05-02,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,27,389,62.0,125.0,10,0,North America
+2026-05-03,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,33,356,62.0,125.0,10,0,North America
+2026-05-04,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,33,323,62.0,125.0,10,0,North America
+2026-05-05,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,43,280,62.0,125.0,10,0,North America
+2026-05-06,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,49,231,62.0,125.0,10,0,North America
+2026-05-07,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,45,186,62.0,125.0,10,0,North America
+2026-05-08,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,37,149,62.0,125.0,10,0,North America
+2026-05-09,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,43,106,62.0,125.0,10,0,North America
+2026-05-10,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,36,70,62.0,125.0,10,0,North America
+2026-05-11,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,32,38,62.0,125.0,10,4,North America
+2026-05-12,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,37,351,62.0,125.0,10,0,North America
+2026-05-13,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,39,312,62.0,125.0,10,0,North America
+2026-05-14,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,44,268,62.0,125.0,10,0,North America
+2026-05-15,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,32,236,62.0,125.0,10,2,North America
+2026-05-16,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,29,207,62.0,125.0,10,1,North America
+2026-05-17,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,33,524,62.0,125.0,10,0,North America
+2026-05-18,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,32,492,62.0,125.0,10,0,North America
+2026-05-19,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,51,441,62.0,125.0,10,0,North America
+2026-05-20,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,46,395,62.0,125.0,10,0,North America
+2026-05-21,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,37,358,62.0,125.0,10,0,North America
+2026-05-22,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,42,316,62.0,125.0,10,1,North America
+2026-05-23,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,40,276,62.0,125.0,10,1,North America
+2026-05-24,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,28,248,62.0,125.0,10,0,North America
+2026-05-25,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,26,222,62.0,125.0,10,2,North America
+2026-05-26,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,27,545,62.0,125.0,10,2,North America
+2026-05-27,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,41,504,62.0,125.0,10,0,North America
+2026-05-28,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,63,441,62.0,125.0,10,2,North America
+2026-05-29,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,42,399,62.0,125.0,10,0,North America
+2026-05-30,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,34,365,62.0,125.0,10,0,North America
+2026-05-31,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,27,338,62.0,125.0,10,0,North America
+2026-06-01,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,43,295,62.0,125.0,10,0,North America
+2026-06-02,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,65,230,62.0,125.0,10,0,North America
+2026-06-03,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,43,187,62.0,125.0,10,0,North America
+2026-06-04,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,48,139,62.0,125.0,10,0,North America
+2026-06-05,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,48,441,62.0,125.0,10,0,North America
+2026-06-06,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,45,396,62.0,125.0,10,0,North America
+2026-06-07,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,29,367,62.0,125.0,10,0,North America
+2026-06-08,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,42,325,62.0,125.0,10,0,North America
+2026-06-09,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,53,272,62.0,125.0,10,0,North America
+2026-06-10,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,43,229,62.0,125.0,10,0,North America
+2026-06-11,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,51,178,62.0,125.0,10,0,North America
+2026-06-12,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,46,132,62.0,125.0,10,0,North America
+2026-06-13,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,32,450,62.0,125.0,10,0,North America
+2026-06-14,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,32,418,62.0,125.0,10,0,North America
+2026-06-15,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,37,381,62.0,125.0,10,0,North America
+2026-06-16,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,47,334,62.0,125.0,10,0,North America
+2026-06-17,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,44,290,62.0,125.0,10,1,North America
+2026-06-18,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,45,245,62.0,125.0,10,0,North America
+2026-06-19,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,37,208,62.0,125.0,10,0,North America
+2026-06-20,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,35,173,62.0,125.0,10,1,North America
+2026-06-21,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,40,483,62.0,125.0,10,2,North America
+2026-06-22,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,49,434,62.0,125.0,10,2,North America
+2026-06-23,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,42,392,62.0,125.0,10,0,North America
+2026-06-24,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,40,352,62.0,125.0,10,0,North America
+2026-06-25,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,52,300,62.0,125.0,10,0,North America
+2026-06-26,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,42,258,62.0,125.0,10,0,North America
+2026-06-27,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,33,225,62.0,125.0,10,0,North America
+2026-06-28,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,38,187,62.0,125.0,10,0,North America
+2026-06-29,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,31,506,62.0,125.0,10,0,North America
+2026-06-30,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,63,443,62.0,125.0,10,1,North America
+2026-07-01,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,46,397,62.0,125.0,10,0,North America
+2026-07-02,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,60,337,62.0,125.0,10,1,North America
+2026-07-03,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,49,288,62.0,125.0,10,0,North America
+2026-07-04,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,37,251,62.0,125.0,10,1,North America
+2026-07-05,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,44,207,62.0,125.0,10,1,North America
+2026-07-06,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,36,171,62.0,125.0,10,0,North America
+2026-07-07,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,49,122,62.0,125.0,10,0,North America
+2026-07-08,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,44,428,62.0,125.0,10,0,North America
+2026-07-09,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,50,378,62.0,125.0,10,0,North America
+2026-07-10,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,30,348,62.0,125.0,10,0,North America
+2026-07-11,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,37,311,62.0,125.0,10,0,North America
+2026-07-12,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,33,278,62.0,125.0,10,0,North America
+2026-07-13,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,44,234,62.0,125.0,10,0,North America
+2026-07-14,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,50,184,62.0,125.0,10,0,North America
+2026-07-15,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,35,499,62.0,125.0,10,0,North America
+2026-07-16,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,41,458,62.0,125.0,10,0,North America
+2026-07-17,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,50,408,62.0,125.0,10,0,North America
+2026-07-18,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,30,378,62.0,125.0,10,0,North America
+2026-07-19,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,35,343,62.0,125.0,10,1,North America
+2026-07-20,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,35,308,62.0,125.0,10,1,North America
+2026-07-21,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,49,259,62.0,125.0,10,0,North America
+2026-07-22,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,42,217,62.0,125.0,10,0,North America
+2026-07-23,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,47,170,62.0,125.0,10,0,North America
+2026-07-24,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,28,142,62.0,125.0,10,2,North America
+2026-07-25,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,29,113,62.0,125.0,10,0,North America
+2026-07-26,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,36,77,62.0,125.0,10,0,North America
+2026-07-27,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,46,381,62.0,125.0,10,0,North America
+2026-07-28,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,40,341,62.0,125.0,10,0,North America
+2026-07-29,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,47,294,62.0,125.0,10,0,North America
+2026-07-30,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,48,246,62.0,125.0,10,1,North America
+2026-07-31,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,32,214,62.0,125.0,10,0,North America
+2026-08-01,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,31,183,62.0,125.0,10,0,North America
+2026-08-02,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,47,136,62.0,125.0,10,0,North America
+2026-08-03,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,39,97,62.0,125.0,10,0,North America
+2026-08-04,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,46,401,62.0,125.0,10,0,North America
+2026-08-05,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,40,361,62.0,125.0,10,0,North America
+2026-08-06,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,53,308,62.0,125.0,10,1,North America
+2026-08-07,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,49,259,62.0,125.0,10,1,North America
+2026-08-08,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,32,227,62.0,125.0,10,0,North America
+2026-08-09,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,29,198,62.0,125.0,10,4,North America
+2026-08-10,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,44,504,62.0,125.0,10,0,North America
+2026-08-11,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,46,458,62.0,125.0,10,1,North America
+2026-08-12,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,39,419,62.0,125.0,10,0,North America
+2026-08-13,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,38,381,62.0,125.0,10,0,North America
+2026-08-14,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,58,323,62.0,125.0,10,2,North America
+2026-08-15,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,34,289,62.0,125.0,10,0,North America
+2026-08-16,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,34,255,62.0,125.0,10,0,North America
+2026-08-17,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,35,220,62.0,125.0,10,0,North America
+2026-08-18,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,33,187,62.0,125.0,10,0,North America
+2026-08-19,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,38,499,62.0,125.0,10,0,North America
+2026-08-20,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,36,463,62.0,125.0,10,0,North America
+2026-08-21,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,48,415,62.0,125.0,10,0,North America
+2026-08-22,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,38,377,62.0,125.0,10,0,North America
+2026-08-23,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,28,349,62.0,125.0,10,0,North America
+2026-08-24,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,35,314,62.0,125.0,10,0,North America
+2026-08-25,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,54,260,62.0,125.0,10,1,North America
+2026-08-26,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,46,214,62.0,125.0,10,1,North America
+2026-08-27,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,38,526,62.0,125.0,10,0,North America
+2026-08-28,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,58,468,62.0,125.0,10,0,North America
+2026-08-29,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,36,432,62.0,125.0,10,1,North America
+2026-08-30,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,26,406,62.0,125.0,10,0,North America
+2026-08-31,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,38,368,62.0,125.0,10,0,North America
+2026-09-01,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,44,324,62.0,125.0,10,0,North America
+2026-09-02,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,43,281,62.0,125.0,10,0,North America
+2026-09-03,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,41,240,62.0,125.0,10,0,North America
+2026-09-04,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,51,189,62.0,125.0,10,0,North America
+2026-09-05,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,45,494,62.0,125.0,10,0,North America
+2026-09-06,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,24,470,62.0,125.0,10,0,North America
+2026-09-07,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,46,424,62.0,125.0,10,0,North America
+2026-09-08,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,30,394,62.0,125.0,10,0,North America
+2026-09-09,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,34,360,62.0,125.0,10,0,North America
+2026-09-10,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,63,297,62.0,125.0,10,0,North America
+2026-09-11,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,38,259,62.0,125.0,10,1,North America
+2026-09-12,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,39,220,62.0,125.0,10,0,North America
+2026-09-13,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,39,181,62.0,125.0,10,0,North America
+2026-09-14,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,60,471,62.0,125.0,10,1,North America
+2026-09-15,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,49,422,62.0,125.0,10,0,North America
+2026-09-16,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,38,384,62.0,125.0,10,1,North America
+2026-09-17,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,50,334,62.0,125.0,10,0,North America
+2026-09-18,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,44,290,62.0,125.0,10,0,North America
+2026-09-19,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,42,248,62.0,125.0,10,0,North America
+2026-09-20,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,33,215,62.0,125.0,10,0,North America
+2026-09-21,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,40,175,62.0,125.0,10,0,North America
+2026-09-22,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,61,464,62.0,125.0,10,0,North America
+2026-09-23,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,50,414,62.0,125.0,10,1,North America
+2026-09-24,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,59,355,62.0,125.0,10,1,North America
+2026-09-25,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,41,314,62.0,125.0,10,0,North America
+2026-09-26,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,41,273,62.0,125.0,10,0,North America
+2026-09-27,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,48,225,62.0,125.0,10,0,North America
+2026-09-28,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,33,192,62.0,125.0,10,0,North America
+2026-09-29,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,47,145,62.0,125.0,10,0,North America
+2026-09-30,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,48,447,62.0,125.0,10,0,North America
+2026-10-01,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,43,404,62.0,125.0,10,0,North America
+2026-10-02,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,51,353,62.0,125.0,10,1,North America
+2026-10-03,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,29,324,62.0,125.0,10,0,North America
+2026-10-04,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,31,293,62.0,125.0,10,4,North America
+2026-10-05,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,32,261,62.0,125.0,10,1,North America
+2026-10-06,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,41,220,62.0,125.0,10,0,North America
+2026-10-07,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,40,180,62.0,125.0,10,1,North America
+2026-10-08,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,49,131,62.0,125.0,10,1,North America
+2026-10-09,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,40,441,62.0,125.0,10,0,North America
+2026-10-10,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,33,408,62.0,125.0,10,4,North America
+2026-10-11,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,34,374,62.0,125.0,10,0,North America
+2026-10-12,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,51,323,62.0,125.0,10,0,North America
+2026-10-13,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,46,277,62.0,125.0,10,0,North America
+2026-10-14,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,50,227,62.0,125.0,10,1,North America
+2026-10-15,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,37,190,62.0,125.0,10,0,North America
+2026-10-16,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,30,510,62.0,125.0,10,0,North America
+2026-10-17,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,38,472,62.0,125.0,10,0,North America
+2026-10-18,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,43,429,62.0,125.0,10,1,North America
+2026-10-19,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,42,387,62.0,125.0,10,0,North America
+2026-10-20,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,44,343,62.0,125.0,10,0,North America
+2026-10-21,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,54,289,62.0,125.0,10,0,North America
+2026-10-22,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,39,250,62.0,125.0,10,0,North America
+2026-10-23,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,32,218,62.0,125.0,10,0,North America
+2026-10-24,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,39,179,62.0,125.0,10,0,North America
+2026-10-25,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,42,487,62.0,125.0,10,0,North America
+2026-10-26,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,50,437,62.0,125.0,10,0,North America
+2026-10-27,PRD-003,Li-Polymer Battery Pack,Energy Storage,SUP-101,Apex Micro Systems,50,387,62.0,125.0,10,0,North America
+2026-05-01,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,52,368,18.0,38.0,4,0,North America
+2026-05-02,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,56,312,18.0,38.0,4,0,North America
+2026-05-03,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,63,249,18.0,38.0,4,0,North America
+2026-05-04,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,66,183,18.0,38.0,4,0,North America
+2026-05-05,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,71,112,18.0,38.0,4,0,North America
+2026-05-06,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,53,359,18.0,38.0,4,0,North America
+2026-05-07,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,63,296,18.0,38.0,4,1,North America
+2026-05-08,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,48,248,18.0,38.0,4,0,North America
+2026-05-09,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,54,194,18.0,38.0,4,2,North America
+2026-05-10,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,36,158,18.0,38.0,4,0,North America
+2026-05-11,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,51,407,18.0,38.0,4,2,North America
+2026-05-12,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,57,350,18.0,38.0,4,1,North America
+2026-05-13,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,62,288,18.0,38.0,4,0,North America
+2026-05-14,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,41,247,18.0,38.0,4,2,North America
+2026-05-15,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,47,200,18.0,38.0,4,0,North America
+2026-05-16,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,46,154,18.0,38.0,4,0,North America
+2026-05-17,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,50,404,18.0,38.0,4,0,North America
+2026-05-18,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,55,349,18.0,38.0,4,0,North America
+2026-05-19,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,67,282,18.0,38.0,4,0,North America
+2026-05-20,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,60,222,18.0,38.0,4,0,North America
+2026-05-21,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,57,165,18.0,38.0,4,1,North America
+2026-05-22,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,58,107,18.0,38.0,4,0,North America
+2026-05-23,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,58,349,18.0,38.0,4,0,North America
+2026-05-24,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,53,296,18.0,38.0,4,0,North America
+2026-05-25,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,56,240,18.0,38.0,4,2,North America
+2026-05-26,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,74,166,18.0,38.0,4,0,North America
+2026-05-27,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,62,104,18.0,38.0,4,0,North America
+2026-05-28,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,48,356,18.0,38.0,4,1,North America
+2026-05-29,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,56,300,18.0,38.0,4,0,North America
+2026-05-30,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,44,256,18.0,38.0,4,0,North America
+2026-05-31,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,55,201,18.0,38.0,4,0,North America
+2026-06-01,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,67,134,18.0,38.0,4,1,North America
+2026-06-02,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,58,376,18.0,38.0,4,4,North America
+2026-06-03,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,71,305,18.0,38.0,4,0,North America
+2026-06-04,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,77,228,18.0,38.0,4,0,North America
+2026-06-05,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,46,182,18.0,38.0,4,1,North America
+2026-06-06,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,47,135,18.0,38.0,4,2,North America
+2026-06-07,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,43,392,18.0,38.0,4,0,North America
+2026-06-08,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,64,328,18.0,38.0,4,1,North America
+2026-06-09,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,62,266,18.0,38.0,4,0,North America
+2026-06-10,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,55,211,18.0,38.0,4,1,North America
+2026-06-11,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,60,151,18.0,38.0,4,2,North America
+2026-06-12,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,48,403,18.0,38.0,4,0,North America
+2026-06-13,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,60,343,18.0,38.0,4,0,North America
+2026-06-14,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,48,295,18.0,38.0,4,1,North America
+2026-06-15,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,65,230,18.0,38.0,4,2,North America
+2026-06-16,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,63,167,18.0,38.0,4,0,North America
+2026-06-17,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,68,99,18.0,38.0,4,1,North America
+2026-06-18,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,63,336,18.0,38.0,4,0,North America
+2026-06-19,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,59,277,18.0,38.0,4,1,North America
+2026-06-20,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,37,240,18.0,38.0,4,0,North America
+2026-06-21,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,58,182,18.0,38.0,4,0,North America
+2026-06-22,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,63,119,18.0,38.0,4,0,North America
+2026-06-23,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,74,345,18.0,38.0,4,0,North America
+2026-06-24,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,65,280,18.0,38.0,4,0,North America
+2026-06-25,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,70,210,18.0,38.0,4,0,North America
+2026-06-26,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,52,158,18.0,38.0,4,0,North America
+2026-06-27,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,49,109,18.0,38.0,4,0,North America
+2026-06-28,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,52,357,18.0,38.0,4,1,North America
+2026-06-29,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,61,296,18.0,38.0,4,0,North America
+2026-06-30,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,70,226,18.0,38.0,4,0,North America
+2026-07-01,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,75,151,18.0,38.0,4,1,North America
+2026-07-02,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,60,91,18.0,38.0,4,0,North America
+2026-07-03,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,58,333,18.0,38.0,4,0,North America
+2026-07-04,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,59,274,18.0,38.0,4,0,North America
+2026-07-05,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,45,229,18.0,38.0,4,0,North America
+2026-07-06,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,59,170,18.0,38.0,4,0,North America
+2026-07-07,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,65,105,18.0,38.0,4,0,North America
+2026-07-08,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,63,342,18.0,38.0,4,0,North America
+2026-07-09,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,64,278,18.0,38.0,4,2,North America
+2026-07-10,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,53,225,18.0,38.0,4,0,North America
+2026-07-11,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,62,163,18.0,38.0,4,1,North America
+2026-07-12,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,55,108,18.0,38.0,4,1,North America
+2026-07-13,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,53,355,18.0,38.0,4,0,North America
+2026-07-14,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,71,284,18.0,38.0,4,0,North America
+2026-07-15,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,61,223,18.0,38.0,4,0,North America
+2026-07-16,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,61,162,18.0,38.0,4,0,North America
+2026-07-17,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,70,92,18.0,38.0,4,0,North America
+2026-07-18,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,52,340,18.0,38.0,4,0,North America
+2026-07-19,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,38,302,18.0,38.0,4,0,North America
+2026-07-20,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,68,234,18.0,38.0,4,0,North America
+2026-07-21,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,75,159,18.0,38.0,4,0,North America
+2026-07-22,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,70,89,18.0,38.0,4,1,North America
+2026-07-23,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,68,321,18.0,38.0,4,0,North America
+2026-07-24,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,57,264,18.0,38.0,4,0,North America
+2026-07-25,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,61,203,18.0,38.0,4,0,North America
+2026-07-26,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,53,150,18.0,38.0,4,0,North America
+2026-07-27,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,52,398,18.0,38.0,4,0,North America
+2026-07-28,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,63,335,18.0,38.0,4,0,North America
+2026-07-29,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,85,250,18.0,38.0,4,0,North America
+2026-07-30,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,70,180,18.0,38.0,4,0,North America
+2026-07-31,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,56,124,18.0,38.0,4,0,North America
+2026-08-01,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,42,82,18.0,38.0,4,4,North America
+2026-08-02,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,47,335,18.0,38.0,4,0,North America
+2026-08-03,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,61,274,18.0,38.0,4,0,North America
+2026-08-04,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,59,215,18.0,38.0,4,0,North America
+2026-08-05,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,63,152,18.0,38.0,4,0,North America
+2026-08-06,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,67,85,18.0,38.0,4,2,North America
+2026-08-07,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,57,328,18.0,38.0,4,0,North America
+2026-08-08,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,48,280,18.0,38.0,4,1,North America
+2026-08-09,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,51,229,18.0,38.0,4,4,North America
+2026-08-10,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,49,180,18.0,38.0,4,0,North America
+2026-08-11,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,65,415,18.0,38.0,4,2,North America
+2026-08-12,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,72,343,18.0,38.0,4,0,North America
+2026-08-13,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,75,268,18.0,38.0,4,0,North America
+2026-08-14,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,54,214,18.0,38.0,4,0,North America
+2026-08-15,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,55,159,18.0,38.0,4,0,North America
+2026-08-16,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,50,109,18.0,38.0,4,0,North America
+2026-08-17,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,58,351,18.0,38.0,4,0,North America
+2026-08-18,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,53,298,18.0,38.0,4,0,North America
+2026-08-19,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,71,227,18.0,38.0,4,0,North America
+2026-08-20,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,81,146,18.0,38.0,4,1,North America
+2026-08-21,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,65,81,18.0,38.0,4,2,North America
+2026-08-22,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,38,43,18.0,38.0,4,0,North America
+2026-08-23,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,43,0,18.0,38.0,4,0,North America
+2026-08-24,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,49,251,18.0,38.0,4,0,North America
+2026-08-25,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,73,178,18.0,38.0,4,1,North America
+2026-08-26,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,72,106,18.0,38.0,4,0,North America
+2026-08-27,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,62,344,18.0,38.0,4,1,North America
+2026-08-28,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,59,285,18.0,38.0,4,1,North America
+2026-08-29,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,64,221,18.0,38.0,4,0,North America
+2026-08-30,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,53,168,18.0,38.0,4,0,North America
+2026-08-31,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,65,103,18.0,38.0,4,0,North America
+2026-09-01,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,58,45,18.0,38.0,4,0,North America
+2026-09-02,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,79,266,18.0,38.0,4,0,North America
+2026-09-03,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,71,195,18.0,38.0,4,0,North America
+2026-09-04,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,46,149,18.0,38.0,4,0,North America
+2026-09-05,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,56,93,18.0,38.0,4,0,North America
+2026-09-06,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,51,342,18.0,38.0,4,0,North America
+2026-09-07,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,60,282,18.0,38.0,4,2,North America
+2026-09-08,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,65,217,18.0,38.0,4,0,North America
+2026-09-09,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,65,152,18.0,38.0,4,0,North America
+2026-09-10,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,74,78,18.0,38.0,4,0,North America
+2026-09-11,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,72,306,18.0,38.0,4,0,North America
+2026-09-12,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,62,244,18.0,38.0,4,1,North America
+2026-09-13,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,71,173,18.0,38.0,4,0,North America
+2026-09-14,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,57,116,18.0,38.0,4,0,North America
+2026-09-15,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,69,47,18.0,38.0,4,1,North America
+2026-09-16,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,47,0,18.0,38.0,4,0,North America
+2026-09-17,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,60,240,18.0,38.0,4,0,North America
+2026-09-18,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,62,178,18.0,38.0,4,0,North America
+2026-09-19,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,43,135,18.0,38.0,4,0,North America
+2026-09-20,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,52,383,18.0,38.0,4,4,North America
+2026-09-21,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,71,312,18.0,38.0,4,0,North America
+2026-09-22,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,60,252,18.0,38.0,4,0,North America
+2026-09-23,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,68,184,18.0,38.0,4,0,North America
+2026-09-24,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,74,110,18.0,38.0,4,1,North America
+2026-09-25,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,50,360,18.0,38.0,4,0,North America
+2026-09-26,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,59,301,18.0,38.0,4,2,North America
+2026-09-27,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,44,257,18.0,38.0,4,4,North America
+2026-09-28,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,60,197,18.0,38.0,4,0,North America
+2026-09-29,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,65,132,18.0,38.0,4,0,North America
+2026-09-30,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,75,57,18.0,38.0,4,0,North America
+2026-10-01,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,68,289,18.0,38.0,4,4,North America
+2026-10-02,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,59,230,18.0,38.0,4,1,North America
+2026-10-03,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,54,176,18.0,38.0,4,0,North America
+2026-10-04,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,42,134,18.0,38.0,4,0,North America
+2026-10-05,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,60,74,18.0,38.0,4,0,North America
+2026-10-06,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,84,290,18.0,38.0,4,0,North America
+2026-10-07,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,74,216,18.0,38.0,4,0,North America
+2026-10-08,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,64,152,18.0,38.0,4,1,North America
+2026-10-09,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,56,96,18.0,38.0,4,2,North America
+2026-10-10,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,57,339,18.0,38.0,4,0,North America
+2026-10-11,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,61,278,18.0,38.0,4,1,North America
+2026-10-12,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,68,210,18.0,38.0,4,1,North America
+2026-10-13,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,79,131,18.0,38.0,4,0,North America
+2026-10-14,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,69,62,18.0,38.0,4,0,North America
+2026-10-15,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,67,295,18.0,38.0,4,0,North America
+2026-10-16,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,62,233,18.0,38.0,4,0,North America
+2026-10-17,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,53,180,18.0,38.0,4,0,North America
+2026-10-18,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,37,143,18.0,38.0,4,0,North America
+2026-10-19,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,56,387,18.0,38.0,4,0,North America
+2026-10-20,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,67,320,18.0,38.0,4,0,North America
+2026-10-21,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,62,258,18.0,38.0,4,4,North America
+2026-10-22,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,72,186,18.0,38.0,4,0,North America
+2026-10-23,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,51,135,18.0,38.0,4,0,North America
+2026-10-24,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,52,383,18.0,38.0,4,0,North America
+2026-10-25,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,40,343,18.0,38.0,4,0,North America
+2026-10-26,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,67,276,18.0,38.0,4,0,North America
+2026-10-27,PRD-004,Thermal Conductive Adhesive,Consumables,SUP-103,Prime Materials Corp,70,206,18.0,38.0,4,1,North America
+2026-05-01,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,187,155.0,295.0,12,0,North America
+2026-05-02,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,171,155.0,295.0,12,0,North America
+2026-05-03,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,12,159,155.0,295.0,12,0,North America
+2026-05-04,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,7,152,155.0,295.0,12,0,North America
+2026-05-05,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,130,155.0,295.0,12,0,North America
+2026-05-06,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,15,115,155.0,295.0,12,0,North America
+2026-05-07,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,18,97,155.0,295.0,12,0,North America
+2026-05-08,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,27,70,155.0,295.0,12,0,North America
+2026-05-09,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,14,56,155.0,295.0,12,0,North America
+2026-05-10,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,40,155.0,295.0,12,0,North America
+2026-05-11,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,21,155.0,295.0,12,2,North America
+2026-05-12,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,0,155.0,295.0,12,0,North America
+2026-05-13,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,128,155.0,295.0,12,0,North America
+2026-05-14,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,29,99,155.0,295.0,12,0,North America
+2026-05-15,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,83,155.0,295.0,12,0,North America
+2026-05-16,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,70,155.0,295.0,12,1,North America
+2026-05-17,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,207,155.0,295.0,12,1,North America
+2026-05-18,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,194,155.0,295.0,12,0,North America
+2026-05-19,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,25,169,155.0,295.0,12,0,North America
+2026-05-20,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,149,155.0,295.0,12,0,North America
+2026-05-21,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,128,155.0,295.0,12,0,North America
+2026-05-22,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,15,113,155.0,295.0,12,0,North America
+2026-05-23,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,93,155.0,295.0,12,0,North America
+2026-05-24,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,6,87,155.0,295.0,12,0,North America
+2026-05-25,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,14,223,155.0,295.0,12,0,North America
+2026-05-26,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,206,155.0,295.0,12,0,North America
+2026-05-27,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,187,155.0,295.0,12,0,North America
+2026-05-28,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,168,155.0,295.0,12,0,North America
+2026-05-29,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,148,155.0,295.0,12,0,North America
+2026-05-30,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,27,121,155.0,295.0,12,1,North America
+2026-05-31,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,18,103,155.0,295.0,12,0,North America
+2026-06-01,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,83,155.0,295.0,12,0,North America
+2026-06-02,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,216,155.0,295.0,12,0,North America
+2026-06-03,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,24,192,155.0,295.0,12,1,North America
+2026-06-04,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,18,174,155.0,295.0,12,0,North America
+2026-06-05,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,9,165,155.0,295.0,12,0,North America
+2026-06-06,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,14,151,155.0,295.0,12,0,North America
+2026-06-07,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,129,155.0,295.0,12,0,North America
+2026-06-08,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,27,102,155.0,295.0,12,0,North America
+2026-06-09,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,15,87,155.0,295.0,12,0,North America
+2026-06-10,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,67,155.0,295.0,12,0,North America
+2026-06-11,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,196,155.0,295.0,12,0,North America
+2026-06-12,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,14,182,155.0,295.0,12,2,North America
+2026-06-13,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,12,170,155.0,295.0,12,1,North America
+2026-06-14,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,153,155.0,295.0,12,0,North America
+2026-06-15,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,137,155.0,295.0,12,0,North America
+2026-06-16,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,15,122,155.0,295.0,12,0,North America
+2026-06-17,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,11,111,155.0,295.0,12,1,North America
+2026-06-18,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,18,93,155.0,295.0,12,0,North America
+2026-06-19,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,7,86,155.0,295.0,12,0,North America
+2026-06-20,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,11,75,155.0,295.0,12,1,North America
+2026-06-21,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,56,155.0,295.0,12,2,North America
+2026-06-22,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,14,192,155.0,295.0,12,0,North America
+2026-06-23,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,11,181,155.0,295.0,12,4,North America
+2026-06-24,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,30,151,155.0,295.0,12,4,North America
+2026-06-25,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,129,155.0,295.0,12,0,North America
+2026-06-26,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,116,155.0,295.0,12,0,North America
+2026-06-27,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,10,106,155.0,295.0,12,1,North America
+2026-06-28,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,14,92,155.0,295.0,12,0,North America
+2026-06-29,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,15,227,155.0,295.0,12,0,North America
+2026-06-30,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,206,155.0,295.0,12,0,North America
+2026-07-01,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,24,182,155.0,295.0,12,0,North America
+2026-07-02,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,18,164,155.0,295.0,12,0,North America
+2026-07-03,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,145,155.0,295.0,12,0,North America
+2026-07-04,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,132,155.0,295.0,12,0,North America
+2026-07-05,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,18,114,155.0,295.0,12,0,North America
+2026-07-06,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,26,88,155.0,295.0,12,0,North America
+2026-07-07,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,23,215,155.0,295.0,12,0,North America
+2026-07-08,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,198,155.0,295.0,12,0,North America
+2026-07-09,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,15,183,155.0,295.0,12,0,North America
+2026-07-10,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,166,155.0,295.0,12,0,North America
+2026-07-11,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,146,155.0,295.0,12,2,North America
+2026-07-12,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,130,155.0,295.0,12,0,North America
+2026-07-13,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,110,155.0,295.0,12,0,North America
+2026-07-14,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,26,84,155.0,295.0,12,1,North America
+2026-07-15,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,65,155.0,295.0,12,0,North America
+2026-07-16,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,45,155.0,295.0,12,0,North America
+2026-07-17,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,23,155.0,295.0,12,0,North America
+2026-07-18,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,15,8,155.0,295.0,12,1,North America
+2026-07-19,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,139,155.0,295.0,12,0,North America
+2026-07-20,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,118,155.0,295.0,12,1,North America
+2026-07-21,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,98,155.0,295.0,12,0,North America
+2026-07-22,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,8,90,155.0,295.0,12,1,North America
+2026-07-23,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,71,155.0,295.0,12,4,North America
+2026-07-24,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,208,155.0,295.0,12,0,North America
+2026-07-25,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,11,197,155.0,295.0,12,0,North America
+2026-07-26,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,25,172,155.0,295.0,12,0,North America
+2026-07-27,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,156,155.0,295.0,12,0,North America
+2026-07-28,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,134,155.0,295.0,12,0,North America
+2026-07-29,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,26,108,155.0,295.0,12,4,North America
+2026-07-30,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,23,85,155.0,295.0,12,0,North America
+2026-07-31,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,66,155.0,295.0,12,0,North America
+2026-08-01,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,199,155.0,295.0,12,1,North America
+2026-08-02,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,183,155.0,295.0,12,0,North America
+2026-08-03,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,162,155.0,295.0,12,0,North America
+2026-08-04,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,143,155.0,295.0,12,2,North America
+2026-08-05,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,24,119,155.0,295.0,12,0,North America
+2026-08-06,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,27,92,155.0,295.0,12,0,North America
+2026-08-07,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,70,155.0,295.0,12,1,North America
+2026-08-08,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,11,59,155.0,295.0,12,0,North America
+2026-08-09,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,192,155.0,295.0,12,0,North America
+2026-08-10,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,26,166,155.0,295.0,12,0,North America
+2026-08-11,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,23,143,155.0,295.0,12,0,North America
+2026-08-12,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,24,119,155.0,295.0,12,4,North America
+2026-08-13,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,100,155.0,295.0,12,0,North America
+2026-08-14,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,78,155.0,295.0,12,2,North America
+2026-08-15,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,61,155.0,295.0,12,0,North America
+2026-08-16,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,42,155.0,295.0,12,0,North America
+2026-08-17,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,12,180,155.0,295.0,12,0,North America
+2026-08-18,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,163,155.0,295.0,12,1,North America
+2026-08-19,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,141,155.0,295.0,12,0,North America
+2026-08-20,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,120,155.0,295.0,12,2,North America
+2026-08-21,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,14,106,155.0,295.0,12,0,North America
+2026-08-22,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,90,155.0,295.0,12,0,North America
+2026-08-23,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,14,76,155.0,295.0,12,1,North America
+2026-08-24,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,14,212,155.0,295.0,12,0,North America
+2026-08-25,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,195,155.0,295.0,12,0,North America
+2026-08-26,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,29,166,155.0,295.0,12,0,North America
+2026-08-27,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,145,155.0,295.0,12,0,North America
+2026-08-28,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,124,155.0,295.0,12,0,North America
+2026-08-29,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,8,116,155.0,295.0,12,0,North America
+2026-08-30,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,27,89,155.0,295.0,12,0,North America
+2026-08-31,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,68,155.0,295.0,12,0,North America
+2026-09-01,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,18,50,155.0,295.0,12,0,North America
+2026-09-02,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,15,185,155.0,295.0,12,0,North America
+2026-09-03,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,168,155.0,295.0,12,2,North America
+2026-09-04,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,149,155.0,295.0,12,0,North America
+2026-09-05,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,24,125,155.0,295.0,12,0,North America
+2026-09-06,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,109,155.0,295.0,12,0,North America
+2026-09-07,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,14,95,155.0,295.0,12,0,North America
+2026-09-08,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,74,155.0,295.0,12,0,North America
+2026-09-09,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,203,155.0,295.0,12,2,North America
+2026-09-10,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,190,155.0,295.0,12,2,North America
+2026-09-11,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,177,155.0,295.0,12,0,North America
+2026-09-12,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,160,155.0,295.0,12,0,North America
+2026-09-13,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,144,155.0,295.0,12,0,North America
+2026-09-14,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,28,116,155.0,295.0,12,0,North America
+2026-09-15,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,103,155.0,295.0,12,0,North America
+2026-09-16,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,90,155.0,295.0,12,2,North America
+2026-09-17,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,19,221,155.0,295.0,12,0,North America
+2026-09-18,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,201,155.0,295.0,12,0,North America
+2026-09-19,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,185,155.0,295.0,12,0,North America
+2026-09-20,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,18,167,155.0,295.0,12,0,North America
+2026-09-21,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,23,144,155.0,295.0,12,0,North America
+2026-09-22,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,128,155.0,295.0,12,0,North America
+2026-09-23,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,11,117,155.0,295.0,12,0,North America
+2026-09-24,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,21,96,155.0,295.0,12,0,North America
+2026-09-25,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,26,70,155.0,295.0,12,0,North America
+2026-09-26,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,53,155.0,295.0,12,0,North America
+2026-09-27,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,15,188,155.0,295.0,12,0,North America
+2026-09-28,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,25,163,155.0,295.0,12,0,North America
+2026-09-29,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,146,155.0,295.0,12,1,North America
+2026-09-30,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,124,155.0,295.0,12,0,North America
+2026-10-01,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,108,155.0,295.0,12,0,North America
+2026-10-02,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,91,155.0,295.0,12,2,North America
+2026-10-03,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,78,155.0,295.0,12,0,North America
+2026-10-04,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,215,155.0,295.0,12,0,North America
+2026-10-05,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,18,197,155.0,295.0,12,0,North America
+2026-10-06,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,24,173,155.0,295.0,12,0,North America
+2026-10-07,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,156,155.0,295.0,12,0,North America
+2026-10-08,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,12,144,155.0,295.0,12,0,North America
+2026-10-09,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,124,155.0,295.0,12,0,North America
+2026-10-10,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,12,112,155.0,295.0,12,0,North America
+2026-10-11,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,14,98,155.0,295.0,12,1,North America
+2026-10-12,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,226,155.0,295.0,12,2,North America
+2026-10-13,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,30,196,155.0,295.0,12,0,North America
+2026-10-14,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,176,155.0,295.0,12,1,North America
+2026-10-15,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,163,155.0,295.0,12,0,North America
+2026-10-16,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,18,145,155.0,295.0,12,1,North America
+2026-10-17,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,128,155.0,295.0,12,0,North America
+2026-10-18,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,15,113,155.0,295.0,12,0,North America
+2026-10-19,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,20,93,155.0,295.0,12,0,North America
+2026-10-20,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,77,155.0,295.0,12,0,North America
+2026-10-21,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,23,204,155.0,295.0,12,0,North America
+2026-10-22,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,13,191,155.0,295.0,12,0,North America
+2026-10-23,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,24,167,155.0,295.0,12,0,North America
+2026-10-24,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,10,157,155.0,295.0,12,0,North America
+2026-10-25,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,17,140,155.0,295.0,12,0,North America
+2026-10-26,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,16,124,155.0,295.0,12,2,North America
+2026-10-27,PRD-005,Embedded IoT Gateway,Electronics,SUP-101,Apex Micro Systems,22,102,155.0,295.0,12,0,North America

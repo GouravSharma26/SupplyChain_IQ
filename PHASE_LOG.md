@@ -1,0 +1,71 @@
+# SupplyChain IQ - Phase Log
+
+## Phase 0: Reconnaissance and Scope Freeze
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T16:02:00+05:30
+- **Changes:** Initialized git repository with remote `https://github.com/GouravSharma26/SupplyChain_IQ.git`, created `.gitignore` and `.env.example`. Detected Python 3.12.6 runtime on Windows. Scope frozen strictly to 24-Hour Quick Launch Plan.
+- **Commands/tests:** `python --version`, `git init`, `git remote add origin https://github.com/GouravSharma26/SupplyChain_IQ.git`.
+- **Actual results:** Python 3.12.6 identified, git repository initialized, remote registered.
+- **Browser/deployment evidence:** N/A (Setup phase).
+- **Blockers/limitations:** None.
+- **Next action:** Phase 1 (Data contract, sample data generation, and validation).
+
+---
+
+## Phase 1: Data Contract and Sample Data
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T16:03:30+05:30
+- **Changes:** Created `src/supplychain_iq/validation.py` and `src/supplychain_iq/data_loader.py`. Built deterministic sample data generator (180 days, 5 SKUs, seed=42) and bundled CSV in `data/sample_supply_chain.csv`. Implemented strict schema validation, type parsing, nonnegativity rules, missing value reporting, and duplicate row detection.
+- **Commands/tests:** `pytest tests/test_validation.py` (6 tests).
+- **Actual results:** Sample dataset (900 rows across 5 products, 180 days) generated and validated. All validation rules verified.
+- **Browser/deployment evidence:** Data Quality tab verified in real browser via Playwright.
+- **Blockers/limitations:** None.
+- **Next action:** Phase 2 (Analytics pipeline and KPI engine).
+
+---
+
+## Phase 2: Analytics Pipeline & KPIs
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T16:04:10+05:30
+- **Changes:** Created `src/supplychain_iq/analytics.py` implementing `calculate_kpis`, `filter_dataset`, `get_daily_demand_trend`, `get_product_demand_summary`, and `get_inventory_trend`. Adhered strictly to DATA_AND_METRICS.md: latest snapshot used for inventory valuation (never summing snapshots across dates), calendar days denominator for average daily demand, and supplier on-time rate calculation.
+- **Commands/tests:** `pytest tests/test_analytics.py` (3 tests).
+- **Actual results:** All KPI calculations pass unit tests with exact numerical verification.
+- **Browser/deployment evidence:** Executive Overview tab with cards and Plotly charts verified in real browser.
+- **Blockers/limitations:** None.
+- **Next action:** Phase 3 (Forecasting and chronological holdout evaluation).
+
+---
+
+## Phase 3: Demand Forecasting and Evaluation Benchmark
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T16:04:50+05:30
+- **Changes:** Created `src/supplychain_iq/forecasting.py`. Implemented regular continuous daily time-series preparation, chronological holdout split (no random shuffling), Naïve baseline benchmark, Holt Exponential Smoothing with additive trend, out-of-sample MAE & RMSE evaluation, and future horizon projection. Built nontechnical fallback when history < 28 days or fitting fails.
+- **Commands/tests:** `pytest tests/test_forecasting.py` (3 tests).
+- **Actual results:** Out-of-sample holdout evaluation verified. Model achieved MAE 17.00 vs Naïve baseline MAE 46.14 (+63.2% improvement).
+- **Browser/deployment evidence:** Demand Forecasting tab verified in real browser with interactive holdout chart.
+- **Blockers/limitations:** Minimum 28 days history threshold enforced to prevent model divergence on sparse series.
+- **Next action:** Phase 4 (Inventory decision support and scenario simulator).
+
+---
+
+## Phase 4: Inventory Decision Support & What-If Simulation
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T16:05:15+05:30
+- **Changes:** Created `src/supplychain_iq/inventory.py`. Implemented Reorder Point formula (`ROP = Lead-Time Demand + Safety Stock`), target stock calculation, suggested replenishment quantities, and stockout risk flags. Added what-if scenario controls (demand multiplier, lead time delay jitter, target cycle service levels 90%/95%/99%, review period). Disclosed decision support disclaimer.
+- **Commands/tests:** `pytest tests/test_inventory.py` (3 tests).
+- **Actual results:** Formula tests pass; changing demand multiplier and lead time updates ROP, safety stock, and suggested replenishment as expected.
+- **Browser/deployment evidence:** Inventory Planner & Simulator tab verified in real browser.
+- **Blockers/limitations:** None.
+- **Next action:** Phase 5 & 6 (Streamlit integration, automated testing, and local verification).
+
+---
+
+## Phase 5 & 6: Application Assembly, Automated Testing & Verification
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T16:11:00+05:30
+- **Changes:** Created `app.py` with multi-tab layout, custom styling, Plotly charts, and file upload. Created `pyproject.toml` and installed package in editable mode. Ran test suite and validated live application in real browser.
+- **Commands/tests:** `pytest -q` (15 tests passed in 2.73s). Started Streamlit on port 8501. Verified UI via Playwright browser tooling.
+- **Actual results:** 15 unit tests pass with zero warnings. Full user journey tested in browser: Executive Overview, Demand Forecast, Inventory Simulator, Data Quality audit, and invalid CSV error handling.
+- **Browser/deployment evidence:** Playwright browser snapshots taken and verified.
+- **Blockers/limitations:** None.
+- **Next action:** Phase 7, 8 & 9 (Git commit, GitHub push, deployment instructions, release report).
