@@ -69,3 +69,19 @@
 - **Browser/deployment evidence:** Playwright browser snapshots taken and verified.
 - **Blockers/limitations:** None.
 - **Next action:** Phase 7, 8 & 9 (Git commit, GitHub push, deployment instructions, release report).
+
+---
+
+## Phase 6.1: Audit Review, Hardening & CI Integration
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T16:34:00+05:30
+- **Changes:**
+  1. Corrected deficient-history metrics in `src/supplychain_iq/forecasting.py` and `app.py`: when fewer than 7 observations exist, MAE and RMSE are set to `None` and rendered as `N/A (Unavailable)` rather than `0.00`. Added regression test `test_severely_deficient_history_returns_none_metrics`.
+  2. Fixed inventory scenario consistency in `src/supplychain_iq/inventory.py`: scaled standard deviation of daily demand by `demand_multiplier` ($\sigma(c \cdot D) = c \cdot \sigma(D)$), so safety stock properly scales with volatility. Added regression test `test_demand_multiplier_scales_variability_and_safety_stock`.
+  3. Added GitHub Actions multi-version CI workflow (`.github/workflows/ci.yml`) on Python 3.11 and 3.12.
+  4. Updated test suite from 15 to 17 tests (all passing).
+- **Commands/tests:** `pytest -v` (17 passed in 2.95s).
+- **Actual results:** 17 tests passed with zero warnings.
+- **Browser/deployment evidence:** Streamlit app verified locally at `http://localhost:8501`.
+- **Blockers/limitations:** Streamlit Community Cloud public URL requires one-time OAuth authorization by repository owner.
+- **Next action:** Commit, push to `main`, and present release verification report.

@@ -649,35 +649,53 @@ def tab_forecasting(df_full: pd.DataFrame, selected_product: str):
             unsafe_allow_html=True,
         )
     with b3:
-        mae_diff = result.mae_baseline - result.mae_model
-        mae_pct = (mae_diff / result.mae_baseline * 100) if result.mae_baseline > 0 else 0
-        delta_color = "color: #10b981;" if mae_diff >= 0 else "color: #ef4444;"
+        if result.mae_model is not None and result.mae_baseline is not None:
+            mae_diff = result.mae_baseline - result.mae_model
+            mae_pct = (mae_diff / result.mae_baseline * 100) if result.mae_baseline > 0 else 0
+            delta_color = "color: #10b981;" if mae_diff >= 0 else "color: #ef4444;"
+            mae_val_str = f"{result.mae_model:.2f}"
+            mae_sub_str = f"Baseline MAE: {result.mae_baseline:.2f}"
+            delta_str = f'<span style="{delta_color} font-size: 0.8rem; font-weight: 700;">{mae_pct:+.1f}% vs Base</span>'
+        else:
+            mae_val_str = "N/A"
+            mae_sub_str = "Unavailable (Insufficient History)"
+            delta_str = '<span style="color: #94a3b8; font-size: 0.8rem; font-weight: 600;">Unavailable</span>'
+
         st.markdown(
             f"""
             <div class="kpi-card kpi-accent-emerald">
                 <div class="kpi-header">
                     <span class="kpi-title">Holdout MAE</span>
-                    <span style="{delta_color} font-size: 0.8rem; font-weight: 700;">{mae_pct:+.1f}% vs Base</span>
+                    {delta_str}
                 </div>
-                <div class="kpi-value">{result.mae_model:.2f}</div>
-                <div class="kpi-subtext">Baseline MAE: {result.mae_baseline:.2f}</div>
+                <div class="kpi-value">{mae_val_str}</div>
+                <div class="kpi-subtext">{mae_sub_str}</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
     with b4:
-        rmse_diff = result.rmse_baseline - result.rmse_model
-        rmse_pct = (rmse_diff / result.rmse_baseline * 100) if result.rmse_baseline > 0 else 0
-        rmse_color = "color: #10b981;" if rmse_diff >= 0 else "color: #ef4444;"
+        if result.rmse_model is not None and result.rmse_baseline is not None:
+            rmse_diff = result.rmse_baseline - result.rmse_model
+            rmse_pct = (rmse_diff / result.rmse_baseline * 100) if result.rmse_baseline > 0 else 0
+            rmse_color = "color: #10b981;" if rmse_diff >= 0 else "color: #ef4444;"
+            rmse_val_str = f"{result.rmse_model:.2f}"
+            rmse_sub_str = f"Baseline RMSE: {result.rmse_baseline:.2f}"
+            delta_rmse_str = f'<span style="{rmse_color} font-size: 0.8rem; font-weight: 700;">{rmse_pct:+.1f}% vs Base</span>'
+        else:
+            rmse_val_str = "N/A"
+            rmse_sub_str = "Unavailable (Insufficient History)"
+            delta_rmse_str = '<span style="color: #94a3b8; font-size: 0.8rem; font-weight: 600;">Unavailable</span>'
+
         st.markdown(
             f"""
             <div class="kpi-card kpi-accent-indigo">
                 <div class="kpi-header">
                     <span class="kpi-title">Holdout RMSE</span>
-                    <span style="{rmse_color} font-size: 0.8rem; font-weight: 700;">{rmse_pct:+.1f}% vs Base</span>
+                    {delta_rmse_str}
                 </div>
-                <div class="kpi-value">{result.rmse_model:.2f}</div>
-                <div class="kpi-subtext">Baseline RMSE: {result.rmse_baseline:.2f}</div>
+                <div class="kpi-value">{rmse_val_str}</div>
+                <div class="kpi-subtext">{rmse_sub_str}</div>
             </div>
             """,
             unsafe_allow_html=True,

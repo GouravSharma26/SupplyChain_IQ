@@ -27,13 +27,13 @@ class ForecastResult:
     test_end: str
     test_days: int
     forecast_horizon: int
-    mae_model: float
-    rmse_model: float
-    mae_baseline: float
-    rmse_baseline: float
-    historical_df: pd.DataFrame
-    test_df: pd.DataFrame
-    forecast_df: pd.DataFrame
+    mae_model: Optional[float] = None
+    rmse_model: Optional[float] = None
+    mae_baseline: Optional[float] = None
+    rmse_baseline: Optional[float] = None
+    historical_df: pd.DataFrame = field(default_factory=pd.DataFrame)
+    test_df: pd.DataFrame = field(default_factory=pd.DataFrame)
+    forecast_df: pd.DataFrame = field(default_factory=pd.DataFrame)
     warnings: List[str] = field(default_factory=list)
     fallback_used: bool = False
 
@@ -123,10 +123,10 @@ def generate_demand_forecast(
             test_end="N/A",
             test_days=0,
             forecast_horizon=horizon_days,
-            mae_model=0.0,
-            rmse_model=0.0,
-            mae_baseline=0.0,
-            rmse_baseline=0.0,
+            mae_model=None,
+            rmse_model=None,
+            mae_baseline=None,
+            rmse_baseline=None,
             historical_df=ts,
             test_df=empty_df,
             forecast_df=empty_df,

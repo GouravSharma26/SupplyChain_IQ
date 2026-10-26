@@ -40,6 +40,25 @@ def test_short_history_fallback():
     assert (result.forecast_df["forecast"] >= 0).all()
 
 
+def test_severely_deficient_history_returns_none_metrics():
+    # Only 4 days of data (< 7 days threshold for any evaluation split)
+    dates = pd.date_range("2026-05-01", periods=4, freq="D")
+    df = pd.DataFrame({
+        "date": dates,
+        "product_id": ["P1"] * 4,
+        "units_sold": [10, 12, 14, 11],
+    })
+
+    result = generate_demand_forecast(df, product_id="P1", horizon_days=7)
+    assert result.fallback_used is True
+    assert "Insufficient history" in result.warnings[0]
+    # Metrics must be None, NOT 0.0, to prevent misleading perception of perfect accuracy
+    assert result.mae_model is None
+    assert result.rmse_model is None
+    assert result.mae_baseline is None
+    assert result.rmse_baseline is None
+
+
 def test_chronological_holdout_and_evaluation():
     # 60 days of data (> 28 days threshold)
     dates = pd.date_range("2026-05-01", periods=60, freq="D")

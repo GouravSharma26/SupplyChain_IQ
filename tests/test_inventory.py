@@ -74,3 +74,32 @@ def test_what_if_scenario_lead_time_delta(inventory_sample_df):
 
     assert plan.lead_time_days == 10
     assert plan.lead_time_demand == 100.0  # 10 * 10
+
+
+def test_demand_multiplier_scales_variability_and_safety_stock():
+    # Variable daily demand series with non-zero standard deviation
+    dates = pd.date_range("2026-05-01", periods=20, freq="D")
+    sales = [10, 20, 15, 25, 10, 20, 15, 25, 10, 20, 15, 25, 10, 20, 15, 25, 10, 20, 15, 25]
+    df = pd.DataFrame({
+        "date": dates,
+        "product_id": ["SKU-VAR"] * 20,
+        "product_name": ["Variable Demand Sensor"] * 20,
+        "units_sold": sales,
+        "inventory_on_hand": [200] * 20,
+        "unit_cost": [30.0] * 20,
+        "lead_time_days": [7] * 20,
+    })
+
+    base_summary = calculate_inventory_plans(df, demand_multiplier=1.0)
+    base_plan = base_summary.plans[0]
+
+    # Double the demand multiplier to 2.0x
+    surge_summary = calculate_inventory_plans(df, demand_multiplier=2.0)
+    surge_plan = surge_summary.plans[0]
+
+    # Verify that standard deviation scales with the multiplier: σ(2·D) = 2·σ(D)
+    assert surge_plan.avg_daily_demand == round(base_plan.avg_daily_demand * 2.0, 2)
+    assert round(surge_plan.std_daily_demand, 1) == round(base_plan.std_daily_demand * 2.0, 1)
+    
+    # Consequently, safety stock must be higher under the surged scenario
+    assert surge_plan.safety_stock > base_plan.safety_stock

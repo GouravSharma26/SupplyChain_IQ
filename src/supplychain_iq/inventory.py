@@ -129,17 +129,20 @@ def calculate_inventory_plans(
         scenario_daily_demand = max(0.0, base_daily_demand * demand_multiplier)
 
         # Daily sales standard deviation for safety stock calculation
-        # Group sales by date to form daily series
+        # Baseline standard deviation of observed daily demand
         daily_units = group.groupby("date")["units_sold"].sum()
-        std_daily_demand = float(daily_units.std()) if len(daily_units) > 1 else (scenario_daily_demand * 0.25)
-        if np.isnan(std_daily_demand) or std_daily_demand == 0:
-            std_daily_demand = scenario_daily_demand * 0.25
+        base_std_demand = float(daily_units.std()) if len(daily_units) > 1 else (base_daily_demand * 0.25)
+        if np.isnan(base_std_demand) or base_std_demand == 0:
+            base_std_demand = base_daily_demand * 0.25
+
+        # In scenario simulation, scaling demand by c scales standard deviation by c: σ(c·D) = c·σ(D)
+        scenario_std_daily_demand = max(0.0, base_std_demand * demand_multiplier)
 
         # 1. Lead-time demand = avg_daily_demand * lead_time
         lead_time_demand = scenario_daily_demand * scenario_lead_time
 
         # 2. Safety stock = Z * sigma_demand * sqrt(lead_time)
-        safety_stock = int(np.ceil(z_factor * std_daily_demand * np.sqrt(scenario_lead_time)))
+        safety_stock = int(np.ceil(z_factor * scenario_std_daily_demand * np.sqrt(scenario_lead_time)))
 
         # 3. Reorder point = lead_time_demand + safety_stock
         reorder_point = int(np.ceil(lead_time_demand + safety_stock))
@@ -171,7 +174,7 @@ def calculate_inventory_plans(
             unit_cost=unit_cost,
             lead_time_days=scenario_lead_time,
             avg_daily_demand=round(scenario_daily_demand, 2),
-            std_daily_demand=round(std_daily_demand, 2),
+            std_daily_demand=round(scenario_std_daily_demand, 2),
             lead_time_demand=round(lead_time_demand, 1),
             safety_stock=safety_stock,
             reorder_point=reorder_point,
