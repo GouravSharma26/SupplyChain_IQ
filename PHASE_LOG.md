@@ -97,3 +97,31 @@
 - **Browser/deployment evidence:** Verified live with Playwright browser tooling. Public URL active and responsive.
 - **Blockers/limitations:** None. All 24-hour quick-launch acceptance criteria and release gates have passed.
 - **Next action:** Final release documentation and freeze.
+
+---
+
+## Phase 6.2: CI Cross-Version Hardening (Python 3.11 & 3.12 Acceptance Gate)
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T17:10:00+05:30
+- **Tested Application Commit:** `b74a458`
+- **Documentation Update Commit:** Current `HEAD` (doc updates only)
+- **Changes:**
+  1. Resolved Python 3.11 CI failure from run `40313960076` where `numpy==2.5.4` was pinned and unavailable on Python 3.11.
+  2. Declared deliberate, reproducible cross-version dependency bounds in `requirements.txt` (saved in UTF-8) and `pyproject.toml`:
+     - `streamlit>=1.35.0,<2.0.0`
+     - `pandas>=2.1.0,<3.0.0`
+     - `numpy>=1.24.0,<2.2.0`
+     - `plotly>=5.15.0,<6.0.0`
+     - `statsmodels>=0.14.0,<0.16.0`
+     - `scikit-learn>=1.3.0,<1.6.0`
+     - `pytest>=8.0.0,<9.2.0`
+  3. Updated `README.md` to reflect 17 unit tests passing.
+  4. Preserved all existing regression tests (deficient history fallback and demand variability scaling).
+- **Commands/tests:** Local `pytest -v` (17 passed in 3.79s); GitHub Actions CI run `40316438959`.
+- **Actual results:**
+  - GitHub Actions Workflow Run: [https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40316438959](https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40316438959) (Status: **success**).
+  - Matrix Job `test (3.11)`: Job 121550098466 — **PASS** (17/17 tests passed in 50s).
+  - Matrix Job `test (3.12)`: Job 121550098615 — **PASS** (17/17 tests passed in 48s).
+- **Browser/deployment evidence:** Public deployment active at `https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/`.
+- **Blockers/limitations:** None. Release gate is completely satisfied. Full roadmap remains frozen until explicitly directed.
+
