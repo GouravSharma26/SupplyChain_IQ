@@ -20,7 +20,7 @@
 - [x] Add unit tests for inventory
 - [x] Run tests and record actual output (15 passed)
 - [x] Launch locally and check logs
-- [ ] Push repository to GitHub (in progress)
+- [x] Push repository to GitHub (pushed to origin/main)
 - [ ] Deploy application (hosting platform connection)
 - [x] Verify local URL in browser (Playwright verified)
 - [x] Test valid/invalid uploads (verified in browser)
