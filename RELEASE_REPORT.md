@@ -1,7 +1,7 @@
 # SupplyChain IQ Release Report
 
-- **Release Date/Time:** 2026-10-26 16:45 IST
-- **Commit SHA:** `9245e40`
+- **Release Date/Time:** 2026-10-26 16:47 IST
+- **Commit SHA:** `400eddd`
 - **Target Branch:** `main`
 - **Repository URL:** [https://github.com/GouravSharma26/SupplyChain_IQ.git](https://github.com/GouravSharma26/SupplyChain_IQ.git)
 - **Verified Public URL:** [https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/](https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/)
