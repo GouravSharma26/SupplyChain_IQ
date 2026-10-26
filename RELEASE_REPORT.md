@@ -1,17 +1,16 @@
 # SupplyChain IQ Release Report
 
-- **Release Date/Time:** 2026-10-26 17:10 IST
-- **Tested Application Commit SHA:** `b74a458` (fix(ci): make dependencies compatible with Python 3.11 and 3.12)
-- **Documentation Update Commit SHA:** Current `HEAD` (documentation only; application code unchanged)
+- **Release Date/Time:** 2026-10-26 18:55 IST
+- **Tested Application Commit SHA:** `7992ede` (fix(app): add graceful try-except fallback for SQLAlchemy imports in hosted environments)
 - **Target Branch:** `main`
 - **Repository URL:** [https://github.com/GouravSharma26/SupplyChain_IQ.git](https://github.com/GouravSharma26/SupplyChain_IQ.git)
 - **Verified Public URL:** [https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/](https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/)
 - **Local Application URL:** `http://localhost:8501`
 - **Deployment Platform:** Streamlit Community Cloud
-- **Verified CI Run:** [Run 40316438959](https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40316438959) (Status: **PASS / SUCCESS**)
-  - **Python 3.11 Matrix Job:** [Job 121550098466](https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40316438959/job/121550098466) — **PASS** (17/17 tests passed in 50s)
-  - **Python 3.12 Matrix Job:** [Job 121550098615](https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40316438959/job/121550098615) — **PASS** (17/17 tests passed in 48s)
-- **Runtime Environment & Constraints:** Python 3.11 and 3.12 compatible. Dependencies: `streamlit>=1.35.0,<2.0.0`, `pandas>=2.1.0,<3.0.0`, `numpy>=1.24.0,<2.2.0`, `plotly>=5.15.0,<6.0.0`, `statsmodels>=0.14.0,<0.16.0`, `scikit-learn>=1.3.0,<1.6.0`, `pytest>=8.0.0,<9.2.0`.
+- **Verified CI Run:** [Run 40330372983](https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40330372983) (Status: **PASS / SUCCESS**)
+  - **Python 3.11 Matrix Job:** PASS (39/39 tests passed)
+  - **Python 3.12 Matrix Job:** PASS (39/39 tests passed)
+- **Runtime Environment & Constraints:** Python 3.11 and 3.12 compatible. Dependencies: `streamlit>=1.35.0,<2.0.0`, `pandas>=2.1.0,<3.0.0`, `numpy>=1.24.0,<2.2.0`, `plotly>=5.15.0,<6.0.0`, `statsmodels>=0.14.0,<0.16.0`, `scikit-learn>=1.3.0,<1.6.0`, `pytest>=8.0.0,<9.2.0`, `SQLAlchemy>=2.0.0,<2.1.0`.
 
 ---
 
@@ -23,14 +22,15 @@
 | CSV validation works | **PASS** | Tested in `tests/test_validation.py` (6 tests) and in real browser with malformed CSV upload (`test_invalid.csv` returned explicit missing column error). |
 | KPIs and charts render | **PASS** | Total Units Sold (`28,441`), Avg Daily Demand (`158.0/day`), Latest Stock Value (`$70,219.50`), Lead Time (`9.4d`), and Stockout Risks (`4/5`) rendered with Plotly charts on hosted app. |
 | Forecast baseline and model comparison work | **PASS** | Holt Exponential Smoothing evaluated against Naïve Baseline (Last Value) on chronological 14-day holdout. Model MAE: `17.00` vs Baseline MAE: `46.14` (+63.2% improvement). |
-| Chronological holdout and metrics verified | **PASS** | Strictly sequential split (Train: 2026-05-01 to 2026-10-13, Holdout: 2026-10-14 to 2026-10-27). Verified in `tests/test_forecasting.py`. |
-| Insufficient history error handling | **PASS** | For series with < 7 observations, MAE and RMSE are set to `None` and rendered as `N/A` with explicit warning, preventing misinterpretation as 0.0 / "perfect accuracy". Verified in unit test. |
-| Inventory calculations & scenario consistency verified | **PASS** | Safety stock ($Z \times \sigma \times \sqrt{L}$), Reorder Point ($ROP$), target stock, suggested replenishment. What-if demand multiplier scales both daily demand and standard deviation ($\sigma(c \cdot D) = c \cdot \sigma(D)$), scaling safety stock consistently. |
-| Unit tests pass | **PASS** | **17/17 tests passed** locally and on CI under both Python 3.11 and 3.12 with zero warnings (`pytest -v`). |
-| Local browser journey passes | **PASS** | Verified via Playwright browser tooling: Operational Overview, Demand Forecast, Inventory Simulator, and Data Quality audit tabs all verified. |
-| CI Pipeline Multi-Version Active & Verified | **PASS** | Automated GitHub Actions CI workflow ([Run 40316438959](https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40316438959)) passed on commit `b74a458` for both Python 3.11 and 3.12. |
-| Deployed URL opens | **PASS** | Verified live in browser at `https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/`. |
-| Hosted primary workflow passes | **PASS** | Full user journey and all 4 tabs verified live on the hosted Streamlit Community Cloud instance. |
+| Rolling-Origin Backtesting (Phase 4) | **PASS** | Expanding-window multi-fold backtesting evaluated across rolling origins without data leakage. Evaluates Holt, Seasonal Naïve (7d cyclical), and Naïve using WAPE, MAE, and RMSE across all SKUs. |
+| Supplier Fulfillment & Scorecards (Phase 3) | **PASS** | Scorecard with empirical on-time rate %, lead time distributions, SLA risk tiers, Pareto ABC inventory classification, and executive insight cards with explicit caveats. |
+| Machine Learning Supplier Delay Risk (Phase 5) | **PASS** | Random Forest Classifier vs Majority Class Baseline, Gradient Boosting Regressor vs Mean Delay Baseline, strict target leakage exclusion (pre-shipment features only), feature importances, and interactive new PO risk simulator. |
+| Multi-Period Policy Simulation (Phase 6) | **PASS** | Historical trace simulation comparing Lean JIT (90%), Balanced Standard (95%), Resilient Buffer (99%) on fill rate %, unmet demand, and holding capital; lead-time delay sensitivity analysis sweeping 0–10d disruption. |
+| Insufficient history error handling | **PASS** | For series with deficient history, metrics degrade gracefully with explicit nontechnical explanations instead of crashing. |
+| Automated Unit tests pass | **PASS** | **39/39 tests passed** locally and on CI under both Python 3.11 and 3.12 with zero warnings (`pytest -v`). |
+| Local browser journey passes | **PASS** | Verified via Playwright browser tooling: Operational Overview, Demand Forecast, Inventory Simulator, Supplier Risk, and Data Quality audit tabs all verified. |
+| CI Pipeline Multi-Version Active & Verified | **PASS** | Automated GitHub Actions CI workflow ([Run 40330372983](https://github.com/GouravSharma26/SupplyChain_IQ/actions/runs/40330372983)) passed for both Python 3.11 and 3.12. |
+| Deployed URL opens & verified live | **PASS** | Verified live via Playwright browser tooling at `https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/`. All 5 tabs, tables, charts, and interactive simulators operate cleanly. |
 
 ---
 
@@ -38,26 +38,47 @@
 - **Test Command:** `pytest -v`
 - **Actual Output:**
 ```text
-tests/test_analytics.py::test_kpi_units_and_inventory_valuation PASSED   [  5%]
-tests/test_analytics.py::test_filter_dataset PASSED                      [ 11%]
-tests/test_analytics.py::test_daily_demand_trend PASSED                  [ 17%]
-tests/test_forecasting.py::test_calculate_metrics PASSED                 [ 23%]
-tests/test_forecasting.py::test_short_history_fallback PASSED            [ 29%]
-tests/test_forecasting.py::test_severely_deficient_history_returns_none_metrics PASSED [ 35%]
-tests/test_forecasting.py::test_chronological_holdout_and_evaluation PASSED [ 41%]
-tests/test_inventory.py::test_reorder_point_and_replenishment PASSED     [ 47%]
-tests/test_inventory.py::test_what_if_scenario_demand_multiplier PASSED  [ 52%]
-tests/test_inventory.py::test_what_if_scenario_lead_time_delta PASSED    [ 58%]
+tests/test_analytics.py::test_kpi_units_and_inventory_valuation PASSED   [  2%]
+tests/test_analytics.py::test_filter_dataset PASSED                      [  5%]
+tests/test_analytics.py::test_daily_demand_trend PASSED                  [  7%]
+tests/test_analytics.py::test_supplier_scorecard_and_risk_tiers PASSED   [ 10%]
+tests/test_analytics.py::test_product_mix_abc_pareto PASSED              [ 12%]
+tests/test_analytics.py::test_generate_executive_insights PASSED         [ 15%]
+tests/test_database.py::test_init_db_creates_all_tables PASSED           [ 17%]
+tests/test_database.py::test_entity_relationships_and_foreign_keys PASSED [ 20%]
+tests/test_database.py::test_schema_constraints_enforce_valid_data PASSED [ 23%]
+tests/test_database.py::test_etl_loading_and_idempotency PASSED          [ 25%]
+tests/test_database.py::test_query_curated_dataframe PASSED              [ 28%]
+tests/test_database.py::test_query_supplier_fulfillment_metrics PASSED   [ 30%]
+tests/test_database.py::test_etl_rejects_malformed_dataframe PASSED      [ 33%]
+tests/test_forecasting.py::test_calculate_metrics PASSED                 [ 35%]
+tests/test_forecasting.py::test_short_history_fallback PASSED            [ 38%]
+tests/test_forecasting.py::test_severely_deficient_history_returns_none_metrics PASSED [ 41%]
+tests/test_forecasting.py::test_chronological_holdout_and_evaluation PASSED [ 43%]
+tests/test_forecasting.py::test_calculate_wape PASSED                    [ 46%]
+tests/test_forecasting.py::test_seasonal_naive_forecast PASSED           [ 48%]
+tests/test_forecasting.py::test_evaluate_rolling_origin_backtest PASSED  [ 51%]
+tests/test_forecasting.py::test_benchmark_all_skus PASSED                [ 53%]
+tests/test_inventory.py::test_reorder_point_and_replenishment PASSED     [ 56%]
+tests/test_inventory.py::test_what_if_scenario_demand_multiplier PASSED  [ 58%]
+tests/test_inventory.py::test_what_if_scenario_lead_time_delta PASSED    [ 61%]
 tests/test_inventory.py::test_demand_multiplier_scales_variability_and_safety_stock PASSED [ 64%]
-tests/test_validation.py::test_valid_dataset PASSED                      [ 70%]
-tests/test_validation.py::test_empty_dataset PASSED                      [ 76%]
-tests/test_validation.py::test_missing_required_columns PASSED           [ 82%]
-tests/test_validation.py::test_invalid_dates_and_negative_values PASSED  [ 88%]
-tests/test_validation.py::test_product_name_fallback_when_absent PASSED  [ 94%]
+tests/test_ml.py::test_target_leakage_exclusions PASSED                  [ 66%]
+tests/test_ml.py::test_supplier_risk_model_training_and_evaluation PASSED [ 69%]
+tests/test_ml.py::test_inference_on_new_order PASSED                     [ 71%]
+tests/test_ml.py::test_insufficient_order_history_fallback PASSED        [ 74%]
+tests/test_ml.py::test_synthesize_orders_from_demand_data PASSED         [ 76%]
+tests/test_simulation.py::test_simulate_inventory_policy_metrics PASSED  [ 79%]
+tests/test_simulation.py::test_compare_standard_policies_tradeoff PASSED [ 82%]
+tests/test_simulation.py::test_lead_time_sensitivity_analysis PASSED     [ 84%]
+tests/test_validation.py::test_valid_dataset PASSED                      [ 87%]
+tests/test_validation.py::test_empty_dataset PASSED                      [ 89%]
+tests/test_validation.py::test_missing_required_columns PASSED           [ 92%]
+tests/test_validation.py::test_invalid_dates_and_negative_values PASSED  [ 94%]
+tests/test_validation.py::test_product_name_fallback_when_absent PASSED  [ 97%]
 tests/test_validation.py::test_exact_duplicates_handling PASSED          [100%]
-============================== 17 passed in 2.95s ==============================
 ```
-- **Total Tests:** 17 passed, 0 failed, 0 skipped.
+- **Total Tests:** 39 passed, 0 failed, 0 skipped in 3.40s.
 
 ---
 
