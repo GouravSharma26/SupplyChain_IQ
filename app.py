@@ -24,8 +24,18 @@ from supplychain_iq.data_loader import (
     DATA_PROVENANCE_NOTE,
     SAMPLE_DATA_PATH,
 )
-from supplychain_iq.db.database import get_db_engine, get_db_session, init_db
-from supplychain_iq.db.etl import load_from_curated_dataframe, query_curated_dataframe
+try:
+    from supplychain_iq.db.database import get_db_engine, get_db_session, init_db
+    from supplychain_iq.db.etl import load_from_curated_dataframe, query_curated_dataframe
+    HAS_DB = True
+except (ImportError, ModuleNotFoundError):
+    HAS_DB = False
+    get_db_engine = None
+    get_db_session = None
+    init_db = None
+    load_from_curated_dataframe = None
+    query_curated_dataframe = None
+
 from supplychain_iq.validation import (
     REQUIRED_COLUMNS,
     OPTIONAL_COLUMNS,
@@ -285,13 +295,14 @@ def render_sidebar():
     st.sidebar.markdown("---")
     st.sidebar.markdown("##### ⌖ Data Ingestion Stream")
 
+    ingestion_options = ["Deterministic Benchmark Data (180d)"]
+    if HAS_DB:
+        ingestion_options.append("Relational Database (SQLite/PostgreSQL)")
+    ingestion_options.append("Upload Operational CSV")
+
     data_source_mode = st.sidebar.radio(
         "Ingestion Source:",
-        [
-            "Deterministic Benchmark Data (180d)",
-            "Relational Database (SQLite/PostgreSQL)",
-            "Upload Operational CSV",
-        ],
+        ingestion_options,
         index=0,
         help="Use deterministic pre-bundled supply chain dataset, query relational database, or upload an operational CSV."
     )
@@ -303,21 +314,25 @@ def render_sidebar():
         df_clean, report = load_sample_dataset()
         st.sidebar.success(f"✓ Loaded {len(df_clean)} records across 5 SKUs")
     elif data_source_mode == "Relational Database (SQLite/PostgreSQL)":
-        try:
-            engine = get_db_engine()
-            init_db(engine)
-            with get_db_session(engine) as session:
-                df_db = query_curated_dataframe(session)
-                if df_db.empty:
-                    # Auto-seed if database is currently empty
-                    sample_df, _ = load_sample_dataset()
-                    load_from_curated_dataframe(session, sample_df)
+        if HAS_DB and get_db_engine is not None:
+            try:
+                engine = get_db_engine()
+                init_db(engine)
+                with get_db_session(engine) as session:
                     df_db = query_curated_dataframe(session)
-            df_clean, report = validate_and_clean_dataset(df_db)
-            st.sidebar.success(f"✓ Queried {len(df_clean)} rows from relational database")
-        except Exception as e:
-            st.sidebar.error(f"Database query failed: {str(e)}")
-            df_clean, report = pd.DataFrame(), ValidationReport(error_message=str(e))
+                    if df_db.empty:
+                        # Auto-seed if database is currently empty
+                        sample_df, _ = load_sample_dataset()
+                        load_from_curated_dataframe(session, sample_df)
+                        df_db = query_curated_dataframe(session)
+                df_clean, report = validate_and_clean_dataset(df_db)
+                st.sidebar.success(f"✓ Queried {len(df_clean)} rows from relational database")
+            except Exception as e:
+                st.sidebar.error(f"Database query failed: {str(e)}")
+                df_clean, report = pd.DataFrame(), ValidationReport(error_message=str(e))
+        else:
+            st.sidebar.warning("SQLAlchemy is not available in this environment; falling back to benchmark dataset.")
+            df_clean, report = load_sample_dataset()
     else:
         uploaded_file = st.sidebar.file_uploader(
             "Upload Operations CSV",
