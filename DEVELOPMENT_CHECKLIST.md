@@ -34,12 +34,12 @@
 - [x] PostgreSQL/relational schema and models (SQLAlchemy 2.0 multi-entity models: `suppliers`, `products`, `daily_demand`, `inventory_snapshots`, `purchase_orders`)
 - [x] Idempotent ingestion and reconciliation (`python -m supplychain_iq.db.seed`, verified 0 duplicates on repeated runs)
 - [x] Raw/staging/curated data layers (validation gate, staging normalization, curated upserts)
-- [ ] Supplier performance analytics
-- [ ] Forecast rolling-origin backtesting
-- [ ] Seasonal baseline and additional models where justified
+- [x] Supplier performance analytics (scorecard, on-time delivery rates, delay duration, risk tier classification)
+- [x] Forecast rolling-origin backtesting (expanding-window multi-fold evaluation across rolling cutoffs)
+- [x] Seasonal baseline and additional models where justified (Seasonal Naïve 7-day lag vs Holt Exponential Smoothing vs Naïve, evaluated via WAPE, MAE, RMSE)
 - [ ] Regression/delay prediction only if labels support it
 - [ ] Inventory policy simulation and sensitivity analysis
-- [ ] CSV/report export
+- [x] CSV/report export (downloadable CSVs for Supplier Scorecard, ABC Product Mix, and Holdout Residuals)
 - [ ] Optional grounded AI explanations
 - [ ] CI workflow and dependency checks
 - [ ] Containerized local environment if useful

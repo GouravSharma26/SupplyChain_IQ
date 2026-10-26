@@ -10,6 +10,9 @@ from supplychain_iq.analytics import (
     filter_dataset,
     get_daily_demand_trend,
     get_product_demand_summary,
+    calculate_supplier_scorecard,
+    calculate_product_mix_abc,
+    generate_executive_insights,
 )
 
 
@@ -74,3 +77,44 @@ def test_daily_demand_trend(sample_analytics_df):
     assert len(trend) == 3
     # Day 1: 30, Day 2: 40, Day 3: 50
     assert trend["units_sold"].tolist() == [30, 40, 50]
+
+
+def test_supplier_scorecard_and_risk_tiers(sample_analytics_df):
+    df_with_sup = sample_analytics_df.copy()
+    df_with_sup["supplier_id"] = ["SUP-A", "SUP-B"] * 3
+    df_with_sup["supplier_name"] = ["Supplier Alpha", "Supplier Beta"] * 3
+
+    scorecard = calculate_supplier_scorecard(df_with_sup)
+    assert len(scorecard) == 2
+    assert "on_time_rate_pct" in scorecard.columns
+    assert "risk_tier" in scorecard.columns
+
+    sup_a = scorecard[scorecard["supplier_id"] == "SUP-A"].iloc[0]
+    # SUP-A has delays: 0, 0, -1 -> all <= 0 -> 100% on-time -> Low risk
+    assert sup_a["on_time_rate_pct"] == 100.0
+    assert sup_a["risk_tier"] == "Low"
+
+
+def test_product_mix_abc_pareto(sample_analytics_df):
+    abc_df = calculate_product_mix_abc(sample_analytics_df)
+    assert len(abc_df) == 2
+    assert "abc_classification" in abc_df.columns
+    assert "cum_value_share_pct" in abc_df.columns
+
+    # Latest inventory values: P2 is 160*20 = 3200 (80%), P1 is 80*10 = 800 (20%)
+    # P2 is top value item -> Class A or B
+    assert abc_df.iloc[0]["product_id"] == "P2"
+    assert abc_df.iloc[0]["inventory_value"] == 3200.0
+
+
+def test_generate_executive_insights(sample_analytics_df):
+    insights = generate_executive_insights(sample_analytics_df)
+    assert len(insights) >= 2
+    for ins in insights:
+        assert "domain" in ins
+        assert "metric" in ins
+        assert "time_range" in ins
+        assert "benchmark" in ins
+        assert "caveat" in ins
+        assert "recommendation" in ins
+

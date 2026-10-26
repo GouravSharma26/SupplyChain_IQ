@@ -38,8 +38,16 @@ from supplychain_iq.analytics import (
     get_daily_demand_trend,
     get_product_demand_summary,
     get_inventory_trend,
+    calculate_supplier_scorecard,
+    calculate_product_mix_abc,
+    generate_executive_insights,
 )
-from supplychain_iq.forecasting import generate_demand_forecast, MIN_HISTORY_FOR_MODEL
+from supplychain_iq.forecasting import (
+    generate_demand_forecast,
+    evaluate_rolling_origin_backtest,
+    benchmark_all_skus,
+    MIN_HISTORY_FOR_MODEL,
+)
 from supplychain_iq.inventory import (
     calculate_inventory_plans,
     SERVICE_LEVEL_Z,
@@ -811,6 +819,56 @@ def tab_forecasting(df_full: pd.DataFrame, selected_product: str):
             view_test["date"] = view_test["date"].dt.strftime("%Y-%m-%d")
             st.dataframe(view_test, use_container_width=True)
 
+    # Phase 4: Rolling-Origin Expanding Window Backtesting Benchmark
+    st.markdown("---")
+    st.markdown("##### ⬡ Rolling-Origin Multi-Fold Backtest & Multi-Model Benchmark")
+    st.markdown(
+        """
+        <div class="notice-card">
+            <strong>Expanding-Window Rolling Evaluation:</strong> Unlike a single static holdout, rolling-origin backtesting
+            evaluates models across successive chronological origins (folds). This measures model robustness across varying demand regimes
+            without data leakage. Metrics report out-of-sample MAE, RMSE, and <strong>WAPE</strong> (Weighted Absolute Percentage Error),
+            which avoids division-by-zero on intermittent demand days where standard MAPE fails.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    rolling_report = evaluate_rolling_origin_backtest(
+        df_full,
+        product_id=f_product,
+        initial_train_days=45,
+        horizon_days=f_horizon,
+        step_days=14,
+    )
+
+    if rolling_report.total_folds > 0:
+        c_roll1, c_roll2 = st.columns([1, 1])
+        with c_roll1:
+            st.markdown(f"**Target Series Benchmark ({rolling_report.total_folds} Rolling Folds):**")
+            st.dataframe(rolling_report.to_summary_table(), use_container_width=True)
+            st.caption(f"🏆 Top Performing Model: **{rolling_report.best_model}**")
+
+        with c_roll2:
+            st.markdown("**Enterprise Cross-SKU Benchmark Matrix:**")
+            sku_benchmark = benchmark_all_skus(df_full, initial_train_days=45, horizon_days=f_horizon, step_days=14)
+            if not sku_benchmark.empty:
+                st.dataframe(
+                    sku_benchmark.rename(columns={
+                        "product_id": "SKU",
+                        "folds": "Folds",
+                        "naive_mae": "Naïve MAE",
+                        "seasonal_mae": "Seasonal MAE",
+                        "holt_mae": "Holt MAE",
+                        "best_model": "Top Model",
+                        "holt_wape_pct": "Holt WAPE (%)",
+                    }),
+                    use_container_width=True,
+                )
+    else:
+        st.info("Rolling-origin backtesting requires at least 59 calendar days of history.")
+
+
 
 def tab_inventory_planner(df_filtered: pd.DataFrame):
     """Renders Reorder Point Optimization and What-If Scenario Simulator."""
@@ -985,6 +1043,104 @@ def tab_inventory_planner(df_filtered: pd.DataFrame):
         st.plotly_chart(fig_bar, use_container_width=True)
 
 
+def tab_supplier_risk(df_filtered: pd.DataFrame):
+    """Renders Phase 3 Supplier Fulfillment Scorecard, Pareto ABC mix, and Executive Insights."""
+    st.markdown(
+        """
+        <div class="notice-card">
+            <strong>Supplier Performance & Working Capital Optimization (Plan B Phase 3):</strong>
+            Monitors empirical fulfillment reliability, delivery delay jitter against baseline SLAs,
+            and Pareto ABC working capital concentration to guide inventory risk buffering.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # 1. Executive Business Insights
+    st.markdown("##### ◈ Executive Decision Insights & Caveats")
+    insights = generate_executive_insights(df_filtered)
+    if insights:
+        for ins in insights:
+            st.markdown(
+                f"""
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin-bottom: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                        <span style="font-weight: 700; color: #0f172a; font-size: 0.92rem;">{ins['domain']}</span>
+                        <span style="font-size: 0.75rem; color: #64748b; background: #f1f5f9; padding: 2px 8px; border-radius: 4px;">{ins['time_range']}</span>
+                    </div>
+                    <div style="font-size: 1.05rem; font-weight: 800; color: #1e293b; margin-bottom: 4px;">{ins['metric']}</div>
+                    <div style="font-size: 0.82rem; color: #475569; margin-bottom: 4px;"><strong>Target Benchmark:</strong> {ins['benchmark']}</div>
+                    <div style="font-size: 0.8rem; color: #dc2626; margin-bottom: 4px;"><strong>Caveat / Limitation:</strong> {ins['caveat']}</div>
+                    <div style="font-size: 0.82rem; color: #059669;"><strong>Actionable Recommendation:</strong> {ins['recommendation']}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+    st.markdown("<div style='height: 16px;'></div>", unsafe_allow_html=True)
+
+    # 2. Supplier Fulfillment Scorecard & Pareto ABC Mix
+    col_sup, col_abc = st.columns([1, 1])
+    with col_sup:
+        st.markdown("##### ⏱ Supplier Fulfillment Scorecard & SLA Risk")
+        scorecard = calculate_supplier_scorecard(df_filtered)
+        if not scorecard.empty:
+            st.dataframe(
+                scorecard.rename(columns={
+                    "supplier_id": "Supplier ID",
+                    "supplier_name": "Supplier Name",
+                    "avg_lead_time_days": "Lead Time (d)",
+                    "on_time_rate_pct": "On-Time (%)",
+                    "avg_delay_days": "Avg Delay (d)",
+                    "max_delay_days": "Max Delay (d)",
+                    "risk_tier": "Risk Tier",
+                    "total_observations": "Orders/Obs",
+                }),
+                use_container_width=True,
+            )
+            csv_sup = scorecard.to_csv(index=False).encode("utf-8")
+            st.download_button(
+                "⬇ Download Supplier Scorecard (CSV)",
+                data=csv_sup,
+                file_name="supplier_scorecard.csv",
+                mime="text/csv",
+            )
+        else:
+            st.info("No supplier metadata available in the active dataset.")
+
+    with col_abc:
+        st.markdown("##### ⬡ Pareto ABC Product Mix & Valuation Concentration")
+        abc_df = calculate_product_mix_abc(df_filtered)
+        if not abc_df.empty:
+            st.dataframe(
+                abc_df[[
+                    "product_id",
+                    "product_name",
+                    "inventory_value",
+                    "value_share_pct",
+                    "cum_value_share_pct",
+                    "abc_classification",
+                ]].rename(columns={
+                    "product_id": "SKU",
+                    "product_name": "Name",
+                    "inventory_value": "Stock Value ($)",
+                    "value_share_pct": "Share (%)",
+                    "cum_value_share_pct": "Cum Share (%)",
+                    "abc_classification": "Class",
+                }),
+                use_container_width=True,
+            )
+            csv_abc = abc_df.to_csv(index=False).encode("utf-8")
+            st.download_button(
+                "⬇ Download ABC Classification (CSV)",
+                data=csv_abc,
+                file_name="product_mix_abc.csv",
+                mime="text/csv",
+            )
+        else:
+            st.info("No inventory valuation available for ABC classification.")
+
+
 def tab_data_quality(report, df_clean: pd.DataFrame):
     """Renders Data Quality Report, Contract Validation, and Provenance."""
     if report is None:
@@ -1139,11 +1295,12 @@ def main():
         return
 
     # Primary Navigation Tabs with clean modern symbols
-    tab1, tab2, tab3, tab4 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "◈ Operational Overview",
-        "⌖ Demand Forecasting",
+        "⌖ Demand Forecasting & Benchmarks",
         "⚡ Inventory Simulator",
-        "✦ Data Quality & Audit",
+        "🛡 Supplier Scorecard & Risk",
+        "✦ Data Quality & Relational Audit",
     ])
 
     with tab1:
@@ -1156,6 +1313,9 @@ def main():
         tab_inventory_planner(df_filtered)
 
     with tab4:
+        tab_supplier_risk(df_filtered)
+
+    with tab5:
         tab_data_quality(report, df_clean)
 
 

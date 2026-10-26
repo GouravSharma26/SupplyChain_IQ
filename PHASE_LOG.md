@@ -144,3 +144,28 @@
 - **Blockers/limitations:** None.
 - **Next action:** Plan B — Phase 3 & 4 (Supplier Performance Analytics & Rolling-Origin Forecast Evaluation).
 
+---
+
+## Plan B — Phase 3 & 4: Supplier Analytics, Pareto ABC Mix & Rolling-Origin Forecasting
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T18:35:00+05:30
+- **Changes:**
+  1. Implemented Phase 3 Business Analytics in `src/supplychain_iq/analytics.py`:
+     - `calculate_supplier_scorecard`: empirical on-time rate %, average/max delay days, lead time distribution, and risk tiers (Low, Moderate, High).
+     - `calculate_product_mix_abc`: Pareto ABC working capital concentration classification (Class A: $\le 70\%$, Class B: $70-90\%$, Class C: $90-100\%$).
+     - `generate_executive_insights`: structured insight cards containing measured metrics, evaluation time ranges, target benchmarks, explicit limitations/caveats, and actionable decisions.
+  2. Implemented Phase 4 Forecasting Benchmark in `src/supplychain_iq/forecasting.py`:
+     - `calculate_wape`: Weighted Absolute Percentage Error ($\sum |y - \hat{y}| / \sum y$), preventing division-by-zero on intermittent demand where MAPE fails.
+     - `seasonal_naive_forecast`: 7-day cyclical lag benchmark repeating past weekly patterns.
+     - `evaluate_rolling_origin_backtest`: expanding-window rolling backtesting across sequential chronological origins (folds) evaluating Naïve, Seasonal Naïve, and Holt Exponential Smoothing without data leakage.
+     - `benchmark_all_skus`: multi-product benchmark matrix comparing architectures across all SKUs.
+  3. Integrated into `app.py`:
+     - Added Dedicated 4th Tab: "🛡 Supplier Scorecard & Risk" with scorecard table, ABC mix table, executive insights cards, and downloadable CSV exports.
+     - Expanded 2nd Tab: "⌖ Demand Forecasting & Benchmarks" with rolling-origin multi-fold benchmark and cross-SKU matrix.
+  4. Unit Tests: Added 7 new tests across `tests/test_analytics.py` and `tests/test_forecasting.py`. Total test suite expanded to 31 tests.
+- **Commands/tests:** `pytest -v` (31 passed in 2.76s with 0 warnings).
+- **Actual results:** 31 tests passed cleanly.
+- **Blockers/limitations:** None.
+- **Next action:** Plan B — Phase 5 & 6 (Regression & Supplier Delay Risk ML, Multi-Echelon Policy Simulation).
+
+

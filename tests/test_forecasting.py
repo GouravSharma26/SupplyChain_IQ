@@ -8,6 +8,10 @@ import pytest
 
 from supplychain_iq.forecasting import (
     calculate_metrics,
+    calculate_wape,
+    seasonal_naive_forecast,
+    evaluate_rolling_origin_backtest,
+    benchmark_all_skus,
     generate_demand_forecast,
     prepare_regular_time_series,
 )
@@ -87,3 +91,63 @@ def test_chronological_holdout_and_evaluation():
     assert len(result.forecast_df) == 14
     assert result.forecast_df["date"].min() > pd.to_datetime(result.test_end)
     assert (result.forecast_df["forecast"] >= 0).all()
+
+
+def test_calculate_wape():
+    actual = np.array([10.0, 0.0, 30.0])  # Contains zero demand
+    pred = np.array([12.0, 2.0, 28.0])
+    # |10-12| + |0-2| + |30-28| = 2 + 2 + 2 = 6.0
+    # sum(actual) = 40.0
+    # WAPE = (6.0 / 40.0) * 100 = 15.0%
+    wape = calculate_wape(actual, pred)
+    assert wape == 15.0
+
+
+def test_seasonal_naive_forecast():
+    # 7-day pattern
+    cycle = np.array([10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0])
+    train = np.tile(cycle, 3)  # 21 days
+    pred = seasonal_naive_forecast(train, horizon=14, season_length=7)
+    assert len(pred) == 14
+    assert np.array_equal(pred[:7], cycle)
+    assert np.array_equal(pred[7:], cycle)
+
+
+def test_evaluate_rolling_origin_backtest():
+    dates = pd.date_range("2026-05-01", periods=90, freq="D")
+    sales = [20.0 + (i % 7) * 3.0 for i in range(90)]
+    df = pd.DataFrame({
+        "date": dates,
+        "product_id": ["SKU-ROLL"] * 90,
+        "units_sold": sales,
+    })
+
+    report = evaluate_rolling_origin_backtest(
+        df, product_id="SKU-ROLL", initial_train_days=45, horizon_days=14, step_days=14
+    )
+    assert report.total_folds >= 2
+    assert report.avg_naive_mae >= 0.0
+    assert report.avg_seasonal_mae >= 0.0
+    assert report.avg_holt_mae >= 0.0
+    assert report.best_model in [
+        "Holt Exponential Smoothing",
+        "Seasonal Naïve (7-day)",
+        "Naïve Baseline",
+    ]
+
+    summary_table = report.to_summary_table()
+    assert len(summary_table) == 3
+    assert "Avg WAPE (%)" in summary_table.columns
+
+
+def test_benchmark_all_skus():
+    dates = pd.date_range("2026-05-01", periods=90, freq="D")
+    df1 = pd.DataFrame({"date": dates, "product_id": ["SKU-1"] * 90, "units_sold": [15] * 90})
+    df2 = pd.DataFrame({"date": dates, "product_id": ["SKU-2"] * 90, "units_sold": [25] * 90})
+    df = pd.concat([df1, df2], ignore_index=True)
+
+    benchmark_df = benchmark_all_skus(df, initial_train_days=45, horizon_days=14, step_days=14)
+    assert len(benchmark_df) == 2
+    assert "product_id" in benchmark_df.columns
+    assert "best_model" in benchmark_df.columns
+
