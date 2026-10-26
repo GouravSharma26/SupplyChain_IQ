@@ -168,4 +168,33 @@
 - **Blockers/limitations:** None.
 - **Next action:** Plan B — Phase 5 & 6 (Regression & Supplier Delay Risk ML, Multi-Echelon Policy Simulation).
 
+---
+
+## Plan B — Phase 5 & 6: Machine Learning for Supplier Delay Risk & Inventory Policy Simulation
+- **Status:** PASS
+- **Timestamp:** 2026-10-26T18:48:00+05:30
+- **Changes:**
+  1. Implemented Phase 5 Machine Learning for Supplier Fulfillment Risk in `src/supplychain_iq/ml/supplier_risk.py`:
+     - `extract_order_features_and_targets`: strictly enforces pre-shipment order-time features (`order_quantity`, `unit_cost`, `order_value`, `promised_lead_time_days`, `order_dayofweek`, `order_month`, `supplier_id`, `product_id`). Explicitly excludes target leakage variables (`actual_delivery_date`, `delay_days`, `delivery_status`).
+     - `SupplierRiskEvaluator`:
+       - Strict chronological 75/25 train/test split.
+       - Random Forest Classifier (Precision, Recall, F1, PR-AUC, Confusion Matrix) benchmarked against Majority Class Baseline.
+       - Gradient Boosting Regressor (MAE, RMSE, $R^2$) benchmarked against Historical Mean Delay Baseline.
+       - Feature importance ranking extraction.
+       - `predict_new_order_risk`: real-time inference helper predicting late delivery probability %, expected delay days, and risk level.
+     - `synthesize_orders_from_demand_data`: deterministic fallback generator for datasets without raw ERP PO tables.
+  2. Implemented Phase 6 Multi-Period Policy Simulation in `src/supplychain_iq/simulation.py`:
+     - `simulate_inventory_policy`: day-by-day historical trace simulation tracking daily stock movements, stockouts, unmet demand units, fill rates, inventory holding costs, and placed replenishment purchase orders.
+     - `compare_standard_inventory_policies`: empirical comparison across operating policies (Lean JIT @ 90% SL vs Balanced Standard @ 95% SL vs Resilient Buffer @ 99% SL).
+     - `run_lead_time_sensitivity_analysis`: delay disruption sensitivity sweep (0 to 10 days delay jitter) testing policy resilience.
+  3. Integrated into `app.py`:
+     - Tab 3 ("⚡ Inventory Simulator"): Embedded empirical multi-period policy comparison table and interactive lead-time disruption sensitivity curve.
+     - Tab 4 ("🛡 Supplier Scorecard & Risk"): Embedded Phase 5 ML model benchmark vs baselines, confusion matrix ledger, feature importances chart, and interactive "Simulate New Purchase Order Risk" decision support widget.
+  4. Unit Tests: Added 8 new unit tests in `tests/test_ml.py` and `tests/test_simulation.py`. Test suite expanded from 31 to 39 tests.
+- **Commands/tests:** `pytest -v` (39 passed in 3.44s with 0 warnings).
+- **Actual results:** 39 unit tests pass cleanly. `app.py` imports and runs without errors.
+- **Blockers/limitations:** None.
+- **Next action:** Documentation update, push to GitHub, and CI matrix verification.
+
+
 

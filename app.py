@@ -53,6 +53,15 @@ from supplychain_iq.inventory import (
     SERVICE_LEVEL_Z,
     ASSUMPTION_DISCLOSURE,
 )
+from supplychain_iq.ml import (
+    SupplierRiskEvaluator,
+    train_and_evaluate_supplier_risk_models,
+    synthesize_orders_from_demand_data,
+)
+from supplychain_iq.simulation import (
+    compare_standard_inventory_policies,
+    run_lead_time_sensitivity_analysis,
+)
 
 # Page configuration
 st.set_page_config(
@@ -1042,6 +1051,49 @@ def tab_inventory_planner(df_filtered: pd.DataFrame):
         )
         st.plotly_chart(fig_bar, use_container_width=True)
 
+    # Phase 6: Multi-Period Policy Trace Simulation & Lead-Time Sensitivity
+    st.markdown("---")
+    st.markdown("##### ⬡ Empirical Multi-Period Policy Simulation & Trade-Offs (Plan B Phase 6)")
+    st.markdown(
+        """
+        <div class="notice-card">
+            <strong>Policy Trace Simulation Notice:</strong> Simulates daily stock movements and stochastic pipeline replenishment
+            across historical demand observations. Compares operating trade-offs: Lean JIT (90% Service Level, continuous reorder) vs
+            Balanced Standard (95% Service Level, 7-day review) vs Resilient Buffer (99% Service Level, 14-day review).
+            <em>Figures represent simulated estimates, not accounting records.</em>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    sim_products = sorted(df_filtered["product_id"].unique().tolist())
+    if sim_products:
+        c_sim1, c_sim2 = st.columns([1, 1])
+        with c_sim1:
+            sim_target_sku = st.selectbox("Simulation Target SKU:", sim_products, key="sim_sku_select")
+            policy_comparison = compare_standard_inventory_policies(df_filtered, product_id=sim_target_sku)
+            st.dataframe(policy_comparison, use_container_width=True)
+
+        with c_sim2:
+            st.markdown(f"**Lead-Time Delay Sensitivity ({sim_target_sku}):**")
+            sens_df = run_lead_time_sensitivity_analysis(df_filtered, product_id=sim_target_sku)
+            fig_sens = px.line(
+                sens_df,
+                x="Supplier Delay Delta (Days)",
+                y="Fill Rate (%)",
+                color="Service Level Target",
+                title="Fill Rate Resilience vs Disruption Delay (Days)",
+                markers=True,
+                color_discrete_sequence=["#ef4444", "#3b82f6", "#10b981"],
+            )
+            fig_sens.update_layout(
+                plot_bgcolor="#ffffff",
+                paper_bgcolor="#ffffff",
+                font_family="Plus Jakarta Sans",
+                yaxis=dict(showgrid=True, gridcolor="#f1f5f9"),
+            )
+            st.plotly_chart(fig_sens, use_container_width=True)
+
 
 def tab_supplier_risk(df_filtered: pd.DataFrame):
     """Renders Phase 3 Supplier Fulfillment Scorecard, Pareto ABC mix, and Executive Insights."""
@@ -1139,6 +1191,233 @@ def tab_supplier_risk(df_filtered: pd.DataFrame):
             )
         else:
             st.info("No inventory valuation available for ABC classification.")
+
+    # Phase 5: Machine Learning for Supplier Late-Delivery Risk
+    st.markdown("---")
+    st.markdown("##### ⬡ Machine Learning: Supplier Late-Delivery Risk & Delay Prediction (Plan B Phase 5)")
+    st.markdown(
+        """
+        <div class="notice-card">
+            <strong>Target-Leakage-Free Predictive Modeling:</strong> Predicts fulfillment risk using
+            <strong>strictly order-time variables</strong> (order quantity, unit cost, promised lead time, order day/month, supplier and SKU).
+            All post-shipment arrival dates and delay fields are explicitly excluded from features to prevent target leakage.<br>
+            Evaluation is conducted using a <strong>strict chronological split (75/25)</strong>:
+            Random Forest Classifier is benchmarked against the Majority Class baseline, and Gradient Boosting Regressor is benchmarked against the historical mean delay baseline.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Load or synthesize purchase order history
+    orders_df = synthesize_orders_from_demand_data(df_filtered, num_orders=50)
+
+    # Train and evaluate models
+    evaluator = SupplierRiskEvaluator(random_state=42)
+    ml_report = evaluator.fit_and_evaluate(orders_df, train_ratio=0.75)
+
+    if ml_report.classification and ml_report.regression:
+        clf = ml_report.classification
+        reg = ml_report.regression
+
+        # ML KPI Cards
+        m1, m2, m3, m4 = st.columns(4)
+        with m1:
+            st.markdown(
+                f"""
+                <div class="kpi-card kpi-accent-blue">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Classifier F1 / PR-AUC</span>
+                        <span class="kpi-symbol">⚡</span>
+                    </div>
+                    <div class="kpi-value">{clf.f1:.2f} <span style="font-size: 1rem; color: #64748b;">/ {clf.pr_auc:.2f}</span></div>
+                    <div class="kpi-subtext">Precision: {clf.precision:.2f} | Recall: {clf.recall:.2f}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+        with m2:
+            acc_diff = clf.accuracy - clf.baseline_accuracy
+            acc_color = "#10b981" if acc_diff >= 0 else "#ef4444"
+            st.markdown(
+                f"""
+                <div class="kpi-card kpi-accent-emerald">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Out-of-Sample Accuracy</span>
+                        <span style="color: {acc_color}; font-size: 0.8rem; font-weight: 700;">{acc_diff*100:+.1f}% vs Base</span>
+                    </div>
+                    <div class="kpi-value">{clf.accuracy*100:.1f}%</div>
+                    <div class="kpi-subtext">Majority baseline: {clf.baseline_accuracy*100:.1f}%</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+        with m3:
+            mae_lift = ((reg.baseline_mae - reg.mae) / max(0.01, reg.baseline_mae)) * 100
+            mae_color = "#10b981" if mae_lift >= 0 else "#ef4444"
+            st.markdown(
+                f"""
+                <div class="kpi-card kpi-accent-amber">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Delay Regressor MAE</span>
+                        <span style="color: {mae_color}; font-size: 0.8rem; font-weight: 700;">{mae_lift:+.1f}% vs Base</span>
+                    </div>
+                    <div class="kpi-value">{reg.mae:.2f} <span style="font-size: 1rem; color: #64748b;">days</span></div>
+                    <div class="kpi-subtext">Mean delay baseline: {reg.baseline_mae:.2f} days</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+        with m4:
+            st.markdown(
+                f"""
+                <div class="kpi-card kpi-accent-indigo">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Regressor R² / RMSE</span>
+                        <span class="kpi-symbol">◈</span>
+                    </div>
+                    <div class="kpi-value">{reg.r2:.2f}</div>
+                    <div class="kpi-subtext">Out-of-sample RMSE: {reg.rmse:.2f} days</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+        st.markdown("<div style='height: 16px;'></div>", unsafe_allow_html=True)
+
+        # Benchmark Table & Feature Importances
+        col_ml_tbl, col_ml_feat = st.columns([1, 1])
+        with col_ml_tbl:
+            st.markdown("**Executive Model Benchmark vs Baselines:**")
+            st.dataframe(ml_report.to_summary_table(), use_container_width=True)
+
+            with st.expander("⌖ Chronological Split Ledger & Confusion Matrix"):
+                st.markdown(
+                    f"""
+                    - **Total Orders Analyzed:** `{ml_report.total_orders_analyzed}`
+                    - **Training Window (75%):** `{ml_report.train_date_range}` ({ml_report.train_orders_count} orders)
+                    - **Evaluation Window (25%):** `{ml_report.test_date_range}` ({ml_report.test_orders_count} orders)
+                    - **Positive Class (Late Orders) in Test:** `{clf.class_balance_positive_pct:.1f}%`
+                    - **Confusion Matrix:** True Negative: `{clf.confusion_matrix[0][0]}`, False Positive: `{clf.confusion_matrix[0][1]}`, False Negative: `{clf.confusion_matrix[1][0]}`, True Positive: `{clf.confusion_matrix[1][1]}`
+                    """
+                )
+                if ml_report.leakage_exclusions:
+                    st.markdown("**Strict Target Leakage Exclusions:**")
+                    for excl in ml_report.leakage_exclusions:
+                        st.markdown(f"• `{excl}`")
+
+        with col_ml_feat:
+            st.markdown("**Feature Importance Analysis (Pre-Shipment Predictors):**")
+            feat_df = pd.DataFrame([
+                {"Feature": k, "Importance": v}
+                for k, v in ml_report.feature_importances.items()
+            ]).sort_values("Importance", ascending=True)
+
+            fig_feat = px.bar(
+                feat_df,
+                x="Importance",
+                y="Feature",
+                orientation="h",
+                title="Predictor Weight in Delay Risk Classifier",
+                color="Importance",
+                color_continuous_scale="Blues",
+            )
+            fig_feat.update_layout(
+                plot_bgcolor="#ffffff",
+                paper_bgcolor="#ffffff",
+                font_family="Plus Jakarta Sans",
+                height=260,
+                margin=dict(l=10, r=10, t=35, b=10),
+                xaxis=dict(showgrid=True, gridcolor="#f1f5f9"),
+                yaxis=dict(showgrid=False),
+            )
+            st.plotly_chart(fig_feat, use_container_width=True)
+
+        # Interactive New Purchase Order Simulator Deck
+        st.markdown("<div style='height: 16px;'></div>", unsafe_allow_html=True)
+        st.markdown("##### ⚡ Interactive Purchase Order Risk Simulation")
+        st.caption("Simulate an upcoming purchase order to evaluate supplier fulfillment risk before issuing the procurement order.")
+
+        sim_col1, sim_col2, sim_col3, sim_col4, sim_col5 = st.columns(5)
+        available_suppliers = sorted(orders_df["supplier_id"].unique().tolist())
+        available_skus = sorted(df_filtered["product_id"].unique().tolist())
+
+        with sim_col1:
+            sim_sup = st.selectbox("Target Supplier:", available_suppliers, key="po_sim_supplier")
+        with sim_col2:
+            sim_sku = st.selectbox("Target SKU:", available_skus, key="po_sim_sku")
+        with sim_col3:
+            sim_qty = st.slider("Order Quantity:", min_value=10, max_value=500, value=150, step=10, key="po_sim_qty")
+        with sim_col4:
+            default_cost = (
+                float(df_filtered[df_filtered["product_id"] == sim_sku]["unit_cost"].mean())
+                if not df_filtered.empty
+                else 25.0
+            )
+            sim_cost = st.number_input(
+                "Unit Cost ($):",
+                min_value=1.0,
+                max_value=500.0,
+                value=float(round(default_cost, 2)),
+                step=1.0,
+                key="po_sim_cost",
+            )
+        with sim_col5:
+            sim_lead = st.slider(
+                "Promised Lead Time (Days):",
+                min_value=3,
+                max_value=28,
+                value=7,
+                step=1,
+                key="po_sim_lead",
+            )
+
+        # Run inference
+        risk_pred = evaluator.predict_new_order_risk(
+            order_quantity=sim_qty,
+            unit_cost=sim_cost,
+            promised_lead_time_days=sim_lead,
+            supplier_id=sim_sup,
+            product_id=sim_sku,
+        )
+
+        prob = risk_pred.get("late_delivery_probability_pct", 0.0)
+        delay_days = risk_pred.get("predicted_delay_days", 0.0)
+        assessment = risk_pred.get("risk_assessment", "Moderate Risk")
+
+        if assessment == "High Risk":
+            badge_html = '<span style="background: #fee2e2; color: #dc2626; font-weight: 700; padding: 4px 12px; border-radius: 6px;">▲ High Risk</span>'
+            mitigation = "Buffer required safety stock +3 days or split order volume across secondary domestic suppliers."
+        elif assessment == "Moderate Risk":
+            badge_html = '<span style="background: #fef3c7; color: #d97706; font-weight: 700; padding: 4px 12px; border-radius: 6px;">● Moderate Risk</span>'
+            mitigation = "Standard lead time monitored; schedule early ASN (Advanced Shipping Notice) confirmation."
+        else:
+            badge_html = '<span style="background: #d1fae5; color: #059669; font-weight: 700; padding: 4px 12px; border-radius: 6px;">✓ Low Risk</span>'
+            mitigation = "High fulfillment confidence; adhere to standard JIT receipt cadence."
+
+        st.markdown(
+            f"""
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px 20px; margin-top: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <div>
+                        <span style="font-size: 1.05rem; font-weight: 700; color: #0f172a;">Simulated PO Risk Assessment: </span>
+                        {badge_html}
+                    </div>
+                    <div style="font-size: 0.85rem; color: #64748b;">Simulated Order Value: <strong>${sim_qty * sim_cost:,.2f}</strong></div>
+                </div>
+                <div style="display: flex; gap: 32px; font-size: 0.95rem; color: #334155; margin-bottom: 8px;">
+                    <div>Late Delivery Probability: <strong style="color: #0f172a;">{prob:.1f}%</strong></div>
+                    <div>Predicted Delivery Delay: <strong style="color: #0f172a;">+{delay_days:.1f} days</strong></div>
+                    <div>Promised Arrival Window: <strong style="color: #0f172a;">{sim_lead} days</strong></div>
+                </div>
+                <div style="font-size: 0.84rem; color: #475569;">
+                    <strong>Decision Support Mitigation:</strong> {mitigation}
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    else:
+        st.info("Insufficient purchase order history to train machine learning models.")
 
 
 def tab_data_quality(report, df_clean: pd.DataFrame):

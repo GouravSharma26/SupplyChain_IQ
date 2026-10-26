@@ -37,11 +37,12 @@
 - [x] Supplier performance analytics (scorecard, on-time delivery rates, delay duration, risk tier classification)
 - [x] Forecast rolling-origin backtesting (expanding-window multi-fold evaluation across rolling cutoffs)
 - [x] Seasonal baseline and additional models where justified (Seasonal Naïve 7-day lag vs Holt Exponential Smoothing vs Naïve, evaluated via WAPE, MAE, RMSE)
-- [ ] Regression/delay prediction only if labels support it
-- [ ] Inventory policy simulation and sensitivity analysis
+- [x] Regression/delay prediction only if labels support it (Random Forest classification & Gradient Boosting regression with strict target leakage exclusions)
+- [x] Inventory policy simulation and sensitivity analysis (Multi-period policy trace comparison & lead-time delay sensitivity sweep)
 - [x] CSV/report export (downloadable CSVs for Supplier Scorecard, ABC Product Mix, and Holdout Residuals)
 - [ ] Optional grounded AI explanations
-- [ ] CI workflow and dependency checks
+- [x] CI workflow and dependency checks (GitHub Actions matrix for Python 3.11 & 3.12)
 - [ ] Containerized local environment if useful
 - [ ] Architecture and data-flow diagrams
 - [ ] Final reproducibility audit
+

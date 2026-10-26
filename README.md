@@ -3,7 +3,7 @@
 **Purpose:** A production-grade, end-to-end supply chain decision support application featuring data contract validation, SQL/pandas analytics, interactive Plotly visualization, chronological holdout demand forecasting, and inventory what-if policy simulation.
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://supplychainiq-bzrenpttfjbwqmxailamdd.streamlit.app/)
-[![Tests](https://img.shields.io/badge/pytest-31%20passed-success)](https://github.com/GouravSharma26/SupplyChain_IQ)
+[![Tests](https://img.shields.io/badge/pytest-39%20passed-success)](https://github.com/GouravSharma26/SupplyChain_IQ)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![CI](https://github.com/GouravSharma26/SupplyChain_IQ/actions/workflows/ci.yml/badge.svg)](https://github.com/GouravSharma26/SupplyChain_IQ/actions/workflows/ci.yml)
 
@@ -19,9 +19,14 @@ SupplyChain IQ empowers operations and supply chain managers to analyze historic
 2. **Relational Database & Data Engineering Layer (Phase 2):** SQLAlchemy 2.0 multi-entity models (`suppliers`, `products`, `daily_demand`, `inventory_snapshots`, `purchase_orders`) with check constraints and idempotent raw $\rightarrow$ staging $\rightarrow$ curated pipeline. Zero-config SQLite local database (`data/supplychain_iq.db`) with PostgreSQL connection string compatibility via `DATABASE_URL`.
 3. **Supplier Fulfillment Scorecard & Working Capital (Phase 3):** Empirical on-time fulfillment rates, delay distributions, SLA risk tiers, Pareto ABC inventory classification, and actionable executive insights with explicit caveats.
 4. **Rolling-Origin Forecasting Benchmark (Phase 4):** Expanding-window multi-fold rolling backtesting across sequential cutoffs. Benchmarks Naïve baseline against Seasonal Naïve (7-day lag) and Holt Exponential Smoothing across all SKUs using MAE, RMSE, and WAPE (Weighted Absolute Percentage Error).
-5. **Inventory Decision Support:** Safety stock ($Z \times \sigma \times \sqrt{L}$), Reorder Point ($ROP$), target stock, and replenishment capital estimation.
-6. **Interactive What-If Simulation:** Real-time adjustments for demand surge (0.5x–2.0x), supplier delay jitter (+0 to +14 days), and cycle service levels (90%, 95%, 99%).
-7. **Automated Testing Suite:** 31 unit tests covering database schema, idempotent ETL, validation, analytics, forecasting, rolling backtests, and inventory logic.
+5. **Machine Learning for Supplier Delay Risk (Phase 5):**
+   - Strictly order-time feature extraction to eliminate target leakage.
+   - Chronological 75/25 split: Random Forest Classifier vs Majority Class Baseline (Precision, Recall, F1, PR-AUC, Confusion Matrix) and Gradient Boosting Regressor vs Mean Delay Baseline (MAE, RMSE, $R^2$).
+   - Interactive PO Simulator Widget: Real-time probability of late delivery and expected delay days for simulated procurement orders.
+6. **Multi-Period Policy Trace Simulation (Phase 6):**
+   - Day-by-day historical trace simulation tracking stockouts, fill rates, unmet units, and holding capital across Lean JIT (90%), Balanced Standard (95%), and Resilient Buffer (99%) policies.
+   - Lead-time delay sensitivity analysis sweeping disruption friction (+0d to +10d).
+7. **Automated Testing Suite:** 39 unit tests covering database schema, idempotent ETL, validation, analytics, forecasting, rolling backtests, machine learning, and simulation logic.
 
 ---
 
@@ -58,7 +63,7 @@ python -m supplychain_iq.db.seed
 ```bash
 pytest -v
 ```
-*Expected result:* 31 passed in ~3s.
+*Expected result:* 39 passed in ~3.5s.
 
 ### 4. Launch the Web Application
 ```bash
@@ -83,14 +88,20 @@ SupplyChainIQ/
 │       ├── __init__.py         # Package entrypoint
 │       ├── data_loader.py      # Dataset loading, bundling & CSV ingestion
 │       ├── validation.py       # Strict data contract and quality reporting
-│       ├── analytics.py        # Business KPIs and chart aggregation
-│       ├── forecasting.py      # Chronological holdout evaluation & Holt model
-│       └── inventory.py        # Safety stock, ROP & what-if simulator
+│       ├── analytics.py        # Business KPIs, scorecards & Pareto ABC
+│       ├── forecasting.py      # Chronological holdout & rolling-origin backtesting
+│       ├── inventory.py        # Safety stock, ROP & what-if simulator
+│       ├── simulation.py       # Multi-period inventory policy trace simulation
+│       ├── db/                 # Relational models, database engine, ETL & seed
+│       └── ml/                 # Supplier delay risk classification & regression
 ├── tests/
 │   ├── test_validation.py      # Contract & invalid data handling tests
 │   ├── test_analytics.py       # KPI & valuation snapshot tests
-│   ├── test_forecasting.py     # Holdout split, MAE/RMSE & fallback tests
-│   └── test_inventory.py       # ROP formula & scenario simulation tests
+│   ├── test_database.py        # SQLAlchemy schema & ETL idempotency tests
+│   ├── test_forecasting.py     # Holdout split, rolling backtests & WAPE tests
+│   ├── test_inventory.py       # ROP formula & scenario simulation tests
+│   ├── test_ml.py              # ML target leakage & model evaluation tests
+│   └── test_simulation.py      # Policy trace & sensitivity analysis tests
 ├── PHASE_LOG.md                # Phase-by-phase execution audit log
 ├── DEVELOPMENT_CHECKLIST.md    # Gate verification checklist
 └── RELEASE_REPORT.md           # Formal quick-launch release report
