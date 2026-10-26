@@ -2,9 +2,12 @@
 
 **Purpose:** A production-grade, end-to-end supply chain decision support application featuring data contract validation, SQL/pandas analytics, interactive Plotly visualization, chronological holdout demand forecasting, and inventory what-if policy simulation.
 
-[![Tests](https://img.shields.io/badge/pytest-15%20passed-success)](https://github.com/GouravSharma26/SupplyChain_IQ)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/)
+[![Tests](https://img.shields.io/badge/pytest-17%20passed-success)](https://github.com/GouravSharma26/SupplyChain_IQ)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/streamlit-1.66.1-red.svg)](https://streamlit.io/)
+[![CI](https://github.com/GouravSharma26/SupplyChain_IQ/actions/workflows/ci.yml/badge.svg)](https://github.com/GouravSharma26/SupplyChain_IQ/actions/workflows/ci.yml)
+
+**Live Hosted Application:** [https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/](https://supplychainiq-jz92xvzts4y2n9hstramne.streamlit.app/)
 
 ---
 
@@ -19,7 +22,7 @@ SupplyChain IQ empowers operations and supply chain managers to analyze historic
 5. **Demand Forecasting Benchmark:** Holt Exponential Smoothing with additive trend evaluated against a Naïve baseline strictly on out-of-sample chronological holdouts (MAE & RMSE). Minimum 28-day history threshold with automatic fallback.
 6. **Inventory Decision Support:** Safety stock ($Z \times \sigma \times \sqrt{L}$), Reorder Point ($ROP$), target stock, and replenishment capital estimation.
 7. **Interactive What-If Simulation:** Real-time adjustments for demand surge (0.5x–2.0x), supplier delay jitter (+0 to +14 days), and cycle service levels (90%, 95%, 99%).
-8. **Automated Testing Suite:** 15 unit tests covering validation, analytics, forecasting, and inventory logic.
+8. **Automated Testing Suite:** 17 unit tests covering validation, analytics, forecasting, and inventory logic.
 
 ---
 
