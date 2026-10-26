@@ -1,6 +1,6 @@
 """
 SupplyChain IQ - Intelligent Demand Forecasting & Inventory Optimization
-MVP Web Application built with Streamlit and Plotly.
+Executive Decision Support Web Application.
 """
 
 from pathlib import Path
@@ -41,73 +41,196 @@ from supplychain_iq.inventory import (
 
 # Page configuration
 st.set_page_config(
-    page_title="SupplyChain IQ | Demand Intelligence & Inventory",
-    page_icon="📦",
+    page_title="SupplyChain IQ — Enterprise Demand & Inventory Intelligence",
+    page_icon="◈",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# Custom CSS for executive polish
+# Enterprise Design System & Modern Iconography CSS
 st.markdown(
     """
     <style>
-    .metric-card {
-        background-color: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        padding: 16px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
-    .metric-title {
+
+    /* Executive Hero Header */
+    .hero-banner {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 24px 30px;
+        margin-bottom: 24px;
+        color: white;
+        box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .hero-title {
+        font-size: 1.65rem;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        background: linear-gradient(90deg, #ffffff 0%, #93c5fd 60%, #38bdf8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .hero-subtitle {
+        color: #94a3b8;
+        font-size: 0.9rem;
+        margin-top: 6px;
+        font-weight: 400;
+    }
+    .hero-badge {
+        background: rgba(56, 189, 248, 0.12);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        color: #38bdf8;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        padding: 6px 14px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* Executive KPI Cards */
+    .kpi-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 16px 20px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    .kpi-card:hover {
+        box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.08);
+        border-color: #cbd5e1;
+    }
+    .kpi-accent-blue { border-top: 3px solid #3b82f6; }
+    .kpi-accent-indigo { border-top: 3px solid #6366f1; }
+    .kpi-accent-emerald { border-top: 3px solid #10b981; }
+    .kpi-accent-amber { border-top: 3px solid #f59e0b; }
+    .kpi-accent-rose { border-top: 3px solid #f43f5e; }
+    .kpi-accent-cyan { border-top: 3px solid #06b6d4; }
+
+    .kpi-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+    .kpi-title {
         color: #64748b;
-        font-size: 0.85rem;
+        font-size: 0.78rem;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.06em;
     }
-    .metric-value {
+    .kpi-symbol {
+        font-size: 1rem;
+        color: #94a3b8;
+    }
+    .kpi-value {
         color: #0f172a;
-        font-size: 1.8rem;
+        font-size: 1.75rem;
         font-weight: 700;
-        margin-top: 4px;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
     }
-    .metric-subtitle {
-        color: #64748b;
-        font-size: 0.8rem;
-        margin-top: 4px;
-    }
-    .status-badge-healthy {
-        background-color: #dcfce7;
-        color: #166534;
-        padding: 4px 10px;
-        border-radius: 9999px;
+    .kpi-subtext {
+        color: #94a3b8;
         font-size: 0.75rem;
-        font-weight: 600;
+        margin-top: 6px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
     }
-    .status-badge-urgent {
-        background-color: #fee2e2;
-        color: #991b1b;
-        padding: 4px 10px;
+
+    /* Polished Pill Badges */
+    .pill-healthy {
+        background-color: #ecfdf5;
+        border: 1px solid #a7f3d0;
+        color: #065f46;
+        padding: 3px 10px;
         border-radius: 9999px;
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         font-weight: 600;
+        letter-spacing: 0.03em;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
     }
-    .status-badge-monitor {
-        background-color: #fef3c7;
+    .pill-urgent {
+        background-color: #fff1f2;
+        border: 1px solid #fecdd3;
+        color: #9f1239;
+        padding: 3px 10px;
+        border-radius: 9999px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .pill-monitor {
+        background-color: #fffbeb;
+        border: 1px solid #fde68a;
         color: #92400e;
-        padding: 4px 10px;
+        padding: 3px 10px;
         border-radius: 9999px;
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         font-weight: 600;
+        letter-spacing: 0.03em;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
     }
-    .callout-box {
-        background-color: #eff6ff;
+
+    /* Modern Notice Banners */
+    .notice-card {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
         border-left: 4px solid #3b82f6;
-        padding: 12px 16px;
-        border-radius: 4px;
-        font-size: 0.88rem;
-        color: #1e3a8a;
-        margin-bottom: 16px;
+        border-radius: 8px;
+        padding: 14px 18px;
+        margin-bottom: 20px;
+        color: #1e293b;
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    .notice-card strong {
+        color: #0f172a;
+    }
+
+    /* Tab Label Styling */
+    button[data-baseweb="tab"] {
+        font-weight: 600 !important;
+        font-size: 0.92rem !important;
+        padding: 10px 18px !important;
+        letter-spacing: -0.01em;
+    }
+
+    /* Code styling */
+    code {
+        font-family: 'JetBrains Mono', monospace !important;
+        background: #f1f5f9 !important;
+        color: #0f172a !important;
+        padding: 2px 6px !important;
+        border-radius: 4px !important;
+        font-size: 0.82em !important;
     }
     </style>
     """,
@@ -116,15 +239,31 @@ st.markdown(
 
 
 def render_sidebar():
-    """Renders data ingestion options and global filters."""
-    st.sidebar.title("📦 SupplyChain IQ")
-    st.sidebar.caption("Executive Decision Support & Forecasting")
-    st.sidebar.markdown("---")
+    """Renders data ingestion options and global filters with modern minimalist design."""
+    # Custom Sidebar Brand Badge
+    st.sidebar.markdown(
+        """
+        <div style="padding: 10px 0 16px 0;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="background: linear-gradient(135deg, #2563eb, #38bdf8); width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.1rem; box-shadow: 0 2px 8px rgba(37,99,235,0.3);">
+                    ◈
+                </div>
+                <div>
+                    <div style="font-weight: 800; font-size: 1.15rem; color: #0f172a; letter-spacing: -0.02em;">SupplyChain IQ</div>
+                    <div style="font-size: 0.72rem; color: #64748b; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Intelligence Engine</div>
+                </div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-    st.sidebar.subheader("1. Data Source")
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("##### ⌖ Data Ingestion Stream")
+
     data_source_mode = st.sidebar.radio(
-        "Select Data Ingestion Mode:",
-        ["Bundled Sample Data (180 Days)", "Upload Custom CSV"],
+        "Ingestion Source:",
+        ["Deterministic Benchmark Data (180d)", "Upload Operational CSV"],
         index=0,
         help="Use deterministic pre-bundled supply chain dataset or upload an operational CSV."
     )
@@ -132,12 +271,12 @@ def render_sidebar():
     df_clean = pd.DataFrame()
     report = None
 
-    if data_source_mode == "Bundled Sample Data (180 Days)":
+    if data_source_mode == "Deterministic Benchmark Data (180d)":
         df_clean, report = load_sample_dataset()
-        st.sidebar.success(f"✓ Loaded {len(df_clean)} observations (5 SKUs)")
+        st.sidebar.success(f"✓ Loaded {len(df_clean)} records across 5 SKUs")
     else:
         uploaded_file = st.sidebar.file_uploader(
-            "Upload Operational CSV",
+            "Upload Operations CSV",
             type=["csv"],
             help="CSV must contain date, product_id, units_sold, inventory_on_hand, unit_cost, lead_time_days."
         )
@@ -155,13 +294,13 @@ def render_sidebar():
         return df_clean, report, None, None, None
 
     st.sidebar.markdown("---")
-    st.sidebar.subheader("2. Operational Filters")
+    st.sidebar.markdown("##### ⎈ Operational Scoping")
 
     # Date Range Filter
     min_date = df_clean["date"].min().date()
     max_date = df_clean["date"].max().date()
     selected_date_range = st.sidebar.date_input(
-        "Analysis Window:",
+        "Observation Window:",
         value=(min_date, max_date),
         min_value=min_date,
         max_value=max_date,
@@ -174,13 +313,13 @@ def render_sidebar():
 
     # Product Filter
     product_options = ["All Products"] + sorted(df_clean["product_id"].unique().tolist())
-    selected_product_filter = st.sidebar.selectbox("Filter SKU / Product:", product_options, index=0)
+    selected_product_filter = st.sidebar.selectbox("Catalog Filter (SKU):", product_options, index=0)
 
     # Category Filter
     selected_categories = None
     if "category" in df_clean.columns:
         cat_options = sorted(df_clean["category"].dropna().unique().tolist())
-        selected_categories = st.sidebar.multiselect("Filter Category:", cat_options, default=cat_options)
+        selected_categories = st.sidebar.multiselect("Category Segment:", cat_options, default=cat_options)
 
     # Apply filters
     filtered_pids = None if selected_product_filter == "All Products" else [selected_product_filter]
@@ -197,8 +336,6 @@ def render_sidebar():
 
 def tab_overview(df_filtered: pd.DataFrame, df_full: pd.DataFrame):
     """Renders Executive KPI dashboard and demand/inventory trends."""
-    st.subheader("Operational Health & Overview")
-
     if df_filtered.empty:
         st.warning("No records found for the selected filter combination.")
         return
@@ -207,55 +344,141 @@ def tab_overview(df_filtered: pd.DataFrame, df_full: pd.DataFrame):
     inv_summary = calculate_inventory_plans(df_filtered)
     kpis = calculate_kpis(df_filtered, stockout_product_count=inv_summary.at_risk_skus_count)
 
-    # Metric Cards Row 1
+    # Executive Metric Cards Row 1
     c1, c2, c3, c4 = st.columns(4)
     with c1:
-        st.metric("Total Units Sold", f"{kpis.total_units_sold:,}")
-        st.caption(f"Across {kpis.calendar_days} calendar days")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-blue">
+                <div class="kpi-header">
+                    <span class="kpi-title">Units Sold</span>
+                    <span class="kpi-symbol">↗</span>
+                </div>
+                <div class="kpi-value">{kpis.total_units_sold:,}</div>
+                <div class="kpi-subtext">Across {kpis.calendar_days} calendar days</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with c2:
-        st.metric("Average Daily Demand", f"{kpis.avg_daily_demand:,.1f} units/day")
-        st.caption(f"Total sales / {kpis.calendar_days} days")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-indigo">
+                <div class="kpi-header">
+                    <span class="kpi-title">Average Daily Velocity</span>
+                    <span class="kpi-symbol">⚡</span>
+                </div>
+                <div class="kpi-value">{kpis.avg_daily_demand:,.1f} <span style="font-size: 0.9rem; font-weight: 500; color: #64748b;">units/d</span></div>
+                <div class="kpi-subtext">Total sales / {kpis.calendar_days} calendar days</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with c3:
-        st.metric("Latest Inventory Value", f"${kpis.total_inventory_value:,.2f}")
-        st.caption(f"{kpis.total_inventory_units:,} units across active SKUs")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-emerald">
+                <div class="kpi-header">
+                    <span class="kpi-title">Latest Stock Valuation</span>
+                    <span class="kpi-symbol">◈</span>
+                </div>
+                <div class="kpi-value">${kpis.total_inventory_value:,.2f}</div>
+                <div class="kpi-subtext">{kpis.total_inventory_units:,} units across active SKUs</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with c4:
-        st.metric("Avg Supplier Lead Time", f"{kpis.avg_lead_time_days:.1f} days")
-        st.caption(f"Sample size: {kpis.lead_time_sample_size} records")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-cyan">
+                <div class="kpi-header">
+                    <span class="kpi-title">Avg Supplier Lead Time</span>
+                    <span class="kpi-symbol">⏱</span>
+                </div>
+                <div class="kpi-value">{kpis.avg_lead_time_days:.1f} <span style="font-size: 0.9rem; font-weight: 500; color: #64748b;">days</span></div>
+                <div class="kpi-subtext">Sample size: {kpis.lead_time_sample_size} records</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-    # Metric Cards Row 2
+    st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
+
+    # Executive Metric Cards Row 2
     c5, c6, c7, c8 = st.columns(4)
     with c5:
-        st.metric(
-            "SKUs at Stockout Risk",
-            f"{kpis.potential_stockout_count} / {kpis.active_products_count}",
-            delta="- Immediate Action" if kpis.potential_stockout_count > 0 else "Optimal",
-            delta_color="inverse" if kpis.potential_stockout_count > 0 else "normal",
+        risk_color = "kpi-accent-rose" if kpis.potential_stockout_count > 0 else "kpi-accent-emerald"
+        risk_pill = (
+            f'<span class="pill-urgent">▲ {kpis.potential_stockout_count} Critical</span>'
+            if kpis.potential_stockout_count > 0
+            else '<span class="pill-healthy">● Protected</span>'
         )
-        st.caption("On-hand stock below calculated reorder point")
+        st.markdown(
+            f"""
+            <div class="kpi-card {risk_color}">
+                <div class="kpi-header">
+                    <span class="kpi-title">Stockout Vulnerability</span>
+                    {risk_pill}
+                </div>
+                <div class="kpi-value">{kpis.potential_stockout_count} <span style="font-size: 1rem; color: #64748b;">/ {kpis.active_products_count} SKUs</span></div>
+                <div class="kpi-subtext">On-hand stock below calculated ROP</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with c6:
-        if kpis.supplier_on_time_rate is not None:
-            st.metric("Supplier On-Time Rate", f"{kpis.supplier_on_time_rate:.1f}%")
-            st.caption(f"Based on {kpis.supplier_sample_size} delivery logs")
-        else:
-            st.metric("Supplier On-Time Rate", "N/A")
-            st.caption("Delivery delay tracking not provided")
+        ontime_val = f"{kpis.supplier_on_time_rate:.1f}%" if kpis.supplier_on_time_rate is not None else "N/A"
+        ontime_sub = f"Based on {kpis.supplier_sample_size} shipments" if kpis.supplier_on_time_rate is not None else "Shipment logs not provided"
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-amber">
+                <div class="kpi-header">
+                    <span class="kpi-title">Supplier Fulfillment Rate</span>
+                    <span class="kpi-symbol">✓</span>
+                </div>
+                <div class="kpi-value">{ontime_val}</div>
+                <div class="kpi-subtext">{ontime_sub}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with c7:
-        if kpis.inventory_turnover is not None:
-            st.metric("Annualized Inventory Turnover", f"{kpis.inventory_turnover:.2f}x")
-            st.caption(kpis.turnover_note)
-        else:
-            st.metric("Inventory Turnover", "N/A")
-            st.caption(kpis.turnover_note or "Requires >= 30 days history")
+        turn_val = f"{kpis.inventory_turnover:.2f}x" if kpis.inventory_turnover is not None else "N/A"
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-indigo">
+                <div class="kpi-header">
+                    <span class="kpi-title">Annualized Turnover</span>
+                    <span class="kpi-symbol">↻</span>
+                </div>
+                <div class="kpi-value">{turn_val}</div>
+                <div class="kpi-subtext">{kpis.turnover_note or "Requires >= 30 days"}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with c8:
-        st.metric("Active Catalog SKUs", str(kpis.active_products_count))
-        st.caption("Distinct products in selected window")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-blue">
+                <div class="kpi-header">
+                    <span class="kpi-title">Active SKUs</span>
+                    <span class="kpi-symbol">⬡</span>
+                </div>
+                <div class="kpi-value">{kpis.active_products_count}</div>
+                <div class="kpi-subtext">Distinct catalog items in view</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-    st.markdown("---")
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
     # Interactive Trend Charts
     col_chart1, col_chart2 = st.columns([3, 2])
     with col_chart1:
-        st.markdown("##### 📈 Daily Demand Trend")
+        st.markdown("##### ↗ Demand Trajectory & Velocity")
         daily_trend = get_daily_demand_trend(df_filtered)
         if not daily_trend.empty:
             daily_trend["7d_MA"] = daily_trend["units_sold"].rolling(window=7, min_periods=1).mean()
@@ -263,22 +486,30 @@ def tab_overview(df_filtered: pd.DataFrame, df_full: pd.DataFrame):
                 daily_trend,
                 x="date",
                 y="units_sold",
-                title="Daily Volume Sold with 7-Day Moving Average",
+                title="Daily Demand Volume with 7-Day Moving Average",
                 labels={"date": "Observation Date", "units_sold": "Units Sold"},
-                color_discrete_sequence=["#3b82f6"],
+                color_discrete_sequence=["#2563eb"],
             )
             fig.add_scatter(
                 x=daily_trend["date"],
                 y=daily_trend["7d_MA"],
                 mode="lines",
                 name="7-Day Moving Avg",
-                line=dict(color="#f97316", width=2, dash="dot"),
+                line=dict(color="#f97316", width=2.5, dash="dot"),
             )
-            fig.update_layout(hovermode="x unified", legend=dict(orientation="h", yanchor="bottom", y=1.02))
+            fig.update_layout(
+                hovermode="x unified",
+                plot_bgcolor="#ffffff",
+                paper_bgcolor="#ffffff",
+                font_family="Plus Jakarta Sans",
+                legend=dict(orientation="h", yanchor="bottom", y=1.02),
+                xaxis=dict(showgrid=True, gridcolor="#f1f5f9"),
+                yaxis=dict(showgrid=True, gridcolor="#f1f5f9"),
+            )
             st.plotly_chart(fig, use_container_width=True)
 
     with col_chart2:
-        st.markdown("##### 🏆 Product Volume & Stock Breakdown")
+        st.markdown("##### ⬡ SKU Volume & Working Capital Share")
         prod_summary = get_product_demand_summary(df_filtered)
         if not prod_summary.empty:
             fig_bar = px.bar(
@@ -286,19 +517,26 @@ def tab_overview(df_filtered: pd.DataFrame, df_full: pd.DataFrame):
                 x="product_name",
                 y="total_units_sold",
                 color="latest_inventory_value",
-                title="Total Units Sold by Product (Colored by Stock Value)",
+                title="Units Sold by SKU (Heatmapped by Stock Valuation)",
                 labels={
-                    "product_name": "Product",
+                    "product_name": "Product SKU",
                     "total_units_sold": "Units Sold",
-                    "latest_inventory_value": "Stock Value ($)",
+                    "latest_inventory_value": "Inventory Capital ($)",
                 },
-                color_continuous_scale="Blues",
+                color_continuous_scale="Purples",
             )
-            fig_bar.update_layout(xaxis_tickangle=-25)
+            fig_bar.update_layout(
+                xaxis_tickangle=-25,
+                plot_bgcolor="#ffffff",
+                paper_bgcolor="#ffffff",
+                font_family="Plus Jakarta Sans",
+                xaxis=dict(showgrid=False),
+                yaxis=dict(showgrid=True, gridcolor="#f1f5f9"),
+            )
             st.plotly_chart(fig_bar, use_container_width=True)
 
     # Inventory Valuation Trend
-    st.markdown("##### 📦 Inventory Units and Valuation Over Time")
+    st.markdown("##### ◈ Inventory Balance & Working Capital Velocity")
     inv_trend = get_inventory_trend(df_filtered)
     if not inv_trend.empty:
         fig_inv = go.Figure()
@@ -306,9 +544,9 @@ def tab_overview(df_filtered: pd.DataFrame, df_full: pd.DataFrame):
             go.Scatter(
                 x=inv_trend["date"],
                 y=inv_trend["total_inventory_units"],
-                name="Total On-Hand Units",
+                name="Total On-Hand Inventory (Units)",
                 mode="lines",
-                line=dict(color="#059669", width=2),
+                line=dict(color="#059669", width=2.5),
                 yaxis="y1",
             )
         )
@@ -323,10 +561,13 @@ def tab_overview(df_filtered: pd.DataFrame, df_full: pd.DataFrame):
             )
         )
         fig_inv.update_layout(
-            title="Daily Available Inventory Units vs Valuation",
+            title="Historical Available Stock Units vs Inventory Capital",
             hovermode="x unified",
-            yaxis=dict(title="On-Hand Units"),
-            yaxis2=dict(title="Valuation ($)", overlaying="y", side="right"),
+            plot_bgcolor="#ffffff",
+            paper_bgcolor="#ffffff",
+            font_family="Plus Jakarta Sans",
+            yaxis=dict(title="On-Hand Units", showgrid=True, gridcolor="#f1f5f9"),
+            yaxis2=dict(title="Valuation ($)", overlaying="y", side="right", showgrid=False),
             legend=dict(orientation="h", yanchor="bottom", y=1.02),
         )
         st.plotly_chart(fig_inv, use_container_width=True)
@@ -334,13 +575,12 @@ def tab_overview(df_filtered: pd.DataFrame, df_full: pd.DataFrame):
 
 def tab_forecasting(df_full: pd.DataFrame, selected_product: str):
     """Renders Demand Forecasting, Naive Baseline Benchmark, and Holdout Evaluation."""
-    st.subheader("Demand Forecasting & Model Evaluation Benchmark")
     st.markdown(
         """
-        <div class="callout-box">
-        <strong>Methodological Integrity Notice:</strong> Evaluation is conducted using a strictly
-        <strong>chronological out-of-sample holdout</strong> (no random shuffling). Both the statistical model
-        and the naïve baseline are scored on identical held-out dates using Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE).
+        <div class="notice-card">
+            <strong>Chronological Integrity Notice:</strong> Evaluation is conducted using a strictly
+            <strong>chronological out-of-sample holdout</strong> (zero random shuffling / zero data leakage). Both the statistical model
+            and the naïve baseline are evaluated on identical held-out calendar dates using Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE).
         </div>
         """,
         unsafe_allow_html=True,
@@ -355,10 +595,10 @@ def tab_forecasting(df_full: pd.DataFrame, selected_product: str):
     col_ctrl1, col_ctrl2, col_ctrl3 = st.columns(3)
     with col_ctrl1:
         f_product = st.selectbox(
-            "Select Product for Demand Forecast:",
+            "Target Forecasting SKU:",
             ["ALL"] + products,
             index=default_idx + 1 if selected_product != "All Products" else 0,
-            format_func=lambda x: "All Products Combined" if x == "ALL" else x,
+            format_func=lambda x: "All Products Aggregated" if x == "ALL" else x,
         )
     with col_ctrl2:
         f_horizon = st.slider("Forecast Horizon (Days):", min_value=7, max_value=30, value=14, step=7)
@@ -375,38 +615,75 @@ def tab_forecasting(df_full: pd.DataFrame, selected_product: str):
 
     if result.warnings:
         for w in result.warnings:
-            st.warning(f"⚠️ {w}")
+            st.warning(f"⚠ {w}")
 
     # Holdout benchmark cards
-    st.markdown("##### ⚖️ Out-of-Sample Holdout Model Comparison")
+    st.markdown("##### ⎈ Holdout Benchmark & Accuracy Delta")
     b1, b2, b3, b4 = st.columns(4)
     with b1:
-        st.metric("Evaluated Model", result.model_name.split("(")[0].strip())
-        st.caption(f"Train: {result.train_start} to {result.train_end}")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-blue">
+                <div class="kpi-header">
+                    <span class="kpi-title">Candidate Model</span>
+                    <span class="kpi-symbol">⚡</span>
+                </div>
+                <div class="kpi-value" style="font-size: 1.25rem;">{result.model_name.split("(")[0].strip()}</div>
+                <div class="kpi-subtext">Train: {result.train_start} to {result.train_end}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with b2:
-        st.metric("Benchmark Baseline", "Naïve (Last Value)")
-        st.caption(f"Holdout: {result.test_start} to {result.test_end} ({result.test_days}d)")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-amber">
+                <div class="kpi-header">
+                    <span class="kpi-title">Naïve Baseline</span>
+                    <span class="kpi-symbol">◈</span>
+                </div>
+                <div class="kpi-value" style="font-size: 1.25rem;">Last Value Carried</div>
+                <div class="kpi-subtext">Holdout: {result.test_start} to {result.test_end} ({result.test_days}d)</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with b3:
-        # Comparison delta
         mae_diff = result.mae_baseline - result.mae_model
         mae_pct = (mae_diff / result.mae_baseline * 100) if result.mae_baseline > 0 else 0
-        st.metric(
-            "Holdout MAE",
-            f"{result.mae_model:.2f}",
-            delta=f"{mae_pct:+.1f}% vs Baseline" if not result.fallback_used else "Fallback Baseline",
-            delta_color="normal" if mae_diff >= 0 else "inverse",
+        delta_color = "color: #10b981;" if mae_diff >= 0 else "color: #ef4444;"
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-emerald">
+                <div class="kpi-header">
+                    <span class="kpi-title">Holdout MAE</span>
+                    <span style="{delta_color} font-size: 0.8rem; font-weight: 700;">{mae_pct:+.1f}% vs Base</span>
+                </div>
+                <div class="kpi-value">{result.mae_model:.2f}</div>
+                <div class="kpi-subtext">Baseline MAE: {result.mae_baseline:.2f}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
         )
-        st.caption(f"Baseline MAE: {result.mae_baseline:.2f}")
     with b4:
         rmse_diff = result.rmse_baseline - result.rmse_model
         rmse_pct = (rmse_diff / result.rmse_baseline * 100) if result.rmse_baseline > 0 else 0
-        st.metric(
-            "Holdout RMSE",
-            f"{result.rmse_model:.2f}",
-            delta=f"{rmse_pct:+.1f}% vs Baseline" if not result.fallback_used else "Fallback Baseline",
-            delta_color="normal" if rmse_diff >= 0 else "inverse",
+        rmse_color = "color: #10b981;" if rmse_diff >= 0 else "color: #ef4444;"
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-indigo">
+                <div class="kpi-header">
+                    <span class="kpi-title">Holdout RMSE</span>
+                    <span style="{rmse_color} font-size: 0.8rem; font-weight: 700;">{rmse_pct:+.1f}% vs Base</span>
+                </div>
+                <div class="kpi-value">{result.rmse_model:.2f}</div>
+                <div class="kpi-subtext">Baseline RMSE: {result.rmse_baseline:.2f}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
         )
-        st.caption(f"Baseline RMSE: {result.rmse_baseline:.2f}")
+
+    st.markdown("<div style='height: 16px;'></div>", unsafe_allow_html=True)
 
     # Forecast Plotly Chart
     fig_fc = go.Figure()
@@ -418,8 +695,8 @@ def tab_forecasting(df_full: pd.DataFrame, selected_product: str):
             x=hist_tail["date"],
             y=hist_tail["units_sold"],
             mode="lines+markers",
-            name="Historical Actual Demand",
-            line=dict(color="#64748b", width=1.5),
+            name="Historical Actuals",
+            line=dict(color="#94a3b8", width=1.5),
             marker=dict(size=4),
         )
     )
@@ -450,8 +727,8 @@ def tab_forecasting(df_full: pd.DataFrame, selected_product: str):
                 x=result.test_df["date"],
                 y=result.test_df["model_pred"],
                 mode="lines",
-                name=f"Model Holdout Pred (MAE={result.mae_model})",
-                line=dict(color="#3b82f6", width=2.5),
+                name=f"Holt Model Holdout (MAE={result.mae_model})",
+                line=dict(color="#2563eb", width=2.5),
             )
         )
 
@@ -462,23 +739,26 @@ def tab_forecasting(df_full: pd.DataFrame, selected_product: str):
                 x=result.forecast_df["date"],
                 y=result.forecast_df["forecast"],
                 mode="lines+markers",
-                name=f"Future Forecast (+{result.forecast_horizon} Days)",
+                name=f"Out-of-Sample Horizon (+{result.forecast_horizon}d)",
                 line=dict(color="#10b981", width=3, dash="dot"),
                 marker=dict(size=6, symbol="diamond"),
             )
         )
 
     fig_fc.update_layout(
-        title=f"Demand History, Chronological Holdout Benchmark, and {result.forecast_horizon}-Day Out-of-Sample Forecast",
+        title=f"Demand History, Chronological Holdout Benchmark, and Out-of-Sample {result.forecast_horizon}-Day Forecast",
         hovermode="x unified",
-        xaxis_title="Date",
-        yaxis_title="Units Demanded",
+        plot_bgcolor="#ffffff",
+        paper_bgcolor="#ffffff",
+        font_family="Plus Jakarta Sans",
+        xaxis=dict(title="Calendar Date", showgrid=True, gridcolor="#f1f5f9"),
+        yaxis=dict(title="Units Demanded", showgrid=True, gridcolor="#f1f5f9"),
         legend=dict(orientation="h", yanchor="bottom", y=1.02),
     )
     st.plotly_chart(fig_fc, use_container_width=True)
 
     # Detailed Holdout Residuals Table
-    with st.expander("🔍 View Chronological Holdout Actuals vs Forecast Data"):
+    with st.expander("⌖ View Chronological Holdout Residuals & Observations"):
         if not result.test_df.empty:
             view_test = result.test_df[["date", "actual", "baseline_pred", "model_pred"]].copy()
             view_test["model_abs_error"] = (view_test["actual"] - view_test["model_pred"]).abs()
@@ -489,20 +769,18 @@ def tab_forecasting(df_full: pd.DataFrame, selected_product: str):
 
 def tab_inventory_planner(df_filtered: pd.DataFrame):
     """Renders Reorder Point Optimization and What-If Scenario Simulator."""
-    st.subheader("Inventory Policy & What-If Scenario Planner")
-
     st.markdown(
         f"""
-        <div class="callout-box">
-        <strong>Operational Framework:</strong> Reorder Point (ROP) = Lead-Time Demand + Safety Stock.<br>
-        Safety stock is computed as <code>Z × σ(Daily Demand) × √(Lead Time)</code>.<br>
-        <em>{ASSUMPTION_DISCLOSURE}</em>
+        <div class="notice-card">
+            <strong>Deterministic Reorder Policy:</strong> Reorder Point (ROP) = <code>Lead-Time Demand + Safety Stock</code>.<br>
+            Safety stock is calculated as <code>Z × σ(Daily Demand) × √(Lead Time)</code>.<br>
+            <em>{ASSUMPTION_DISCLOSURE}</em>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    st.markdown("##### 🎛️ What-If Scenario Parameters")
+    st.markdown("##### ⎈ Scenario Simulation Control Deck")
     sc1, sc2, sc3, sc4 = st.columns(4)
     with sc1:
         demand_mult = st.slider(
@@ -511,32 +789,32 @@ def tab_inventory_planner(df_filtered: pd.DataFrame):
             max_value=2.0,
             value=1.0,
             step=0.1,
-            help="Simulate market surges (e.g., 1.2x = +20% demand) or recessions."
+            help="Simulate demand surges (e.g., 1.2x = +20% demand) or market contractions."
         )
     with sc2:
         lead_time_jitter = st.slider(
-            "Lead Time Delay (Days):",
+            "Lead Time Delay Jitter (Days):",
             min_value=0,
             max_value=14,
             value=0,
             step=1,
-            help="Simulate supply disruption or shipping port congestion."
+            help="Simulate supply chain friction, freight congestion, or port delays."
         )
     with sc3:
         service_level = st.selectbox(
             "Target Cycle Service Level:",
             list(SERVICE_LEVEL_Z.keys()),
             index=1,
-            help="Probability of not stocking out during lead time."
+            help="Probability of avoiding a stockout event during lead time."
         )
     with sc4:
         review_days = st.number_input(
-            "Review Period (Days):",
+            "Replenishment Review Period (Days):",
             min_value=1,
             max_value=30,
             value=7,
             step=1,
-            help="Frequency of placing replenishment purchase batches."
+            help="Cadence for generating replenishment purchase orders."
         )
 
     # Compute inventory plan under chosen scenario
@@ -549,31 +827,75 @@ def tab_inventory_planner(df_filtered: pd.DataFrame):
     )
 
     # Executive Impact Metrics
-    st.markdown("##### 📊 Scenario Impact Summary")
+    st.markdown("##### ◈ Scenario Capital & Exposure Impact")
     i1, i2, i3, i4 = st.columns(4)
     with i1:
-        st.metric(
-            "Total SKUs at Stockout Risk",
-            f"{plan_summary.at_risk_skus_count} / {plan_summary.total_skus}",
-            delta="- At Risk" if plan_summary.at_risk_skus_count > 0 else "Protected",
-            delta_color="inverse" if plan_summary.at_risk_skus_count > 0 else "normal",
+        risk_pill = (
+            f'<span class="pill-urgent">▲ {plan_summary.at_risk_skus_count} At Risk</span>'
+            if plan_summary.at_risk_skus_count > 0
+            else '<span class="pill-healthy">● All Protected</span>'
+        )
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-rose">
+                <div class="kpi-header">
+                    <span class="kpi-title">Stockout Vulnerability</span>
+                    {risk_pill}
+                </div>
+                <div class="kpi-value">{plan_summary.at_risk_skus_count} <span style="font-size: 1rem; color: #64748b;">/ {plan_summary.total_skus} SKUs</span></div>
+                <div class="kpi-subtext">Current stock below scenario ROP</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
         )
     with i2:
-        st.metric("Total Replenishment Units", f"{plan_summary.total_suggested_units:,}")
-        st.caption("Units needed to reach target stock")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-blue">
+                <div class="kpi-header">
+                    <span class="kpi-title">Replenishment Units</span>
+                    <span class="kpi-symbol">↗</span>
+                </div>
+                <div class="kpi-value">{plan_summary.total_suggested_units:,}</div>
+                <div class="kpi-subtext">Units required to attain target stock</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with i3:
-        st.metric("Est. Capital Required ($)", f"${plan_summary.total_suggested_cost:,.2f}")
-        st.caption("Replenishment units × unit cost")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-emerald">
+                <div class="kpi-header">
+                    <span class="kpi-title">Required Working Capital</span>
+                    <span class="kpi-symbol">◈</span>
+                </div>
+                <div class="kpi-value">${plan_summary.total_suggested_cost:,.2f}</div>
+                <div class="kpi-subtext">Replenishment units × unit cost</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with i4:
-        st.metric("Active Service Level", service_level.split()[0])
-        st.caption(f"Review period: {review_days} days")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-indigo">
+                <div class="kpi-header">
+                    <span class="kpi-title">Service Level Policy</span>
+                    <span class="kpi-symbol">✓</span>
+                </div>
+                <div class="kpi-value">{service_level.split()[0]}</div>
+                <div class="kpi-subtext">Review interval: {review_days} days</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-    st.markdown("---")
-    st.markdown("##### 📋 SKU Replenishment Recommendations")
+    st.markdown("<div style='height: 16px;'></div>", unsafe_allow_html=True)
+    st.markdown("##### 📋 SKU Replenishment Queue & Parameters")
 
     df_display = plan_summary.to_dataframe()
     if not df_display.empty:
-        # Style dataframe rows based on stockout risk
         st.dataframe(df_display, use_container_width=True)
 
     # Reorder Point Comparison Chart
@@ -584,30 +906,35 @@ def tab_inventory_planner(df_filtered: pd.DataFrame):
                 x=[p.product_name for p in plan_summary.plans],
                 y=[p.current_stock for p in plan_summary.plans],
                 name="Current On-Hand Stock",
-                marker_color="#3b82f6",
+                marker_color="#2563eb",
             )
         )
         fig_bar.add_trace(
             go.Bar(
                 x=[p.product_name for p in plan_summary.plans],
                 y=[p.reorder_point for p in plan_summary.plans],
-                name="Calculated Reorder Point (ROP)",
-                marker_color="#ef4444",
+                name="Reorder Point (ROP)",
+                marker_color="#f43f5e",
             )
         )
         fig_bar.add_trace(
             go.Bar(
                 x=[p.product_name for p in plan_summary.plans],
                 y=[p.target_stock for p in plan_summary.plans],
-                name="Target Stock Level",
+                name="Target Stock Policy",
                 marker_color="#10b981",
             )
         )
         fig_bar.update_layout(
             barmode="group",
-            title="Current Stock vs Reorder Point vs Target Stock per SKU",
+            title="Current On-Hand Stock vs Calculated ROP vs Target Buffer per SKU",
             hovermode="x unified",
             xaxis_tickangle=-25,
+            plot_bgcolor="#ffffff",
+            paper_bgcolor="#ffffff",
+            font_family="Plus Jakarta Sans",
+            xaxis=dict(showgrid=False),
+            yaxis=dict(title="Units", showgrid=True, gridcolor="#f1f5f9"),
             legend=dict(orientation="h", yanchor="bottom", y=1.02),
         )
         st.plotly_chart(fig_bar, use_container_width=True)
@@ -615,8 +942,6 @@ def tab_inventory_planner(df_filtered: pd.DataFrame):
 
 def tab_data_quality(report, df_clean: pd.DataFrame):
     """Renders Data Quality Report, Contract Validation, and Provenance."""
-    st.subheader("Data Contract Ingestion & Quality Audit")
-
     if report is None:
         st.info("No dataset is loaded.")
         return
@@ -624,19 +949,56 @@ def tab_data_quality(report, df_clean: pd.DataFrame):
     # Ingestion Status Card
     c1, c2, c3, c4 = st.columns(4)
     with c1:
-        st.metric("Raw Rows Ingested", f"{report.total_rows:,}")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-blue">
+                <div class="kpi-header"><span class="kpi-title">Raw Ingested Records</span><span class="kpi-symbol">◈</span></div>
+                <div class="kpi-value">{report.total_rows:,}</div>
+                <div class="kpi-subtext">Total input observations</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with c2:
-        st.metric("Valid Rows Accepted", f"{report.valid_rows:,}")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-emerald">
+                <div class="kpi-header"><span class="kpi-title">Clean Records Accepted</span><span class="kpi-symbol">✓</span></div>
+                <div class="kpi-value">{report.valid_rows:,}</div>
+                <div class="kpi-subtext">Fully contract-compliant rows</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with c3:
-        st.metric("Rows Rejected", f"{report.rejected_rows:,}")
+        rej_color = "kpi-accent-rose" if report.rejected_rows > 0 else "kpi-accent-emerald"
+        st.markdown(
+            f"""
+            <div class="kpi-card {rej_color}">
+                <div class="kpi-header"><span class="kpi-title">Malformed Records Rejected</span><span class="kpi-symbol">⚠</span></div>
+                <div class="kpi-value">{report.rejected_rows:,}</div>
+                <div class="kpi-subtext">Explicit contract breaches</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with c4:
-        st.metric("Exact Duplicates Filtered", f"{report.duplicate_rows_count:,}")
+        st.markdown(
+            f"""
+            <div class="kpi-card kpi-accent-indigo">
+                <div class="kpi-header"><span class="kpi-title">Exact Duplicates Handled</span><span class="kpi-symbol">↻</span></div>
+                <div class="kpi-value">{report.duplicate_rows_count:,}</div>
+                <div class="kpi-subtext">Sanitized and deduplicated</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-    st.markdown("---")
+    st.markdown("<div style='height: 16px;'></div>", unsafe_allow_html=True)
 
     col_q1, col_q2 = st.columns(2)
     with col_q1:
-        st.markdown("##### 🛑 Rejection Reasons & Sanitization")
+        st.markdown("##### ⌖ Rejection Ledger & Sanitization")
         if report.rejection_reasons:
             reasons_df = pd.DataFrame([
                 {"Reason": k, "Rows Rejected": v} for k, v in report.rejection_reasons.items()
@@ -645,7 +1007,7 @@ def tab_data_quality(report, df_clean: pd.DataFrame):
         else:
             st.success("✓ Zero rows were rejected. Strict data contract fully satisfied.")
 
-        st.markdown("##### ⚠️ Ingestion Warnings & Edge Cases")
+        st.markdown("##### ⚠ Ingestion Warnings & Edge Cases")
         if report.warnings:
             for w in report.warnings:
                 st.warning(f"• {w}")
@@ -653,7 +1015,7 @@ def tab_data_quality(report, df_clean: pd.DataFrame):
             st.success("✓ No anomalies or sparsity warnings detected.")
 
     with col_q2:
-        st.markdown("##### 📊 Missing Values by Column")
+        st.markdown("##### ⬡ Missing Values by Column")
         if report.missing_values_by_column:
             missing_df = pd.DataFrame([
                 {"Column": k, "Missing Observations": v} for k, v in report.missing_values_by_column.items()
@@ -662,13 +1024,17 @@ def tab_data_quality(report, df_clean: pd.DataFrame):
         else:
             st.success("✓ Zero missing values across all contract fields.")
 
-        st.markdown("##### 📅 Dataset Metadata")
-        st.write(f"- **Earliest Date:** `{report.min_date}`")
-        st.write(f"- **Latest Date:** `{report.max_date}`")
-        st.write(f"- **Distinct SKUs:** `{report.distinct_products_count}`")
+        st.markdown("##### ⏱ Ingestion Ledger & Scope")
+        st.markdown(
+            f"""
+            - **Earliest Calendar Date:** `{report.min_date}`
+            - **Latest Calendar Date:** `{report.max_date}`
+            - **Active Distinct SKUs:** `{report.distinct_products_count}`
+            """
+        )
 
     st.markdown("---")
-    st.markdown("##### 📜 Data Contract & Schema Specifications")
+    st.markdown("##### 📜 Contract Schema Specifications")
     spec_rows = [
         {"Column": "date", "Required": "Yes", "Type": "Date / Datetime", "Description": "Observation date (YYYY-MM-DD)"},
         {"Column": "product_id", "Required": "Yes", "Type": "String", "Description": "Unique SKU identifier"},
@@ -686,11 +1052,11 @@ def tab_data_quality(report, df_clean: pd.DataFrame):
     st.dataframe(pd.DataFrame(spec_rows), use_container_width=True)
 
     st.markdown("---")
-    st.markdown("##### 🏷️ Data Provenance & Methodological Limitations")
+    st.markdown("##### ◈ Data Lineage & Governance Notice")
     st.info(DATA_PROVENANCE_NOTE)
     st.markdown(
         """
-        - **Decision Support Only:** This application provides operational decision support and recommendations. It does not perform automated procurement or financial commitments.
+        - **Decision Support Notice:** This application provides operational decision support and recommendations. It does not perform automated procurement or financial commitments.
         - **Sales vs Unconstrained Demand:** Units sold represent observed sales, which may be constrained by prior stockouts.
         - **Cost Valuation:** Inventory valuation is calculated from provided unit costs and snapshot quantities, not financial ERP ledger balances.
         """
@@ -701,18 +1067,38 @@ def main():
     """Main application orchestrator."""
     df_clean, report, df_filtered, selected_product, date_range = render_sidebar()
 
-    st.title("SupplyChain IQ — Intelligent Demand & Inventory Analytics")
+    # Executive Hero Banner
+    st.markdown(
+        """
+        <div class="hero-banner">
+            <div>
+                <h1 class="hero-title">
+                    <span>SupplyChain IQ</span>
+                </h1>
+                <div class="hero-subtitle">
+                    Intelligent Demand Forecasting, Reorder Optimization & What-If Scenario Simulation
+                </div>
+            </div>
+            <div>
+                <span class="hero-badge">
+                    <span>●</span> Enterprise Core
+                </span>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     if df_clean is None or df_filtered is None:
-        st.info("👈 Please load data using the sidebar to begin analysis.")
+        st.info("⌖ Please load data using the sidebar to begin analysis.")
         return
 
-    # Primary Navigation Tabs
+    # Primary Navigation Tabs with clean modern symbols
     tab1, tab2, tab3, tab4 = st.tabs([
-        "📊 Executive Overview",
-        "🔮 Demand Forecasting",
-        "📦 Inventory Planner & Simulator",
-        "🛡️ Data Quality & Audit",
+        "◈ Operational Overview",
+        "⌖ Demand Forecasting",
+        "⚡ Inventory Simulator",
+        "✦ Data Quality & Audit",
     ])
 
     with tab1:
