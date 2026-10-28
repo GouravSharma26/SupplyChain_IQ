@@ -52,3 +52,7 @@ Thumbs.db
 *.sqlite3
 data/*.db
 
+# Documentation
+docs/
+
+

@@ -102,10 +102,25 @@ SupplyChainIQ/
 │   ├── test_inventory.py       # ROP formula & scenario simulation tests
 │   ├── test_ml.py              # ML target leakage & model evaluation tests
 │   └── test_simulation.py      # Policy trace & sensitivity analysis tests
-├── PHASE_LOG.md                # Phase-by-phase execution audit log
-├── DEVELOPMENT_CHECKLIST.md    # Gate verification checklist
-└── RELEASE_REPORT.md           # Formal quick-launch release report
+├── docs/                       # Project specifications, architecture, and phase audit logs
+└── README.md                   # Project overview, installation, and deployment instructions
 ```
+
+---
+
+## 📚 Local Documentation (`docs/`)
+
+Technical design specifications and audit logs are maintained locally in `docs/` (excluded from version control):
+- **Architecture & System Design:** `docs/ARCHITECTURE.md`
+- **Data Dictionary & KPI Formulas:** `docs/DATA_AND_METRICS.md`
+- **Forecasting & ML Methodology:** `docs/FORECASTING_AND_ML.md`
+- **Development Checklist & Gates:** `docs/DEVELOPMENT_CHECKLIST.md`
+- **Audit Log & Implementation Record:** `docs/PHASE_LOG.md`
+- **Release Report & Verification:** `docs/RELEASE_REPORT.md`
+- **Deployment Specifications:** `docs/DEPLOYMENT.md`
+- **Testing & Quality Assurance:** `docs/TESTING_AND_QUALITY.md`
+
+
 
 ---
 
